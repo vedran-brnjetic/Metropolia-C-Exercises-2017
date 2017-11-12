@@ -1,4 +1,4 @@
---------------- Build Started: 11/12/2017 18:33:06 Project: Hello Word, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 11/12/2017 19:11:38 Project: Hello Word, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/exercise20.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c exercise20.c -o .\CortexM3\ARM_GCC_493\Debug\exercise20.o
 arm-none-eabi-ar.exe -rs ".\CortexM3\ARM_GCC_493\Debug\Hello Word.a" .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\UART_1.o .\CortexM3\ARM_GCC_493\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_493\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
@@ -8,4 +8,4 @@ cyelftool.exe -C "F:\OneDrive\Metropolia\Devices\Workspaces\Workspace 1\Workspac
 cyelftool.exe -S "F:\OneDrive\Metropolia\Devices\Workspaces\Workspace 1\Workspace01\Hello Word.cydsn\CortexM3\ARM_GCC_493\Debug\Hello Word.elf"
 Flash used: 58540 of 262144 bytes (22,3 %).
 SRAM used: 6933 of 65536 bytes (10,6 %). Stack: 2048 bytes. Heap: 2048 bytes.
---------------- Build Succeeded: 11/12/2017 18:33:09 ---------------
+--------------- Build Succeeded: 11/12/2017 19:11:40 ---------------

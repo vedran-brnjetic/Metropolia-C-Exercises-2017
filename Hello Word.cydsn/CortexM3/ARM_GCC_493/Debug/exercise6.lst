@@ -1,0 +1,1191 @@
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"exercise6.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.exercise6,"ax",%progbits
+  19              		.align	2
+  20              		.global	exercise6
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	exercise6, %function
+  24              	exercise6:
+  25              	.LFB63:
+  26              		.file 1 "exercise6.c"
+   1:exercise6.c   **** /* ========================================
+   2:exercise6.c   ****  *
+   3:exercise6.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:exercise6.c   ****  * All Rights Reserved
+   5:exercise6.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:exercise6.c   ****  *
+   7:exercise6.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:exercise6.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:exercise6.c   ****  *
+  10:exercise6.c   ****  * ========================================
+  11:exercise6.c   **** */
+  12:exercise6.c   **** #include "project.h"
+  13:exercise6.c   **** #include <stdio.h>
+  14:exercise6.c   **** #include "common_functions.h"
+  15:exercise6.c   **** 
+  16:exercise6.c   **** void exercise6(void)
+  17:exercise6.c   **** {
+  27              		.loc 1 17 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 16
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+  35 0002 84B0     		sub	sp, sp, #16
+  36              		.cfi_def_cfa_offset 24
+  18:exercise6.c   ****      //Exercise 6
+  19:exercise6.c   ****     printf("\n\nExercise 6. \n\n");
+  37              		.loc 1 19 0
+  38 0004 3248     		ldr	r0, .L10
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 2
+
+
+  39 0006 FFF7FEFF 		bl	puts
+  40              	.LVL0:
+  20:exercise6.c   **** 
+  21:exercise6.c   ****     //declarations
+  22:exercise6.c   ****     int currentHours = 0;
+  41              		.loc 1 22 0
+  42 000a 0023     		movs	r3, #0
+  43 000c 0393     		str	r3, [sp, #12]
+  23:exercise6.c   ****     int currentMinutes = 0;
+  44              		.loc 1 23 0
+  45 000e 0293     		str	r3, [sp, #8]
+  24:exercise6.c   ****     int sleepHours = 0;
+  46              		.loc 1 24 0
+  47 0010 0193     		str	r3, [sp, #4]
+  25:exercise6.c   ****     int sleepMinutes = 0;
+  48              		.loc 1 25 0
+  49 0012 0093     		str	r3, [sp]
+  50              	.LVL1:
+  26:exercise6.c   ****     int wakeUpHours = 0;
+  27:exercise6.c   ****     int wakeUpMinutes = 0;
+  28:exercise6.c   ****     int dayDiff = 0;
+  29:exercise6.c   **** 
+  30:exercise6.c   ****     //enter data
+  31:exercise6.c   ****     printf("Enter the current time (hh:mm):");
+  51              		.loc 1 31 0
+  52 0014 2F48     		ldr	r0, .L10+4
+  53 0016 FFF7FEFF 		bl	printf
+  54              	.LVL2:
+  32:exercise6.c   ****     scanf("%d:%d", &currentHours, &currentMinutes);
+  55              		.loc 1 32 0
+  56 001a 2F4C     		ldr	r4, .L10+8
+  57 001c 2046     		mov	r0, r4
+  58 001e 03A9     		add	r1, sp, #12
+  59 0020 02AA     		add	r2, sp, #8
+  60 0022 FFF7FEFF 		bl	scanf
+  61              	.LVL3:
+  33:exercise6.c   ****     printf("How much time do you wish to sleep? (hh:mm):");
+  62              		.loc 1 33 0
+  63 0026 2D48     		ldr	r0, .L10+12
+  64 0028 FFF7FEFF 		bl	printf
+  65              	.LVL4:
+  34:exercise6.c   ****     scanf("%d:%d", &sleepHours, &sleepMinutes);
+  66              		.loc 1 34 0
+  67 002c 2046     		mov	r0, r4
+  68 002e 01A9     		add	r1, sp, #4
+  69 0030 6A46     		mov	r2, sp
+  70 0032 FFF7FEFF 		bl	scanf
+  71              	.LVL5:
+  35:exercise6.c   **** 
+  36:exercise6.c   ****     //check if the data is correctly formatted, if not, extrapolate and recalculate
+  37:exercise6.c   ****     if(sleepMinutes >= 60){
+  72              		.loc 1 37 0
+  73 0036 009A     		ldr	r2, [sp]
+  74 0038 3B2A     		cmp	r2, #59
+  75 003a 0EDD     		ble	.L2
+  38:exercise6.c   ****         //add extra ours from minute multiples of 60
+  39:exercise6.c   ****         sleepHours += sleepMinutes / 60;
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 3
+
+
+  76              		.loc 1 39 0
+  77 003c 284B     		ldr	r3, .L10+16
+  78 003e 83FB0213 		smull	r1, r3, r3, r2
+  79 0042 9918     		adds	r1, r3, r2
+  80 0044 D317     		asrs	r3, r2, #31
+  81 0046 C3EB6113 		rsb	r3, r3, r1, asr #5
+  82 004a 0199     		ldr	r1, [sp, #4]
+  83 004c 1944     		add	r1, r1, r3
+  84 004e 0191     		str	r1, [sp, #4]
+  40:exercise6.c   ****         //keep the remainder minutes as minutes
+  41:exercise6.c   ****         sleepMinutes = sleepMinutes % 60;
+  85              		.loc 1 41 0
+  86 0050 C3EB0313 		rsb	r3, r3, r3, lsl #4
+  87 0054 9B00     		lsls	r3, r3, #2
+  88 0056 D11A     		subs	r1, r2, r3
+  89 0058 0091     		str	r1, [sp]
+  90              	.L2:
+  42:exercise6.c   ****     }
+  43:exercise6.c   **** 
+  44:exercise6.c   ****     //add up minutes with minutes, hours with hours
+  45:exercise6.c   ****     wakeUpMinutes = currentMinutes + sleepMinutes;
+  91              		.loc 1 45 0
+  92 005a 009B     		ldr	r3, [sp]
+  93 005c 029A     		ldr	r2, [sp, #8]
+  94 005e 1A44     		add	r2, r2, r3
+  95              	.LVL6:
+  46:exercise6.c   ****     wakeUpHours = currentHours + sleepHours;
+  96              		.loc 1 46 0
+  97 0060 019B     		ldr	r3, [sp, #4]
+  98 0062 0399     		ldr	r1, [sp, #12]
+  99 0064 1944     		add	r1, r1, r3
+ 100              	.LVL7:
+  47:exercise6.c   **** 
+  48:exercise6.c   ****     //if minutes are 60 or more, add more hours to hours, reduce minutes to below 60
+  49:exercise6.c   ****     if(wakeUpMinutes >= 60){
+ 101              		.loc 1 49 0
+ 102 0066 3B2A     		cmp	r2, #59
+ 103 0068 0BDD     		ble	.L3
+  50:exercise6.c   ****         wakeUpHours += wakeUpMinutes / 60;
+ 104              		.loc 1 50 0
+ 105 006a 1D4B     		ldr	r3, .L10+16
+ 106 006c 83FB0203 		smull	r0, r3, r3, r2
+ 107 0070 1344     		add	r3, r3, r2
+ 108 0072 D017     		asrs	r0, r2, #31
+ 109 0074 C0EB6313 		rsb	r3, r0, r3, asr #5
+ 110 0078 1944     		add	r1, r1, r3
+ 111              	.LVL8:
+  51:exercise6.c   ****         wakeUpMinutes = wakeUpMinutes % 60;
+ 112              		.loc 1 51 0
+ 113 007a C3EB0313 		rsb	r3, r3, r3, lsl #4
+ 114 007e 9B00     		lsls	r3, r3, #2
+ 115 0080 D21A     		subs	r2, r2, r3
+ 116              	.LVL9:
+ 117              	.L3:
+  52:exercise6.c   ****     }
+  53:exercise6.c   **** 
+  54:exercise6.c   ****     //check if hours go into next day (or more days)
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 4
+
+
+  55:exercise6.c   ****     if(wakeUpHours >= 24){
+ 118              		.loc 1 55 0
+ 119 0082 1729     		cmp	r1, #23
+ 120 0084 0ADD     		ble	.L8
+  56:exercise6.c   ****         dayDiff = wakeUpHours / 24;
+ 121              		.loc 1 56 0
+ 122 0086 174C     		ldr	r4, .L10+20
+ 123 0088 84FB0134 		smull	r3, r4, r4, r1
+ 124 008c CB17     		asrs	r3, r1, #31
+ 125 008e C3EBA404 		rsb	r4, r3, r4, asr #2
+ 126              	.LVL10:
+  57:exercise6.c   ****         wakeUpHours = wakeUpHours % 24;
+ 127              		.loc 1 57 0
+ 128 0092 04EB4403 		add	r3, r4, r4, lsl #1
+ 129 0096 DB00     		lsls	r3, r3, #3
+ 130 0098 C91A     		subs	r1, r1, r3
+ 131              	.LVL11:
+ 132 009a 00E0     		b	.L4
+ 133              	.LVL12:
+ 134              	.L8:
+  28:exercise6.c   **** 
+ 135              		.loc 1 28 0
+ 136 009c 0024     		movs	r4, #0
+ 137              	.LVL13:
+ 138              	.L4:
+  58:exercise6.c   ****     }
+  59:exercise6.c   **** 
+  60:exercise6.c   ****     //show the wake up time
+  61:exercise6.c   ****     printf("If you go to bed now, you must wake up at %02d:%02d", wakeUpHours, wakeUpMinutes);
+ 139              		.loc 1 61 0
+ 140 009e 1248     		ldr	r0, .L10+24
+ 141 00a0 FFF7FEFF 		bl	printf
+ 142              	.LVL14:
+  62:exercise6.c   **** 
+  63:exercise6.c   ****     //show if the time is tomorrow, or n days later
+  64:exercise6.c   ****     if(dayDiff == 1){
+ 143              		.loc 1 64 0
+ 144 00a4 012C     		cmp	r4, #1
+ 145 00a6 03D1     		bne	.L5
+  65:exercise6.c   ****         printf(" the next day.\n");
+ 146              		.loc 1 65 0
+ 147 00a8 1048     		ldr	r0, .L10+28
+ 148 00aa FFF7FEFF 		bl	puts
+ 149              	.LVL15:
+ 150 00ae 09E0     		b	.L6
+ 151              	.L5:
+  66:exercise6.c   ****     }
+  67:exercise6.c   ****     else if(dayDiff > 1){
+ 152              		.loc 1 67 0
+ 153 00b0 012C     		cmp	r4, #1
+ 154 00b2 04DD     		ble	.L7
+  68:exercise6.c   ****         printf(" %d days later.\n", dayDiff);
+ 155              		.loc 1 68 0
+ 156 00b4 0E48     		ldr	r0, .L10+32
+ 157 00b6 2146     		mov	r1, r4
+ 158 00b8 FFF7FEFF 		bl	printf
+ 159              	.LVL16:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 5
+
+
+ 160 00bc 02E0     		b	.L6
+ 161              	.L7:
+  69:exercise6.c   ****     }
+  70:exercise6.c   ****     else{
+  71:exercise6.c   ****         printf(".\n");
+ 162              		.loc 1 71 0
+ 163 00be 0D48     		ldr	r0, .L10+36
+ 164 00c0 FFF7FEFF 		bl	puts
+ 165              	.LVL17:
+ 166              	.L6:
+  72:exercise6.c   ****     }
+  73:exercise6.c   **** 
+  74:exercise6.c   **** 
+  75:exercise6.c   ****     printf("\nEnd of Exercise 6. \n\n");
+ 167              		.loc 1 75 0
+ 168 00c4 0C48     		ldr	r0, .L10+40
+ 169 00c6 FFF7FEFF 		bl	puts
+ 170              	.LVL18:
+  76:exercise6.c   ****     return;
+  77:exercise6.c   **** }
+ 171              		.loc 1 77 0
+ 172 00ca 04B0     		add	sp, sp, #16
+ 173              		.cfi_def_cfa_offset 8
+ 174              		@ sp needed
+ 175 00cc 10BD     		pop	{r4, pc}
+ 176              	.LVL19:
+ 177              	.L11:
+ 178 00ce 00BF     		.align	2
+ 179              	.L10:
+ 180 00d0 00000000 		.word	.LC0
+ 181 00d4 10000000 		.word	.LC1
+ 182 00d8 30000000 		.word	.LC2
+ 183 00dc 38000000 		.word	.LC3
+ 184 00e0 89888888 		.word	-2004318071
+ 185 00e4 ABAAAA2A 		.word	715827883
+ 186 00e8 68000000 		.word	.LC4
+ 187 00ec 9C000000 		.word	.LC5
+ 188 00f0 AC000000 		.word	.LC6
+ 189 00f4 C0000000 		.word	.LC7
+ 190 00f8 C4000000 		.word	.LC8
+ 191              		.cfi_endproc
+ 192              	.LFE63:
+ 193              		.size	exercise6, .-exercise6
+ 194              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 195              		.align	2
+ 196              	.LC0:
+ 197 0000 0A0A4578 		.ascii	"\012\012Exercise 6. \012\000"
+ 197      65726369 
+ 197      73652036 
+ 197      2E200A00 
+ 198              	.LC1:
+ 199 0010 456E7465 		.ascii	"Enter the current time (hh:mm):\000"
+ 199      72207468 
+ 199      65206375 
+ 199      7272656E 
+ 199      74207469 
+ 200              	.LC2:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 6
+
+
+ 201 0030 25643A25 		.ascii	"%d:%d\000"
+ 201      6400
+ 202 0036 0000     		.space	2
+ 203              	.LC3:
+ 204 0038 486F7720 		.ascii	"How much time do you wish to sleep? (hh:mm):\000"
+ 204      6D756368 
+ 204      2074696D 
+ 204      6520646F 
+ 204      20796F75 
+ 205 0065 000000   		.space	3
+ 206              	.LC4:
+ 207 0068 49662079 		.ascii	"If you go to bed now, you must wake up at %02d:%02d"
+ 207      6F752067 
+ 207      6F20746F 
+ 207      20626564 
+ 207      206E6F77 
+ 208 009b 00       		.ascii	"\000"
+ 209              	.LC5:
+ 210 009c 20746865 		.ascii	" the next day.\000"
+ 210      206E6578 
+ 210      74206461 
+ 210      792E00
+ 211 00ab 00       		.space	1
+ 212              	.LC6:
+ 213 00ac 20256420 		.ascii	" %d days later.\012\000"
+ 213      64617973 
+ 213      206C6174 
+ 213      65722E0A 
+ 213      00
+ 214 00bd 000000   		.space	3
+ 215              	.LC7:
+ 216 00c0 2E00     		.ascii	".\000"
+ 217 00c2 0000     		.space	2
+ 218              	.LC8:
+ 219 00c4 0A456E64 		.ascii	"\012End of Exercise 6. \012\000"
+ 219      206F6620 
+ 219      45786572 
+ 219      63697365 
+ 219      20362E20 
+ 220 00da 0000     		.text
+ 221              	.Letext0:
+ 222              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 223              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 224              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 225              		.file 5 "<built-in>"
+ 226              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 227              		.section	.debug_info,"",%progbits
+ 228              	.Ldebug_info0:
+ 229 0000 6C020000 		.4byte	0x26c
+ 230 0004 0400     		.2byte	0x4
+ 231 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 232 000a 04       		.byte	0x4
+ 233 000b 01       		.uleb128 0x1
+ 234 000c C4000000 		.4byte	.LASF22
+ 235 0010 01       		.byte	0x1
+ 236 0011 3A000000 		.4byte	.LASF23
+ 237 0015 BC010000 		.4byte	.LASF24
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 7
+
+
+ 238 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 239 001d 00000000 		.4byte	0
+ 240 0021 00000000 		.4byte	.Ldebug_line0
+ 241 0025 02       		.uleb128 0x2
+ 242 0026 01       		.byte	0x1
+ 243 0027 06       		.byte	0x6
+ 244 0028 14020000 		.4byte	.LASF0
+ 245 002c 02       		.uleb128 0x2
+ 246 002d 01       		.byte	0x1
+ 247 002e 08       		.byte	0x8
+ 248 002f 68000000 		.4byte	.LASF1
+ 249 0033 02       		.uleb128 0x2
+ 250 0034 02       		.byte	0x2
+ 251 0035 05       		.byte	0x5
+ 252 0036 A9010000 		.4byte	.LASF2
+ 253 003a 02       		.uleb128 0x2
+ 254 003b 02       		.byte	0x2
+ 255 003c 07       		.byte	0x7
+ 256 003d 88000000 		.4byte	.LASF3
+ 257 0041 03       		.uleb128 0x3
+ 258 0042 00000000 		.4byte	.LASF9
+ 259 0046 02       		.byte	0x2
+ 260 0047 3F       		.byte	0x3f
+ 261 0048 4C000000 		.4byte	0x4c
+ 262 004c 02       		.uleb128 0x2
+ 263 004d 04       		.byte	0x4
+ 264 004e 05       		.byte	0x5
+ 265 004f B3010000 		.4byte	.LASF4
+ 266 0053 02       		.uleb128 0x2
+ 267 0054 04       		.byte	0x4
+ 268 0055 07       		.byte	0x7
+ 269 0056 76000000 		.4byte	.LASF5
+ 270 005a 02       		.uleb128 0x2
+ 271 005b 08       		.byte	0x8
+ 272 005c 05       		.byte	0x5
+ 273 005d 8F010000 		.4byte	.LASF6
+ 274 0061 02       		.uleb128 0x2
+ 275 0062 08       		.byte	0x8
+ 276 0063 07       		.byte	0x7
+ 277 0064 67010000 		.4byte	.LASF7
+ 278 0068 04       		.uleb128 0x4
+ 279 0069 04       		.byte	0x4
+ 280 006a 05       		.byte	0x5
+ 281 006b 696E7400 		.ascii	"int\000"
+ 282 006f 02       		.uleb128 0x2
+ 283 0070 04       		.byte	0x4
+ 284 0071 07       		.byte	0x7
+ 285 0072 52010000 		.4byte	.LASF8
+ 286 0076 03       		.uleb128 0x3
+ 287 0077 7E010000 		.4byte	.LASF10
+ 288 007b 03       		.byte	0x3
+ 289 007c 2C       		.byte	0x2c
+ 290 007d 41000000 		.4byte	0x41
+ 291 0081 02       		.uleb128 0x2
+ 292 0082 04       		.byte	0x4
+ 293 0083 04       		.byte	0x4
+ 294 0084 46000000 		.4byte	.LASF11
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 8
+
+
+ 295 0088 02       		.uleb128 0x2
+ 296 0089 08       		.byte	0x8
+ 297 008a 04       		.byte	0x4
+ 298 008b A8000000 		.4byte	.LASF12
+ 299 008f 02       		.uleb128 0x2
+ 300 0090 01       		.byte	0x1
+ 301 0091 08       		.byte	0x8
+ 302 0092 9D010000 		.4byte	.LASF13
+ 303 0096 02       		.uleb128 0x2
+ 304 0097 04       		.byte	0x4
+ 305 0098 07       		.byte	0x7
+ 306 0099 86010000 		.4byte	.LASF14
+ 307 009d 05       		.uleb128 0x5
+ 308 009e 04       		.byte	0x4
+ 309 009f A3000000 		.4byte	0xa3
+ 310 00a3 06       		.uleb128 0x6
+ 311 00a4 8F000000 		.4byte	0x8f
+ 312 00a8 07       		.uleb128 0x7
+ 313 00a9 0A000000 		.4byte	.LASF25
+ 314 00ad 01       		.byte	0x1
+ 315 00ae 10       		.byte	0x10
+ 316 00af 00000000 		.4byte	.LFB63
+ 317 00b3 FC000000 		.4byte	.LFE63-.LFB63
+ 318 00b7 01       		.uleb128 0x1
+ 319 00b8 9C       		.byte	0x9c
+ 320 00b9 1D020000 		.4byte	0x21d
+ 321 00bd 08       		.uleb128 0x8
+ 322 00be 5B000000 		.4byte	.LASF15
+ 323 00c2 01       		.byte	0x1
+ 324 00c3 16       		.byte	0x16
+ 325 00c4 68000000 		.4byte	0x68
+ 326 00c8 02       		.uleb128 0x2
+ 327 00c9 91       		.byte	0x91
+ 328 00ca 74       		.sleb128 -12
+ 329 00cb 08       		.uleb128 0x8
+ 330 00cc AF000000 		.4byte	.LASF16
+ 331 00d0 01       		.byte	0x1
+ 332 00d1 17       		.byte	0x17
+ 333 00d2 68000000 		.4byte	0x68
+ 334 00d6 02       		.uleb128 0x2
+ 335 00d7 91       		.byte	0x91
+ 336 00d8 70       		.sleb128 -16
+ 337 00d9 08       		.uleb128 0x8
+ 338 00da 2F000000 		.4byte	.LASF17
+ 339 00de 01       		.byte	0x1
+ 340 00df 18       		.byte	0x18
+ 341 00e0 68000000 		.4byte	0x68
+ 342 00e4 02       		.uleb128 0x2
+ 343 00e5 91       		.byte	0x91
+ 344 00e6 6C       		.sleb128 -20
+ 345 00e7 08       		.uleb128 0x8
+ 346 00e8 14000000 		.4byte	.LASF18
+ 347 00ec 01       		.byte	0x1
+ 348 00ed 19       		.byte	0x19
+ 349 00ee 68000000 		.4byte	0x68
+ 350 00f2 02       		.uleb128 0x2
+ 351 00f3 91       		.byte	0x91
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 9
+
+
+ 352 00f4 68       		.sleb128 -24
+ 353 00f5 09       		.uleb128 0x9
+ 354 00f6 20020000 		.4byte	.LASF19
+ 355 00fa 01       		.byte	0x1
+ 356 00fb 1A       		.byte	0x1a
+ 357 00fc 68000000 		.4byte	0x68
+ 358 0100 00000000 		.4byte	.LLST0
+ 359 0104 09       		.uleb128 0x9
+ 360 0105 21000000 		.4byte	.LASF20
+ 361 0109 01       		.byte	0x1
+ 362 010a 1B       		.byte	0x1b
+ 363 010b 68000000 		.4byte	0x68
+ 364 010f 1F000000 		.4byte	.LLST1
+ 365 0113 09       		.uleb128 0x9
+ 366 0114 5F010000 		.4byte	.LASF21
+ 367 0118 01       		.byte	0x1
+ 368 0119 1C       		.byte	0x1c
+ 369 011a 68000000 		.4byte	0x68
+ 370 011e 3E000000 		.4byte	.LLST2
+ 371 0122 0A       		.uleb128 0xa
+ 372 0123 0A000000 		.4byte	.LVL0
+ 373 0127 2E020000 		.4byte	0x22e
+ 374 012b 39010000 		.4byte	0x139
+ 375 012f 0B       		.uleb128 0xb
+ 376 0130 01       		.uleb128 0x1
+ 377 0131 50       		.byte	0x50
+ 378 0132 05       		.uleb128 0x5
+ 379 0133 03       		.byte	0x3
+ 380 0134 00000000 		.4byte	.LC0
+ 381 0138 00       		.byte	0
+ 382 0139 0A       		.uleb128 0xa
+ 383 013a 1A000000 		.4byte	.LVL2
+ 384 013e 47020000 		.4byte	0x247
+ 385 0142 50010000 		.4byte	0x150
+ 386 0146 0B       		.uleb128 0xb
+ 387 0147 01       		.uleb128 0x1
+ 388 0148 50       		.byte	0x50
+ 389 0149 05       		.uleb128 0x5
+ 390 014a 03       		.byte	0x3
+ 391 014b 10000000 		.4byte	.LC1
+ 392 014f 00       		.byte	0
+ 393 0150 0A       		.uleb128 0xa
+ 394 0151 26000000 		.4byte	.LVL3
+ 395 0155 5D020000 		.4byte	0x25d
+ 396 0159 70010000 		.4byte	0x170
+ 397 015d 0B       		.uleb128 0xb
+ 398 015e 01       		.uleb128 0x1
+ 399 015f 52       		.byte	0x52
+ 400 0160 02       		.uleb128 0x2
+ 401 0161 91       		.byte	0x91
+ 402 0162 70       		.sleb128 -16
+ 403 0163 0B       		.uleb128 0xb
+ 404 0164 01       		.uleb128 0x1
+ 405 0165 51       		.byte	0x51
+ 406 0166 02       		.uleb128 0x2
+ 407 0167 91       		.byte	0x91
+ 408 0168 74       		.sleb128 -12
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 10
+
+
+ 409 0169 0B       		.uleb128 0xb
+ 410 016a 01       		.uleb128 0x1
+ 411 016b 50       		.byte	0x50
+ 412 016c 02       		.uleb128 0x2
+ 413 016d 74       		.byte	0x74
+ 414 016e 00       		.sleb128 0
+ 415 016f 00       		.byte	0
+ 416 0170 0A       		.uleb128 0xa
+ 417 0171 2C000000 		.4byte	.LVL4
+ 418 0175 47020000 		.4byte	0x247
+ 419 0179 87010000 		.4byte	0x187
+ 420 017d 0B       		.uleb128 0xb
+ 421 017e 01       		.uleb128 0x1
+ 422 017f 50       		.byte	0x50
+ 423 0180 05       		.uleb128 0x5
+ 424 0181 03       		.byte	0x3
+ 425 0182 38000000 		.4byte	.LC3
+ 426 0186 00       		.byte	0
+ 427 0187 0A       		.uleb128 0xa
+ 428 0188 36000000 		.4byte	.LVL5
+ 429 018c 5D020000 		.4byte	0x25d
+ 430 0190 A7010000 		.4byte	0x1a7
+ 431 0194 0B       		.uleb128 0xb
+ 432 0195 01       		.uleb128 0x1
+ 433 0196 52       		.byte	0x52
+ 434 0197 02       		.uleb128 0x2
+ 435 0198 7D       		.byte	0x7d
+ 436 0199 00       		.sleb128 0
+ 437 019a 0B       		.uleb128 0xb
+ 438 019b 01       		.uleb128 0x1
+ 439 019c 51       		.byte	0x51
+ 440 019d 02       		.uleb128 0x2
+ 441 019e 91       		.byte	0x91
+ 442 019f 6C       		.sleb128 -20
+ 443 01a0 0B       		.uleb128 0xb
+ 444 01a1 01       		.uleb128 0x1
+ 445 01a2 50       		.byte	0x50
+ 446 01a3 02       		.uleb128 0x2
+ 447 01a4 74       		.byte	0x74
+ 448 01a5 00       		.sleb128 0
+ 449 01a6 00       		.byte	0
+ 450 01a7 0A       		.uleb128 0xa
+ 451 01a8 A4000000 		.4byte	.LVL14
+ 452 01ac 47020000 		.4byte	0x247
+ 453 01b0 BE010000 		.4byte	0x1be
+ 454 01b4 0B       		.uleb128 0xb
+ 455 01b5 01       		.uleb128 0x1
+ 456 01b6 50       		.byte	0x50
+ 457 01b7 05       		.uleb128 0x5
+ 458 01b8 03       		.byte	0x3
+ 459 01b9 68000000 		.4byte	.LC4
+ 460 01bd 00       		.byte	0
+ 461 01be 0A       		.uleb128 0xa
+ 462 01bf AE000000 		.4byte	.LVL15
+ 463 01c3 2E020000 		.4byte	0x22e
+ 464 01c7 D5010000 		.4byte	0x1d5
+ 465 01cb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 11
+
+
+ 466 01cc 01       		.uleb128 0x1
+ 467 01cd 50       		.byte	0x50
+ 468 01ce 05       		.uleb128 0x5
+ 469 01cf 03       		.byte	0x3
+ 470 01d0 9C000000 		.4byte	.LC5
+ 471 01d4 00       		.byte	0
+ 472 01d5 0A       		.uleb128 0xa
+ 473 01d6 BC000000 		.4byte	.LVL16
+ 474 01da 47020000 		.4byte	0x247
+ 475 01de F2010000 		.4byte	0x1f2
+ 476 01e2 0B       		.uleb128 0xb
+ 477 01e3 01       		.uleb128 0x1
+ 478 01e4 51       		.byte	0x51
+ 479 01e5 02       		.uleb128 0x2
+ 480 01e6 74       		.byte	0x74
+ 481 01e7 00       		.sleb128 0
+ 482 01e8 0B       		.uleb128 0xb
+ 483 01e9 01       		.uleb128 0x1
+ 484 01ea 50       		.byte	0x50
+ 485 01eb 05       		.uleb128 0x5
+ 486 01ec 03       		.byte	0x3
+ 487 01ed AC000000 		.4byte	.LC6
+ 488 01f1 00       		.byte	0
+ 489 01f2 0A       		.uleb128 0xa
+ 490 01f3 C4000000 		.4byte	.LVL17
+ 491 01f7 2E020000 		.4byte	0x22e
+ 492 01fb 09020000 		.4byte	0x209
+ 493 01ff 0B       		.uleb128 0xb
+ 494 0200 01       		.uleb128 0x1
+ 495 0201 50       		.byte	0x50
+ 496 0202 05       		.uleb128 0x5
+ 497 0203 03       		.byte	0x3
+ 498 0204 C0000000 		.4byte	.LC7
+ 499 0208 00       		.byte	0
+ 500 0209 0C       		.uleb128 0xc
+ 501 020a CA000000 		.4byte	.LVL18
+ 502 020e 2E020000 		.4byte	0x22e
+ 503 0212 0B       		.uleb128 0xb
+ 504 0213 01       		.uleb128 0x1
+ 505 0214 50       		.byte	0x50
+ 506 0215 05       		.uleb128 0x5
+ 507 0216 03       		.byte	0x3
+ 508 0217 C4000000 		.4byte	.LC8
+ 509 021b 00       		.byte	0
+ 510 021c 00       		.byte	0
+ 511 021d 0D       		.uleb128 0xd
+ 512 021e 9B000000 		.4byte	.LASF26
+ 513 0222 04       		.byte	0x4
+ 514 0223 9606     		.2byte	0x696
+ 515 0225 29020000 		.4byte	0x229
+ 516 0229 0E       		.uleb128 0xe
+ 517 022a 76000000 		.4byte	0x76
+ 518 022e 0F       		.uleb128 0xf
+ 519 022f 4C000000 		.4byte	.LASF27
+ 520 0233 05       		.byte	0x5
+ 521 0234 00       		.byte	0
+ 522 0235 0F020000 		.4byte	.LASF28
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 12
+
+
+ 523 0239 68000000 		.4byte	0x68
+ 524 023d 47020000 		.4byte	0x247
+ 525 0241 10       		.uleb128 0x10
+ 526 0242 9D000000 		.4byte	0x9d
+ 527 0246 00       		.byte	0
+ 528 0247 11       		.uleb128 0x11
+ 529 0248 A2010000 		.4byte	.LASF29
+ 530 024c 06       		.byte	0x6
+ 531 024d B2       		.byte	0xb2
+ 532 024e 68000000 		.4byte	0x68
+ 533 0252 5D020000 		.4byte	0x25d
+ 534 0256 10       		.uleb128 0x10
+ 535 0257 9D000000 		.4byte	0x9d
+ 536 025b 12       		.uleb128 0x12
+ 537 025c 00       		.byte	0
+ 538 025d 13       		.uleb128 0x13
+ 539 025e BE000000 		.4byte	.LASF30
+ 540 0262 06       		.byte	0x6
+ 541 0263 B4       		.byte	0xb4
+ 542 0264 68000000 		.4byte	0x68
+ 543 0268 10       		.uleb128 0x10
+ 544 0269 9D000000 		.4byte	0x9d
+ 545 026d 12       		.uleb128 0x12
+ 546 026e 00       		.byte	0
+ 547 026f 00       		.byte	0
+ 548              		.section	.debug_abbrev,"",%progbits
+ 549              	.Ldebug_abbrev0:
+ 550 0000 01       		.uleb128 0x1
+ 551 0001 11       		.uleb128 0x11
+ 552 0002 01       		.byte	0x1
+ 553 0003 25       		.uleb128 0x25
+ 554 0004 0E       		.uleb128 0xe
+ 555 0005 13       		.uleb128 0x13
+ 556 0006 0B       		.uleb128 0xb
+ 557 0007 03       		.uleb128 0x3
+ 558 0008 0E       		.uleb128 0xe
+ 559 0009 1B       		.uleb128 0x1b
+ 560 000a 0E       		.uleb128 0xe
+ 561 000b 55       		.uleb128 0x55
+ 562 000c 17       		.uleb128 0x17
+ 563 000d 11       		.uleb128 0x11
+ 564 000e 01       		.uleb128 0x1
+ 565 000f 10       		.uleb128 0x10
+ 566 0010 17       		.uleb128 0x17
+ 567 0011 00       		.byte	0
+ 568 0012 00       		.byte	0
+ 569 0013 02       		.uleb128 0x2
+ 570 0014 24       		.uleb128 0x24
+ 571 0015 00       		.byte	0
+ 572 0016 0B       		.uleb128 0xb
+ 573 0017 0B       		.uleb128 0xb
+ 574 0018 3E       		.uleb128 0x3e
+ 575 0019 0B       		.uleb128 0xb
+ 576 001a 03       		.uleb128 0x3
+ 577 001b 0E       		.uleb128 0xe
+ 578 001c 00       		.byte	0
+ 579 001d 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 13
+
+
+ 580 001e 03       		.uleb128 0x3
+ 581 001f 16       		.uleb128 0x16
+ 582 0020 00       		.byte	0
+ 583 0021 03       		.uleb128 0x3
+ 584 0022 0E       		.uleb128 0xe
+ 585 0023 3A       		.uleb128 0x3a
+ 586 0024 0B       		.uleb128 0xb
+ 587 0025 3B       		.uleb128 0x3b
+ 588 0026 0B       		.uleb128 0xb
+ 589 0027 49       		.uleb128 0x49
+ 590 0028 13       		.uleb128 0x13
+ 591 0029 00       		.byte	0
+ 592 002a 00       		.byte	0
+ 593 002b 04       		.uleb128 0x4
+ 594 002c 24       		.uleb128 0x24
+ 595 002d 00       		.byte	0
+ 596 002e 0B       		.uleb128 0xb
+ 597 002f 0B       		.uleb128 0xb
+ 598 0030 3E       		.uleb128 0x3e
+ 599 0031 0B       		.uleb128 0xb
+ 600 0032 03       		.uleb128 0x3
+ 601 0033 08       		.uleb128 0x8
+ 602 0034 00       		.byte	0
+ 603 0035 00       		.byte	0
+ 604 0036 05       		.uleb128 0x5
+ 605 0037 0F       		.uleb128 0xf
+ 606 0038 00       		.byte	0
+ 607 0039 0B       		.uleb128 0xb
+ 608 003a 0B       		.uleb128 0xb
+ 609 003b 49       		.uleb128 0x49
+ 610 003c 13       		.uleb128 0x13
+ 611 003d 00       		.byte	0
+ 612 003e 00       		.byte	0
+ 613 003f 06       		.uleb128 0x6
+ 614 0040 26       		.uleb128 0x26
+ 615 0041 00       		.byte	0
+ 616 0042 49       		.uleb128 0x49
+ 617 0043 13       		.uleb128 0x13
+ 618 0044 00       		.byte	0
+ 619 0045 00       		.byte	0
+ 620 0046 07       		.uleb128 0x7
+ 621 0047 2E       		.uleb128 0x2e
+ 622 0048 01       		.byte	0x1
+ 623 0049 3F       		.uleb128 0x3f
+ 624 004a 19       		.uleb128 0x19
+ 625 004b 03       		.uleb128 0x3
+ 626 004c 0E       		.uleb128 0xe
+ 627 004d 3A       		.uleb128 0x3a
+ 628 004e 0B       		.uleb128 0xb
+ 629 004f 3B       		.uleb128 0x3b
+ 630 0050 0B       		.uleb128 0xb
+ 631 0051 27       		.uleb128 0x27
+ 632 0052 19       		.uleb128 0x19
+ 633 0053 11       		.uleb128 0x11
+ 634 0054 01       		.uleb128 0x1
+ 635 0055 12       		.uleb128 0x12
+ 636 0056 06       		.uleb128 0x6
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 14
+
+
+ 637 0057 40       		.uleb128 0x40
+ 638 0058 18       		.uleb128 0x18
+ 639 0059 9742     		.uleb128 0x2117
+ 640 005b 19       		.uleb128 0x19
+ 641 005c 01       		.uleb128 0x1
+ 642 005d 13       		.uleb128 0x13
+ 643 005e 00       		.byte	0
+ 644 005f 00       		.byte	0
+ 645 0060 08       		.uleb128 0x8
+ 646 0061 34       		.uleb128 0x34
+ 647 0062 00       		.byte	0
+ 648 0063 03       		.uleb128 0x3
+ 649 0064 0E       		.uleb128 0xe
+ 650 0065 3A       		.uleb128 0x3a
+ 651 0066 0B       		.uleb128 0xb
+ 652 0067 3B       		.uleb128 0x3b
+ 653 0068 0B       		.uleb128 0xb
+ 654 0069 49       		.uleb128 0x49
+ 655 006a 13       		.uleb128 0x13
+ 656 006b 02       		.uleb128 0x2
+ 657 006c 18       		.uleb128 0x18
+ 658 006d 00       		.byte	0
+ 659 006e 00       		.byte	0
+ 660 006f 09       		.uleb128 0x9
+ 661 0070 34       		.uleb128 0x34
+ 662 0071 00       		.byte	0
+ 663 0072 03       		.uleb128 0x3
+ 664 0073 0E       		.uleb128 0xe
+ 665 0074 3A       		.uleb128 0x3a
+ 666 0075 0B       		.uleb128 0xb
+ 667 0076 3B       		.uleb128 0x3b
+ 668 0077 0B       		.uleb128 0xb
+ 669 0078 49       		.uleb128 0x49
+ 670 0079 13       		.uleb128 0x13
+ 671 007a 02       		.uleb128 0x2
+ 672 007b 17       		.uleb128 0x17
+ 673 007c 00       		.byte	0
+ 674 007d 00       		.byte	0
+ 675 007e 0A       		.uleb128 0xa
+ 676 007f 898201   		.uleb128 0x4109
+ 677 0082 01       		.byte	0x1
+ 678 0083 11       		.uleb128 0x11
+ 679 0084 01       		.uleb128 0x1
+ 680 0085 31       		.uleb128 0x31
+ 681 0086 13       		.uleb128 0x13
+ 682 0087 01       		.uleb128 0x1
+ 683 0088 13       		.uleb128 0x13
+ 684 0089 00       		.byte	0
+ 685 008a 00       		.byte	0
+ 686 008b 0B       		.uleb128 0xb
+ 687 008c 8A8201   		.uleb128 0x410a
+ 688 008f 00       		.byte	0
+ 689 0090 02       		.uleb128 0x2
+ 690 0091 18       		.uleb128 0x18
+ 691 0092 9142     		.uleb128 0x2111
+ 692 0094 18       		.uleb128 0x18
+ 693 0095 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 15
+
+
+ 694 0096 00       		.byte	0
+ 695 0097 0C       		.uleb128 0xc
+ 696 0098 898201   		.uleb128 0x4109
+ 697 009b 01       		.byte	0x1
+ 698 009c 11       		.uleb128 0x11
+ 699 009d 01       		.uleb128 0x1
+ 700 009e 31       		.uleb128 0x31
+ 701 009f 13       		.uleb128 0x13
+ 702 00a0 00       		.byte	0
+ 703 00a1 00       		.byte	0
+ 704 00a2 0D       		.uleb128 0xd
+ 705 00a3 34       		.uleb128 0x34
+ 706 00a4 00       		.byte	0
+ 707 00a5 03       		.uleb128 0x3
+ 708 00a6 0E       		.uleb128 0xe
+ 709 00a7 3A       		.uleb128 0x3a
+ 710 00a8 0B       		.uleb128 0xb
+ 711 00a9 3B       		.uleb128 0x3b
+ 712 00aa 05       		.uleb128 0x5
+ 713 00ab 49       		.uleb128 0x49
+ 714 00ac 13       		.uleb128 0x13
+ 715 00ad 3F       		.uleb128 0x3f
+ 716 00ae 19       		.uleb128 0x19
+ 717 00af 3C       		.uleb128 0x3c
+ 718 00b0 19       		.uleb128 0x19
+ 719 00b1 00       		.byte	0
+ 720 00b2 00       		.byte	0
+ 721 00b3 0E       		.uleb128 0xe
+ 722 00b4 35       		.uleb128 0x35
+ 723 00b5 00       		.byte	0
+ 724 00b6 49       		.uleb128 0x49
+ 725 00b7 13       		.uleb128 0x13
+ 726 00b8 00       		.byte	0
+ 727 00b9 00       		.byte	0
+ 728 00ba 0F       		.uleb128 0xf
+ 729 00bb 2E       		.uleb128 0x2e
+ 730 00bc 01       		.byte	0x1
+ 731 00bd 3F       		.uleb128 0x3f
+ 732 00be 19       		.uleb128 0x19
+ 733 00bf 03       		.uleb128 0x3
+ 734 00c0 0E       		.uleb128 0xe
+ 735 00c1 3A       		.uleb128 0x3a
+ 736 00c2 0B       		.uleb128 0xb
+ 737 00c3 3B       		.uleb128 0x3b
+ 738 00c4 0B       		.uleb128 0xb
+ 739 00c5 6E       		.uleb128 0x6e
+ 740 00c6 0E       		.uleb128 0xe
+ 741 00c7 27       		.uleb128 0x27
+ 742 00c8 19       		.uleb128 0x19
+ 743 00c9 49       		.uleb128 0x49
+ 744 00ca 13       		.uleb128 0x13
+ 745 00cb 3C       		.uleb128 0x3c
+ 746 00cc 19       		.uleb128 0x19
+ 747 00cd 01       		.uleb128 0x1
+ 748 00ce 13       		.uleb128 0x13
+ 749 00cf 00       		.byte	0
+ 750 00d0 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 16
+
+
+ 751 00d1 10       		.uleb128 0x10
+ 752 00d2 05       		.uleb128 0x5
+ 753 00d3 00       		.byte	0
+ 754 00d4 49       		.uleb128 0x49
+ 755 00d5 13       		.uleb128 0x13
+ 756 00d6 00       		.byte	0
+ 757 00d7 00       		.byte	0
+ 758 00d8 11       		.uleb128 0x11
+ 759 00d9 2E       		.uleb128 0x2e
+ 760 00da 01       		.byte	0x1
+ 761 00db 3F       		.uleb128 0x3f
+ 762 00dc 19       		.uleb128 0x19
+ 763 00dd 03       		.uleb128 0x3
+ 764 00de 0E       		.uleb128 0xe
+ 765 00df 3A       		.uleb128 0x3a
+ 766 00e0 0B       		.uleb128 0xb
+ 767 00e1 3B       		.uleb128 0x3b
+ 768 00e2 0B       		.uleb128 0xb
+ 769 00e3 27       		.uleb128 0x27
+ 770 00e4 19       		.uleb128 0x19
+ 771 00e5 49       		.uleb128 0x49
+ 772 00e6 13       		.uleb128 0x13
+ 773 00e7 3C       		.uleb128 0x3c
+ 774 00e8 19       		.uleb128 0x19
+ 775 00e9 01       		.uleb128 0x1
+ 776 00ea 13       		.uleb128 0x13
+ 777 00eb 00       		.byte	0
+ 778 00ec 00       		.byte	0
+ 779 00ed 12       		.uleb128 0x12
+ 780 00ee 18       		.uleb128 0x18
+ 781 00ef 00       		.byte	0
+ 782 00f0 00       		.byte	0
+ 783 00f1 00       		.byte	0
+ 784 00f2 13       		.uleb128 0x13
+ 785 00f3 2E       		.uleb128 0x2e
+ 786 00f4 01       		.byte	0x1
+ 787 00f5 3F       		.uleb128 0x3f
+ 788 00f6 19       		.uleb128 0x19
+ 789 00f7 03       		.uleb128 0x3
+ 790 00f8 0E       		.uleb128 0xe
+ 791 00f9 3A       		.uleb128 0x3a
+ 792 00fa 0B       		.uleb128 0xb
+ 793 00fb 3B       		.uleb128 0x3b
+ 794 00fc 0B       		.uleb128 0xb
+ 795 00fd 27       		.uleb128 0x27
+ 796 00fe 19       		.uleb128 0x19
+ 797 00ff 49       		.uleb128 0x49
+ 798 0100 13       		.uleb128 0x13
+ 799 0101 3C       		.uleb128 0x3c
+ 800 0102 19       		.uleb128 0x19
+ 801 0103 00       		.byte	0
+ 802 0104 00       		.byte	0
+ 803 0105 00       		.byte	0
+ 804              		.section	.debug_loc,"",%progbits
+ 805              	.Ldebug_loc0:
+ 806              	.LLST0:
+ 807 0000 14000000 		.4byte	.LVL1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 17
+
+
+ 808 0004 66000000 		.4byte	.LVL7
+ 809 0008 0200     		.2byte	0x2
+ 810 000a 30       		.byte	0x30
+ 811 000b 9F       		.byte	0x9f
+ 812 000c 66000000 		.4byte	.LVL7
+ 813 0010 A3000000 		.4byte	.LVL14-1
+ 814 0014 0100     		.2byte	0x1
+ 815 0016 51       		.byte	0x51
+ 816 0017 00000000 		.4byte	0
+ 817 001b 00000000 		.4byte	0
+ 818              	.LLST1:
+ 819 001f 14000000 		.4byte	.LVL1
+ 820 0023 60000000 		.4byte	.LVL6
+ 821 0027 0200     		.2byte	0x2
+ 822 0029 30       		.byte	0x30
+ 823 002a 9F       		.byte	0x9f
+ 824 002b 60000000 		.4byte	.LVL6
+ 825 002f A3000000 		.4byte	.LVL14-1
+ 826 0033 0100     		.2byte	0x1
+ 827 0035 52       		.byte	0x52
+ 828 0036 00000000 		.4byte	0
+ 829 003a 00000000 		.4byte	0
+ 830              	.LLST2:
+ 831 003e 14000000 		.4byte	.LVL1
+ 832 0042 92000000 		.4byte	.LVL10
+ 833 0046 0200     		.2byte	0x2
+ 834 0048 30       		.byte	0x30
+ 835 0049 9F       		.byte	0x9f
+ 836 004a 92000000 		.4byte	.LVL10
+ 837 004e 9C000000 		.4byte	.LVL12
+ 838 0052 0100     		.2byte	0x1
+ 839 0054 54       		.byte	0x54
+ 840 0055 9C000000 		.4byte	.LVL12
+ 841 0059 9E000000 		.4byte	.LVL13
+ 842 005d 0200     		.2byte	0x2
+ 843 005f 30       		.byte	0x30
+ 844 0060 9F       		.byte	0x9f
+ 845 0061 9E000000 		.4byte	.LVL13
+ 846 0065 CE000000 		.4byte	.LVL19
+ 847 0069 0100     		.2byte	0x1
+ 848 006b 54       		.byte	0x54
+ 849 006c 00000000 		.4byte	0
+ 850 0070 00000000 		.4byte	0
+ 851              		.section	.debug_aranges,"",%progbits
+ 852 0000 1C000000 		.4byte	0x1c
+ 853 0004 0200     		.2byte	0x2
+ 854 0006 00000000 		.4byte	.Ldebug_info0
+ 855 000a 04       		.byte	0x4
+ 856 000b 00       		.byte	0
+ 857 000c 0000     		.2byte	0
+ 858 000e 0000     		.2byte	0
+ 859 0010 00000000 		.4byte	.LFB63
+ 860 0014 FC000000 		.4byte	.LFE63-.LFB63
+ 861 0018 00000000 		.4byte	0
+ 862 001c 00000000 		.4byte	0
+ 863              		.section	.debug_ranges,"",%progbits
+ 864              	.Ldebug_ranges0:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 18
+
+
+ 865 0000 00000000 		.4byte	.LFB63
+ 866 0004 FC000000 		.4byte	.LFE63
+ 867 0008 00000000 		.4byte	0
+ 868 000c 00000000 		.4byte	0
+ 869              		.section	.debug_line,"",%progbits
+ 870              	.Ldebug_line0:
+ 871 0000 8E010000 		.section	.debug_str,"MS",%progbits,1
+ 871      02005801 
+ 871      00000201 
+ 871      FB0E0D00 
+ 871      01010101 
+ 872              	.LASF9:
+ 873 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 873      7433325F 
+ 873      7400
+ 874              	.LASF25:
+ 875 000a 65786572 		.ascii	"exercise6\000"
+ 875      63697365 
+ 875      3600
+ 876              	.LASF18:
+ 877 0014 736C6565 		.ascii	"sleepMinutes\000"
+ 877      704D696E 
+ 877      75746573 
+ 877      00
+ 878              	.LASF20:
+ 879 0021 77616B65 		.ascii	"wakeUpMinutes\000"
+ 879      55704D69 
+ 879      6E757465 
+ 879      7300
+ 880              	.LASF17:
+ 881 002f 736C6565 		.ascii	"sleepHours\000"
+ 881      70486F75 
+ 881      727300
+ 882              	.LASF23:
+ 883 003a 65786572 		.ascii	"exercise6.c\000"
+ 883      63697365 
+ 883      362E6300 
+ 884              	.LASF11:
+ 885 0046 666C6F61 		.ascii	"float\000"
+ 885      7400
+ 886              	.LASF27:
+ 887 004c 5F5F6275 		.ascii	"__builtin_puts\000"
+ 887      696C7469 
+ 887      6E5F7075 
+ 887      747300
+ 888              	.LASF15:
+ 889 005b 63757272 		.ascii	"currentHours\000"
+ 889      656E7448 
+ 889      6F757273 
+ 889      00
+ 890              	.LASF1:
+ 891 0068 756E7369 		.ascii	"unsigned char\000"
+ 891      676E6564 
+ 891      20636861 
+ 891      7200
+ 892              	.LASF5:
+ 893 0076 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 19
+
+
+ 893      20756E73 
+ 893      69676E65 
+ 893      6420696E 
+ 893      7400
+ 894              	.LASF3:
+ 895 0088 73686F72 		.ascii	"short unsigned int\000"
+ 895      7420756E 
+ 895      7369676E 
+ 895      65642069 
+ 895      6E7400
+ 896              	.LASF26:
+ 897 009b 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 897      52784275 
+ 897      66666572 
+ 897      00
+ 898              	.LASF12:
+ 899 00a8 646F7562 		.ascii	"double\000"
+ 899      6C6500
+ 900              	.LASF16:
+ 901 00af 63757272 		.ascii	"currentMinutes\000"
+ 901      656E744D 
+ 901      696E7574 
+ 901      657300
+ 902              	.LASF30:
+ 903 00be 7363616E 		.ascii	"scanf\000"
+ 903      6600
+ 904              	.LASF22:
+ 905 00c4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 905      4320342E 
+ 905      392E3320 
+ 905      32303135 
+ 905      30333033 
+ 906 00f7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 906      20726576 
+ 906      6973696F 
+ 906      6E203232 
+ 906      31323230 
+ 907 012a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 907      66756E63 
+ 907      74696F6E 
+ 907      2D736563 
+ 907      74696F6E 
+ 908              	.LASF8:
+ 909 0152 756E7369 		.ascii	"unsigned int\000"
+ 909      676E6564 
+ 909      20696E74 
+ 909      00
+ 910              	.LASF21:
+ 911 015f 64617944 		.ascii	"dayDiff\000"
+ 911      69666600 
+ 912              	.LASF7:
+ 913 0167 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 913      206C6F6E 
+ 913      6720756E 
+ 913      7369676E 
+ 913      65642069 
+ 914              	.LASF10:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccP930Yj.s 			page 20
+
+
+ 915 017e 696E7433 		.ascii	"int32_t\000"
+ 915      325F7400 
+ 916              	.LASF14:
+ 917 0186 73697A65 		.ascii	"sizetype\000"
+ 917      74797065 
+ 917      00
+ 918              	.LASF6:
+ 919 018f 6C6F6E67 		.ascii	"long long int\000"
+ 919      206C6F6E 
+ 919      6720696E 
+ 919      7400
+ 920              	.LASF13:
+ 921 019d 63686172 		.ascii	"char\000"
+ 921      00
+ 922              	.LASF29:
+ 923 01a2 7072696E 		.ascii	"printf\000"
+ 923      746600
+ 924              	.LASF2:
+ 925 01a9 73686F72 		.ascii	"short int\000"
+ 925      7420696E 
+ 925      7400
+ 926              	.LASF4:
+ 927 01b3 6C6F6E67 		.ascii	"long int\000"
+ 927      20696E74 
+ 927      00
+ 928              	.LASF24:
+ 929 01bc 463A5C4F 		.ascii	"F:\\OneDrive\\Metropolia\\Devices\\Workspaces\\Work"
+ 929      6E654472 
+ 929      6976655C 
+ 929      4D657472 
+ 929      6F706F6C 
+ 930 01ea 73706163 		.ascii	"space 1\\Workspace01\\Hello Word.cydsn\000"
+ 930      6520315C 
+ 930      576F726B 
+ 930      73706163 
+ 930      6530315C 
+ 931              	.LASF28:
+ 932 020f 70757473 		.ascii	"puts\000"
+ 932      00
+ 933              	.LASF0:
+ 934 0214 7369676E 		.ascii	"signed char\000"
+ 934      65642063 
+ 934      68617200 
+ 935              	.LASF19:
+ 936 0220 77616B65 		.ascii	"wakeUpHours\000"
+ 936      5570486F 
+ 936      75727300 
+ 937              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

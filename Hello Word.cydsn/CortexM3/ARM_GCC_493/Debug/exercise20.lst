@@ -1,0 +1,3383 @@
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"exercise20.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.printMonth,"ax",%progbits
+  19              		.align	2
+  20              		.global	printMonth
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	printMonth, %function
+  24              	printMonth:
+  25              	.LFB63:
+  26              		.file 1 "exercise20.c"
+   1:exercise20.c  **** /* ========================================
+   2:exercise20.c  ****  *
+   3:exercise20.c  ****  * Copyright YOUR COMPANY, THE YEAR
+   4:exercise20.c  ****  * All Rights Reserved
+   5:exercise20.c  ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:exercise20.c  ****  *
+   7:exercise20.c  ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:exercise20.c  ****  * WHICH IS THE PROPERTY OF your company.
+   9:exercise20.c  ****  *
+  10:exercise20.c  ****  * ========================================
+  11:exercise20.c  **** */
+  12:exercise20.c  **** #include "project.h"
+  13:exercise20.c  **** #include <stdio.h>
+  14:exercise20.c  **** 
+  15:exercise20.c  **** #define MAX_M_NAME_LENGTH 16
+  16:exercise20.c  **** 
+  17:exercise20.c  **** struct month{
+  18:exercise20.c  ****     char name[MAX_M_NAME_LENGTH];
+  19:exercise20.c  ****     int  number;
+  20:exercise20.c  **** }newMonth, Months[12], *nextMonth;
+  21:exercise20.c  **** 
+  22:exercise20.c  **** void printMonth(struct month * m){
+  27              		.loc 1 22 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 2
+
+
+  36 0002 0246     		mov	r2, r0
+  23:exercise20.c  ****     printf("%-2d.\t%s\n", m->number, m->name);
+  37              		.loc 1 23 0
+  38 0004 0248     		ldr	r0, .L3
+  39              	.LVL1:
+  40 0006 1169     		ldr	r1, [r2, #16]
+  41 0008 FFF7FEFF 		bl	printf
+  42              	.LVL2:
+  43 000c 08BD     		pop	{r3, pc}
+  44              	.L4:
+  45 000e 00BF     		.align	2
+  46              	.L3:
+  47 0010 00000000 		.word	.LC0
+  48              		.cfi_endproc
+  49              	.LFE63:
+  50              		.size	printMonth, .-printMonth
+  51              		.section	.text.exercise20,"ax",%progbits
+  52              		.align	2
+  53              		.global	exercise20
+  54              		.thumb
+  55              		.thumb_func
+  56              		.type	exercise20, %function
+  57              	exercise20:
+  58              	.LFB64:
+  24:exercise20.c  **** }
+  25:exercise20.c  **** 
+  26:exercise20.c  **** void exercise20(void)
+  27:exercise20.c  **** {
+  59              		.loc 1 27 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 24
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63 0000 30B5     		push	{r4, r5, lr}
+  64              		.cfi_def_cfa_offset 12
+  65              		.cfi_offset 4, -12
+  66              		.cfi_offset 5, -8
+  67              		.cfi_offset 14, -4
+  68 0002 87B0     		sub	sp, sp, #28
+  69              		.cfi_def_cfa_offset 40
+  28:exercise20.c  ****     printf("\n\nExercise 20. \n\n");
+  70              		.loc 1 28 0
+  71 0004 4648     		ldr	r0, .L25
+  72 0006 FFF7FEFF 		bl	puts
+  73              	.LVL3:
+  29:exercise20.c  **** 
+  30:exercise20.c  ****     int monthNo, done=0,op=0;
+  74              		.loc 1 30 0
+  75 000a 0025     		movs	r5, #0
+  76 000c 0495     		str	r5, [sp, #16]
+  31:exercise20.c  ****     char monthName[MAX_M_NAME_LENGTH];
+  32:exercise20.c  **** 
+  33:exercise20.c  ****     while(!done){
+  77              		.loc 1 33 0
+  78 000e 6BE0     		b	.L6
+  79              	.LVL4:
+  80              	.L19:
+  34:exercise20.c  ****         printf("Please select operation:\n1:\tEnter Month\n2:\tFinished entering months\n");
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 3
+
+
+  81              		.loc 1 34 0
+  82 0010 4448     		ldr	r0, .L25+4
+  83 0012 FFF7FEFF 		bl	puts
+  84              	.LVL5:
+  35:exercise20.c  ****         scanf("%d", &op);
+  85              		.loc 1 35 0
+  86 0016 4448     		ldr	r0, .L25+8
+  87 0018 04A9     		add	r1, sp, #16
+  88 001a FFF7FEFF 		bl	scanf
+  89              	.LVL6:
+  36:exercise20.c  **** 
+  37:exercise20.c  ****         switch(op){
+  90              		.loc 1 37 0
+  91 001e 049B     		ldr	r3, [sp, #16]
+  92 0020 012B     		cmp	r3, #1
+  93 0022 02D0     		beq	.L8
+  94 0024 022B     		cmp	r3, #2
+  95 0026 5ED0     		beq	.L23
+  96 0028 5EE0     		b	.L6
+  97              	.L8:
+  98              	.LBB2:
+  38:exercise20.c  ****             case 1:
+  39:exercise20.c  ****                 do{
+  40:exercise20.c  ****                     unsigned i;
+  41:exercise20.c  ****                     printf("Enter Month number\n");
+  99              		.loc 1 41 0
+ 100 002a 4048     		ldr	r0, .L25+12
+ 101 002c FFF7FEFF 		bl	puts
+ 102              	.LVL7:
+  42:exercise20.c  ****                     scanf("%d", &monthNo);
+ 103              		.loc 1 42 0
+ 104 0030 3D48     		ldr	r0, .L25+8
+ 105 0032 05A9     		add	r1, sp, #20
+ 106 0034 FFF7FEFF 		bl	scanf
+ 107              	.LVL8:
+  43:exercise20.c  ****                     //check if month is in valid range
+  44:exercise20.c  ****                     if(monthNo > 0 && monthNo < 13){
+ 108              		.loc 1 44 0
+ 109 0038 059A     		ldr	r2, [sp, #20]
+ 110 003a 531E     		subs	r3, r2, #1
+ 111 003c 0B2B     		cmp	r3, #11
+ 112 003e 4AD8     		bhi	.L10
+ 113              	.LBB3:
+  45:exercise20.c  ****                         Months[monthNo-1].number = monthNo; //assign the month.number
+ 114              		.loc 1 45 0
+ 115 0040 03EB8303 		add	r3, r3, r3, lsl #2
+ 116 0044 9B00     		lsls	r3, r3, #2
+ 117 0046 3A49     		ldr	r1, .L25+16
+ 118 0048 0B44     		add	r3, r3, r1
+ 119 004a 1A61     		str	r2, [r3, #16]
+  46:exercise20.c  ****                         printf("Enter month Name\n");
+ 120              		.loc 1 46 0
+ 121 004c 3948     		ldr	r0, .L25+20
+ 122 004e FFF7FEFF 		bl	puts
+ 123              	.LVL9:
+ 124              	.L14:
+  47:exercise20.c  **** 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 4
+
+
+  48:exercise20.c  ****                         //clear line feed
+  49:exercise20.c  ****                         int c;
+  50:exercise20.c  ****                         while ( (c = getchar()) != EOF && c != '\n') { }
+ 125              		.loc 1 50 0 discriminator 6
+ 126 0052 394B     		ldr	r3, .L25+24
+ 127 0054 1A68     		ldr	r2, [r3]
+ 128 0056 5168     		ldr	r1, [r2, #4]
+ 129 0058 4B68     		ldr	r3, [r1, #4]
+ 130 005a 013B     		subs	r3, r3, #1
+ 131 005c 4B60     		str	r3, [r1, #4]
+ 132 005e 002B     		cmp	r3, #0
+ 133 0060 04DA     		bge	.L11
+ 134              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 135 0062 1046     		mov	r0, r2
+ 136 0064 5168     		ldr	r1, [r2, #4]
+ 137 0066 FFF7FEFF 		bl	__srget_r
+ 138              	.LVL10:
+ 139 006a 04E0     		b	.L12
+ 140              	.L11:
+ 141              		.loc 1 50 0 discriminator 2
+ 142 006c 5268     		ldr	r2, [r2, #4]
+ 143 006e 1368     		ldr	r3, [r2]
+ 144 0070 591C     		adds	r1, r3, #1
+ 145 0072 1160     		str	r1, [r2]
+ 146 0074 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 147              	.L12:
+ 148              	.LVL11:
+ 149              		.loc 1 50 0 discriminator 4
+ 150 0076 B0F1FF3F 		cmp	r0, #-1
+ 151 007a 01D0     		beq	.L13
+ 152              		.loc 1 50 0 discriminator 5
+ 153 007c 0A28     		cmp	r0, #10
+ 154 007e E8D1     		bne	.L14
+ 155              	.L13:
+  51:exercise20.c  ****                         //get month name
+  52:exercise20.c  ****                         fgets(monthName, MAX_M_NAME_LENGTH, stdin);
+ 156              		.loc 1 52 0 is_stmt 1
+ 157 0080 2D4B     		ldr	r3, .L25+24
+ 158 0082 1B68     		ldr	r3, [r3]
+ 159 0084 6846     		mov	r0, sp
+ 160              	.LVL12:
+ 161 0086 1021     		movs	r1, #16
+ 162 0088 5A68     		ldr	r2, [r3, #4]
+ 163 008a FFF7FEFF 		bl	fgets
+ 164              	.LVL13:
+  53:exercise20.c  ****                         if(monthName[strlen(monthName) - 1] == '\n') { monthName[strlen(monthName) 
+ 165              		.loc 1 53 0
+ 166 008e 6846     		mov	r0, sp
+ 167 0090 FFF7FEFF 		bl	strlen
+ 168              	.LVL14:
+ 169 0094 0138     		subs	r0, r0, #1
+ 170 0096 06AB     		add	r3, sp, #24
+ 171 0098 0344     		add	r3, r3, r0
+ 172 009a 13F8183C 		ldrb	r3, [r3, #-24]	@ zero_extendqisi2
+ 173 009e 0A2B     		cmp	r3, #10
+ 174 00a0 04D1     		bne	.L15
+ 175              		.loc 1 53 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 5
+
+
+ 176 00a2 06AB     		add	r3, sp, #24
+ 177 00a4 1844     		add	r0, r0, r3
+ 178 00a6 0023     		movs	r3, #0
+ 179 00a8 00F8183C 		strb	r3, [r0, #-24]
+ 180              	.L15:
+ 181              	.LBE3:
+ 182              	.LBE2:
+  27:exercise20.c  ****     printf("\n\nExercise 20. \n\n");
+ 183              		.loc 1 27 0 is_stmt 1 discriminator 1
+ 184 00ac 0024     		movs	r4, #0
+ 185 00ae 0CE0     		b	.L16
+ 186              	.LVL15:
+ 187              	.L17:
+ 188              	.LBB5:
+ 189              	.LBB4:
+  54:exercise20.c  **** 
+  55:exercise20.c  ****                         for(i=0; i < strlen(monthName); i++){
+  56:exercise20.c  ****                             Months[monthNo-1].name[i] = monthName[i];
+ 190              		.loc 1 56 0 discriminator 3
+ 191 00b0 059B     		ldr	r3, [sp, #20]
+ 192 00b2 013B     		subs	r3, r3, #1
+ 193 00b4 06AA     		add	r2, sp, #24
+ 194 00b6 2244     		add	r2, r2, r4
+ 195 00b8 12F8181C 		ldrb	r1, [r2, #-24]	@ zero_extendqisi2
+ 196 00bc 03EB8303 		add	r3, r3, r3, lsl #2
+ 197 00c0 9B00     		lsls	r3, r3, #2
+ 198 00c2 2344     		add	r3, r3, r4
+ 199 00c4 1A4A     		ldr	r2, .L25+16
+ 200 00c6 D154     		strb	r1, [r2, r3]
+  55:exercise20.c  ****                             Months[monthNo-1].name[i] = monthName[i];
+ 201              		.loc 1 55 0 discriminator 3
+ 202 00c8 0134     		adds	r4, r4, #1
+ 203              	.LVL16:
+ 204              	.L16:
+  55:exercise20.c  ****                             Months[monthNo-1].name[i] = monthName[i];
+ 205              		.loc 1 55 0 is_stmt 0 discriminator 1
+ 206 00ca 6846     		mov	r0, sp
+ 207 00cc FFF7FEFF 		bl	strlen
+ 208              	.LVL17:
+ 209 00d0 A042     		cmp	r0, r4
+ 210 00d2 EDD8     		bhi	.L17
+ 211 00d4 02E0     		b	.L18
+ 212              	.LVL18:
+ 213              	.L10:
+ 214              	.LBE4:
+  57:exercise20.c  ****                         }
+  58:exercise20.c  ****                     }
+  59:exercise20.c  ****                     else{
+  60:exercise20.c  ****                         printf("Month not in a valid range, please enter 1-12\n");
+ 215              		.loc 1 60 0 is_stmt 1
+ 216 00d6 1948     		ldr	r0, .L25+28
+ 217 00d8 FFF7FEFF 		bl	puts
+ 218              	.LVL19:
+ 219              	.L18:
+ 220              	.LBE5:
+  61:exercise20.c  ****                     }
+  62:exercise20.c  ****                 } while(monthNo < 1 || monthNo > 12);
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 6
+
+
+ 221              		.loc 1 62 0
+ 222 00dc 059B     		ldr	r3, [sp, #20]
+ 223 00de 013B     		subs	r3, r3, #1
+ 224 00e0 0B2B     		cmp	r3, #11
+ 225 00e2 A2D8     		bhi	.L8
+ 226 00e4 00E0     		b	.L6
+ 227              	.L23:
+  63:exercise20.c  **** 
+  64:exercise20.c  ****                 break;
+  65:exercise20.c  **** 
+  66:exercise20.c  ****                 case 2:
+  67:exercise20.c  ****                     done = 1;
+ 228              		.loc 1 67 0
+ 229 00e6 0125     		movs	r5, #1
+ 230              	.LVL20:
+ 231              	.L6:
+  33:exercise20.c  ****         printf("Please select operation:\n1:\tEnter Month\n2:\tFinished entering months\n");
+ 232              		.loc 1 33 0
+ 233 00e8 002D     		cmp	r5, #0
+ 234 00ea 91D0     		beq	.L19
+  68:exercise20.c  ****                     break;
+  69:exercise20.c  ****         }
+  70:exercise20.c  **** 
+  71:exercise20.c  ****     }
+  72:exercise20.c  **** 
+  73:exercise20.c  ****     //print the months that have been entered
+  74:exercise20.c  ****     printf("\nHere are the months that you have entered\n");
+ 235              		.loc 1 74 0
+ 236 00ec 1448     		ldr	r0, .L25+32
+ 237 00ee FFF7FEFF 		bl	puts
+ 238              	.LVL21:
+  75:exercise20.c  **** 
+  76:exercise20.c  ****     int i=0;
+  77:exercise20.c  **** 
+  78:exercise20.c  ****     for(i=0; i<13; i++){
+ 239              		.loc 1 78 0
+ 240 00f2 0024     		movs	r4, #0
+ 241 00f4 0DE0     		b	.L20
+ 242              	.LVL22:
+ 243              	.L22:
+  79:exercise20.c  ****         if(strlen(Months[i].name) != 0){
+ 244              		.loc 1 79 0
+ 245 00f6 04EB8403 		add	r3, r4, r4, lsl #2
+ 246 00fa 9B00     		lsls	r3, r3, #2
+ 247 00fc 0C4A     		ldr	r2, .L25+16
+ 248 00fe 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
+ 249 0100 33B1     		cbz	r3, .L21
+  80:exercise20.c  ****             printMonth(&Months[i]);
+ 250              		.loc 1 80 0
+ 251 0102 04EB8403 		add	r3, r4, r4, lsl #2
+ 252 0106 9B00     		lsls	r3, r3, #2
+ 253 0108 1046     		mov	r0, r2
+ 254 010a 1844     		add	r0, r0, r3
+ 255 010c FFF7FEFF 		bl	printMonth
+ 256              	.LVL23:
+ 257              	.L21:
+  78:exercise20.c  ****         if(strlen(Months[i].name) != 0){
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 7
+
+
+ 258              		.loc 1 78 0 discriminator 2
+ 259 0110 0134     		adds	r4, r4, #1
+ 260              	.LVL24:
+ 261              	.L20:
+  78:exercise20.c  ****         if(strlen(Months[i].name) != 0){
+ 262              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 263 0112 0C2C     		cmp	r4, #12
+ 264 0114 EFDD     		ble	.L22
+  81:exercise20.c  ****         }
+  82:exercise20.c  ****     }
+  83:exercise20.c  **** 
+  84:exercise20.c  ****     printf("End of Exercise 20 \n\n");
+ 265              		.loc 1 84 0 is_stmt 1
+ 266 0116 0B48     		ldr	r0, .L25+36
+ 267 0118 FFF7FEFF 		bl	puts
+ 268              	.LVL25:
+  85:exercise20.c  ****     return;
+  86:exercise20.c  **** }
+ 269              		.loc 1 86 0
+ 270 011c 07B0     		add	sp, sp, #28
+ 271              		.cfi_def_cfa_offset 12
+ 272              		@ sp needed
+ 273 011e 30BD     		pop	{r4, r5, pc}
+ 274              	.LVL26:
+ 275              	.L26:
+ 276              		.align	2
+ 277              	.L25:
+ 278 0120 0C000000 		.word	.LC1
+ 279 0124 20000000 		.word	.LC2
+ 280 0128 64000000 		.word	.LC3
+ 281 012c 68000000 		.word	.LC4
+ 282 0130 00000000 		.word	Months
+ 283 0134 7C000000 		.word	.LC5
+ 284 0138 00000000 		.word	_impure_ptr
+ 285 013c 90000000 		.word	.LC6
+ 286 0140 C0000000 		.word	.LC7
+ 287 0144 EC000000 		.word	.LC8
+ 288              		.cfi_endproc
+ 289              	.LFE64:
+ 290              		.size	exercise20, .-exercise20
+ 291              		.comm	nextMonth,4,4
+ 292              		.comm	Months,240,4
+ 293              		.comm	newMonth,20,4
+ 294              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 295              		.align	2
+ 296              	.LC0:
+ 297 0000 252D3264 		.ascii	"%-2d.\011%s\012\000"
+ 297      2E092573 
+ 297      0A00
+ 298 000a 0000     		.space	2
+ 299              	.LC1:
+ 300 000c 0A0A4578 		.ascii	"\012\012Exercise 20. \012\000"
+ 300      65726369 
+ 300      73652032 
+ 300      302E200A 
+ 300      00
+ 301 001d 000000   		.space	3
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 8
+
+
+ 302              	.LC2:
+ 303 0020 506C6561 		.ascii	"Please select operation:\0121:\011Enter Month\0122:"
+ 303      73652073 
+ 303      656C6563 
+ 303      74206F70 
+ 303      65726174 
+ 304 004a 0946696E 		.ascii	"\011Finished entering months\000"
+ 304      69736865 
+ 304      6420656E 
+ 304      74657269 
+ 304      6E67206D 
+ 305              	.LC3:
+ 306 0064 256400   		.ascii	"%d\000"
+ 307 0067 00       		.space	1
+ 308              	.LC4:
+ 309 0068 456E7465 		.ascii	"Enter Month number\000"
+ 309      72204D6F 
+ 309      6E746820 
+ 309      6E756D62 
+ 309      657200
+ 310 007b 00       		.space	1
+ 311              	.LC5:
+ 312 007c 456E7465 		.ascii	"Enter month Name\000"
+ 312      72206D6F 
+ 312      6E746820 
+ 312      4E616D65 
+ 312      00
+ 313 008d 000000   		.space	3
+ 314              	.LC6:
+ 315 0090 4D6F6E74 		.ascii	"Month not in a valid range, please enter 1-12\000"
+ 315      68206E6F 
+ 315      7420696E 
+ 315      20612076 
+ 315      616C6964 
+ 316 00be 0000     		.space	2
+ 317              	.LC7:
+ 318 00c0 0A486572 		.ascii	"\012Here are the months that you have entered\000"
+ 318      65206172 
+ 318      65207468 
+ 318      65206D6F 
+ 318      6E746873 
+ 319 00eb 00       		.space	1
+ 320              	.LC8:
+ 321 00ec 456E6420 		.ascii	"End of Exercise 20 \012\000"
+ 321      6F662045 
+ 321      78657263 
+ 321      69736520 
+ 321      3230200A 
+ 322 0101 000000   		.text
+ 323              	.Letext0:
+ 324              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 325              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 326              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 327              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 328              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 329              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 330              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 9
+
+
+ 331              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 332              		.file 10 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9
+ 333              		.file 11 "<built-in>"
+ 334              		.section	.debug_info,"",%progbits
+ 335              	.Ldebug_info0:
+ 336 0000 C90B0000 		.4byte	0xbc9
+ 337 0004 0400     		.2byte	0x4
+ 338 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 339 000a 04       		.byte	0x4
+ 340 000b 01       		.uleb128 0x1
+ 341 000c 93040000 		.4byte	.LASF140
+ 342 0010 01       		.byte	0x1
+ 343 0011 01020000 		.4byte	.LASF141
+ 344 0015 71000000 		.4byte	.LASF142
+ 345 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 346 001d 00000000 		.4byte	0
+ 347 0021 00000000 		.4byte	.Ldebug_line0
+ 348 0025 02       		.uleb128 0x2
+ 349 0026 01       		.byte	0x1
+ 350 0027 06       		.byte	0x6
+ 351 0028 72050000 		.4byte	.LASF0
+ 352 002c 02       		.uleb128 0x2
+ 353 002d 01       		.byte	0x1
+ 354 002e 08       		.byte	0x8
+ 355 002f 85040000 		.4byte	.LASF1
+ 356 0033 02       		.uleb128 0x2
+ 357 0034 02       		.byte	0x2
+ 358 0035 05       		.byte	0x5
+ 359 0036 80030000 		.4byte	.LASF2
+ 360 003a 02       		.uleb128 0x2
+ 361 003b 02       		.byte	0x2
+ 362 003c 07       		.byte	0x7
+ 363 003d 85050000 		.4byte	.LASF3
+ 364 0041 03       		.uleb128 0x3
+ 365 0042 60000000 		.4byte	.LASF9
+ 366 0046 02       		.byte	0x2
+ 367 0047 3F       		.byte	0x3f
+ 368 0048 4C000000 		.4byte	0x4c
+ 369 004c 02       		.uleb128 0x2
+ 370 004d 04       		.byte	0x4
+ 371 004e 05       		.byte	0x5
+ 372 004f 8A030000 		.4byte	.LASF4
+ 373 0053 02       		.uleb128 0x2
+ 374 0054 04       		.byte	0x4
+ 375 0055 07       		.byte	0x7
+ 376 0056 49040000 		.4byte	.LASF5
+ 377 005a 02       		.uleb128 0x2
+ 378 005b 08       		.byte	0x8
+ 379 005c 05       		.byte	0x5
+ 380 005d C9020000 		.4byte	.LASF6
+ 381 0061 02       		.uleb128 0x2
+ 382 0062 08       		.byte	0x8
+ 383 0063 07       		.byte	0x7
+ 384 0064 67010000 		.4byte	.LASF7
+ 385 0068 04       		.uleb128 0x4
+ 386 0069 04       		.byte	0x4
+ 387 006a 05       		.byte	0x5
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 10
+
+
+ 388 006b 696E7400 		.ascii	"int\000"
+ 389 006f 02       		.uleb128 0x2
+ 390 0070 04       		.byte	0x4
+ 391 0071 07       		.byte	0x7
+ 392 0072 43000000 		.4byte	.LASF8
+ 393 0076 03       		.uleb128 0x3
+ 394 0077 69040000 		.4byte	.LASF10
+ 395 007b 03       		.byte	0x3
+ 396 007c 2C       		.byte	0x2c
+ 397 007d 41000000 		.4byte	0x41
+ 398 0081 02       		.uleb128 0x2
+ 399 0082 04       		.byte	0x4
+ 400 0083 04       		.byte	0x4
+ 401 0084 33010000 		.4byte	.LASF11
+ 402 0088 02       		.uleb128 0x2
+ 403 0089 08       		.byte	0x8
+ 404 008a 04       		.byte	0x4
+ 405 008b A7050000 		.4byte	.LASF12
+ 406 008f 02       		.uleb128 0x2
+ 407 0090 01       		.byte	0x1
+ 408 0091 08       		.byte	0x8
+ 409 0092 44020000 		.4byte	.LASF13
+ 410 0096 05       		.uleb128 0x5
+ 411 0097 04       		.byte	0x4
+ 412 0098 9C000000 		.4byte	0x9c
+ 413 009c 06       		.uleb128 0x6
+ 414 009d 03       		.uleb128 0x3
+ 415 009e B7010000 		.4byte	.LASF14
+ 416 00a2 04       		.byte	0x4
+ 417 00a3 D4       		.byte	0xd4
+ 418 00a4 6F000000 		.4byte	0x6f
+ 419 00a8 03       		.uleb128 0x3
+ 420 00a9 C4000000 		.4byte	.LASF15
+ 421 00ad 05       		.byte	0x5
+ 422 00ae 07       		.byte	0x7
+ 423 00af 68000000 		.4byte	0x68
+ 424 00b3 03       		.uleb128 0x3
+ 425 00b4 AE050000 		.4byte	.LASF16
+ 426 00b8 06       		.byte	0x6
+ 427 00b9 10       		.byte	0x10
+ 428 00ba 4C000000 		.4byte	0x4c
+ 429 00be 03       		.uleb128 0x3
+ 430 00bf F2000000 		.4byte	.LASF17
+ 431 00c3 06       		.byte	0x6
+ 432 00c4 27       		.byte	0x27
+ 433 00c5 4C000000 		.4byte	0x4c
+ 434 00c9 07       		.uleb128 0x7
+ 435 00ca 62040000 		.4byte	.LASF18
+ 436 00ce 04       		.byte	0x4
+ 437 00cf 6101     		.2byte	0x161
+ 438 00d1 6F000000 		.4byte	0x6f
+ 439 00d5 08       		.uleb128 0x8
+ 440 00d6 04       		.byte	0x4
+ 441 00d7 06       		.byte	0x6
+ 442 00d8 4A       		.byte	0x4a
+ 443 00d9 F4000000 		.4byte	0xf4
+ 444 00dd 09       		.uleb128 0x9
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 11
+
+
+ 445 00de 7E020000 		.4byte	.LASF19
+ 446 00e2 06       		.byte	0x6
+ 447 00e3 4C       		.byte	0x4c
+ 448 00e4 C9000000 		.4byte	0xc9
+ 449 00e8 09       		.uleb128 0x9
+ 450 00e9 C1030000 		.4byte	.LASF20
+ 451 00ed 06       		.byte	0x6
+ 452 00ee 4D       		.byte	0x4d
+ 453 00ef F4000000 		.4byte	0xf4
+ 454 00f3 00       		.byte	0
+ 455 00f4 0A       		.uleb128 0xa
+ 456 00f5 2C000000 		.4byte	0x2c
+ 457 00f9 04010000 		.4byte	0x104
+ 458 00fd 0B       		.uleb128 0xb
+ 459 00fe 04010000 		.4byte	0x104
+ 460 0102 03       		.byte	0x3
+ 461 0103 00       		.byte	0
+ 462 0104 02       		.uleb128 0x2
+ 463 0105 04       		.byte	0x4
+ 464 0106 07       		.byte	0x7
+ 465 0107 35040000 		.4byte	.LASF21
+ 466 010b 0C       		.uleb128 0xc
+ 467 010c 08       		.byte	0x8
+ 468 010d 06       		.byte	0x6
+ 469 010e 47       		.byte	0x47
+ 470 010f 2C010000 		.4byte	0x12c
+ 471 0113 0D       		.uleb128 0xd
+ 472 0114 2B010000 		.4byte	.LASF22
+ 473 0118 06       		.byte	0x6
+ 474 0119 49       		.byte	0x49
+ 475 011a 68000000 		.4byte	0x68
+ 476 011e 00       		.byte	0
+ 477 011f 0D       		.uleb128 0xd
+ 478 0120 19020000 		.4byte	.LASF23
+ 479 0124 06       		.byte	0x6
+ 480 0125 4E       		.byte	0x4e
+ 481 0126 D5000000 		.4byte	0xd5
+ 482 012a 04       		.byte	0x4
+ 483 012b 00       		.byte	0
+ 484 012c 03       		.uleb128 0x3
+ 485 012d 1B030000 		.4byte	.LASF24
+ 486 0131 06       		.byte	0x6
+ 487 0132 4F       		.byte	0x4f
+ 488 0133 0B010000 		.4byte	0x10b
+ 489 0137 03       		.uleb128 0x3
+ 490 0138 75020000 		.4byte	.LASF25
+ 491 013c 06       		.byte	0x6
+ 492 013d 53       		.byte	0x53
+ 493 013e A8000000 		.4byte	0xa8
+ 494 0142 0E       		.uleb128 0xe
+ 495 0143 04       		.byte	0x4
+ 496 0144 03       		.uleb128 0x3
+ 497 0145 F4020000 		.4byte	.LASF26
+ 498 0149 07       		.byte	0x7
+ 499 014a 16       		.byte	0x16
+ 500 014b 53000000 		.4byte	0x53
+ 501 014f 0F       		.uleb128 0xf
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 12
+
+
+ 502 0150 07010000 		.4byte	.LASF31
+ 503 0154 18       		.byte	0x18
+ 504 0155 07       		.byte	0x7
+ 505 0156 2D       		.byte	0x2d
+ 506 0157 A2010000 		.4byte	0x1a2
+ 507 015b 0D       		.uleb128 0xd
+ 508 015c EA010000 		.4byte	.LASF27
+ 509 0160 07       		.byte	0x7
+ 510 0161 2F       		.byte	0x2f
+ 511 0162 A2010000 		.4byte	0x1a2
+ 512 0166 00       		.byte	0
+ 513 0167 10       		.uleb128 0x10
+ 514 0168 5F6B00   		.ascii	"_k\000"
+ 515 016b 07       		.byte	0x7
+ 516 016c 30       		.byte	0x30
+ 517 016d 68000000 		.4byte	0x68
+ 518 0171 04       		.byte	0x4
+ 519 0172 0D       		.uleb128 0xd
+ 520 0173 FD030000 		.4byte	.LASF28
+ 521 0177 07       		.byte	0x7
+ 522 0178 30       		.byte	0x30
+ 523 0179 68000000 		.4byte	0x68
+ 524 017d 08       		.byte	0x8
+ 525 017e 0D       		.uleb128 0xd
+ 526 017f A5030000 		.4byte	.LASF29
+ 527 0183 07       		.byte	0x7
+ 528 0184 30       		.byte	0x30
+ 529 0185 68000000 		.4byte	0x68
+ 530 0189 0C       		.byte	0xc
+ 531 018a 0D       		.uleb128 0xd
+ 532 018b 93010000 		.4byte	.LASF30
+ 533 018f 07       		.byte	0x7
+ 534 0190 30       		.byte	0x30
+ 535 0191 68000000 		.4byte	0x68
+ 536 0195 10       		.byte	0x10
+ 537 0196 10       		.uleb128 0x10
+ 538 0197 5F7800   		.ascii	"_x\000"
+ 539 019a 07       		.byte	0x7
+ 540 019b 31       		.byte	0x31
+ 541 019c A8010000 		.4byte	0x1a8
+ 542 01a0 14       		.byte	0x14
+ 543 01a1 00       		.byte	0
+ 544 01a2 05       		.uleb128 0x5
+ 545 01a3 04       		.byte	0x4
+ 546 01a4 4F010000 		.4byte	0x14f
+ 547 01a8 0A       		.uleb128 0xa
+ 548 01a9 44010000 		.4byte	0x144
+ 549 01ad B8010000 		.4byte	0x1b8
+ 550 01b1 0B       		.uleb128 0xb
+ 551 01b2 04010000 		.4byte	0x104
+ 552 01b6 00       		.byte	0
+ 553 01b7 00       		.byte	0
+ 554 01b8 0F       		.uleb128 0xf
+ 555 01b9 2A040000 		.4byte	.LASF32
+ 556 01bd 24       		.byte	0x24
+ 557 01be 07       		.byte	0x7
+ 558 01bf 35       		.byte	0x35
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 13
+
+
+ 559 01c0 31020000 		.4byte	0x231
+ 560 01c4 0D       		.uleb128 0xd
+ 561 01c5 BE010000 		.4byte	.LASF33
+ 562 01c9 07       		.byte	0x7
+ 563 01ca 37       		.byte	0x37
+ 564 01cb 68000000 		.4byte	0x68
+ 565 01cf 00       		.byte	0
+ 566 01d0 0D       		.uleb128 0xd
+ 567 01d1 39010000 		.4byte	.LASF34
+ 568 01d5 07       		.byte	0x7
+ 569 01d6 38       		.byte	0x38
+ 570 01d7 68000000 		.4byte	0x68
+ 571 01db 04       		.byte	0x4
+ 572 01dc 0D       		.uleb128 0xd
+ 573 01dd 21010000 		.4byte	.LASF35
+ 574 01e1 07       		.byte	0x7
+ 575 01e2 39       		.byte	0x39
+ 576 01e3 68000000 		.4byte	0x68
+ 577 01e7 08       		.byte	0x8
+ 578 01e8 0D       		.uleb128 0xd
+ 579 01e9 49020000 		.4byte	.LASF36
+ 580 01ed 07       		.byte	0x7
+ 581 01ee 3A       		.byte	0x3a
+ 582 01ef 68000000 		.4byte	0x68
+ 583 01f3 0C       		.byte	0xc
+ 584 01f4 0D       		.uleb128 0xd
+ 585 01f5 45030000 		.4byte	.LASF37
+ 586 01f9 07       		.byte	0x7
+ 587 01fa 3B       		.byte	0x3b
+ 588 01fb 68000000 		.4byte	0x68
+ 589 01ff 10       		.byte	0x10
+ 590 0200 0D       		.uleb128 0xd
+ 591 0201 C8030000 		.4byte	.LASF38
+ 592 0205 07       		.byte	0x7
+ 593 0206 3C       		.byte	0x3c
+ 594 0207 68000000 		.4byte	0x68
+ 595 020b 14       		.byte	0x14
+ 596 020c 0D       		.uleb128 0xd
+ 597 020d 0F010000 		.4byte	.LASF39
+ 598 0211 07       		.byte	0x7
+ 599 0212 3D       		.byte	0x3d
+ 600 0213 68000000 		.4byte	0x68
+ 601 0217 18       		.byte	0x18
+ 602 0218 0D       		.uleb128 0xd
+ 603 0219 D0010000 		.4byte	.LASF40
+ 604 021d 07       		.byte	0x7
+ 605 021e 3E       		.byte	0x3e
+ 606 021f 68000000 		.4byte	0x68
+ 607 0223 1C       		.byte	0x1c
+ 608 0224 0D       		.uleb128 0xd
+ 609 0225 26030000 		.4byte	.LASF41
+ 610 0229 07       		.byte	0x7
+ 611 022a 3F       		.byte	0x3f
+ 612 022b 68000000 		.4byte	0x68
+ 613 022f 20       		.byte	0x20
+ 614 0230 00       		.byte	0
+ 615 0231 11       		.uleb128 0x11
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 14
+
+
+ 616 0232 16000000 		.4byte	.LASF42
+ 617 0236 0801     		.2byte	0x108
+ 618 0238 07       		.byte	0x7
+ 619 0239 48       		.byte	0x48
+ 620 023a 71020000 		.4byte	0x271
+ 621 023e 0D       		.uleb128 0xd
+ 622 023f 6A050000 		.4byte	.LASF43
+ 623 0243 07       		.byte	0x7
+ 624 0244 49       		.byte	0x49
+ 625 0245 71020000 		.4byte	0x271
+ 626 0249 00       		.byte	0
+ 627 024a 0D       		.uleb128 0xd
+ 628 024b 71040000 		.4byte	.LASF44
+ 629 024f 07       		.byte	0x7
+ 630 0250 4A       		.byte	0x4a
+ 631 0251 71020000 		.4byte	0x271
+ 632 0255 80       		.byte	0x80
+ 633 0256 12       		.uleb128 0x12
+ 634 0257 98050000 		.4byte	.LASF45
+ 635 025b 07       		.byte	0x7
+ 636 025c 4C       		.byte	0x4c
+ 637 025d 44010000 		.4byte	0x144
+ 638 0261 0001     		.2byte	0x100
+ 639 0263 12       		.uleb128 0x12
+ 640 0264 D5050000 		.4byte	.LASF46
+ 641 0268 07       		.byte	0x7
+ 642 0269 4F       		.byte	0x4f
+ 643 026a 44010000 		.4byte	0x144
+ 644 026e 0401     		.2byte	0x104
+ 645 0270 00       		.byte	0
+ 646 0271 0A       		.uleb128 0xa
+ 647 0272 42010000 		.4byte	0x142
+ 648 0276 81020000 		.4byte	0x281
+ 649 027a 0B       		.uleb128 0xb
+ 650 027b 04010000 		.4byte	0x104
+ 651 027f 1F       		.byte	0x1f
+ 652 0280 00       		.byte	0
+ 653 0281 11       		.uleb128 0x11
+ 654 0282 69030000 		.4byte	.LASF47
+ 655 0286 9001     		.2byte	0x190
+ 656 0288 07       		.byte	0x7
+ 657 0289 5B       		.byte	0x5b
+ 658 028a BF020000 		.4byte	0x2bf
+ 659 028e 0D       		.uleb128 0xd
+ 660 028f EA010000 		.4byte	.LASF27
+ 661 0293 07       		.byte	0x7
+ 662 0294 5C       		.byte	0x5c
+ 663 0295 BF020000 		.4byte	0x2bf
+ 664 0299 00       		.byte	0
+ 665 029a 0D       		.uleb128 0xd
+ 666 029b DF010000 		.4byte	.LASF48
+ 667 029f 07       		.byte	0x7
+ 668 02a0 5D       		.byte	0x5d
+ 669 02a1 68000000 		.4byte	0x68
+ 670 02a5 04       		.byte	0x4
+ 671 02a6 0D       		.uleb128 0xd
+ 672 02a7 FA000000 		.4byte	.LASF49
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 15
+
+
+ 673 02ab 07       		.byte	0x7
+ 674 02ac 5F       		.byte	0x5f
+ 675 02ad C5020000 		.4byte	0x2c5
+ 676 02b1 08       		.byte	0x8
+ 677 02b2 0D       		.uleb128 0xd
+ 678 02b3 16000000 		.4byte	.LASF42
+ 679 02b7 07       		.byte	0x7
+ 680 02b8 60       		.byte	0x60
+ 681 02b9 31020000 		.4byte	0x231
+ 682 02bd 88       		.byte	0x88
+ 683 02be 00       		.byte	0
+ 684 02bf 05       		.uleb128 0x5
+ 685 02c0 04       		.byte	0x4
+ 686 02c1 81020000 		.4byte	0x281
+ 687 02c5 0A       		.uleb128 0xa
+ 688 02c6 96000000 		.4byte	0x96
+ 689 02ca D5020000 		.4byte	0x2d5
+ 690 02ce 0B       		.uleb128 0xb
+ 691 02cf 04010000 		.4byte	0x104
+ 692 02d3 1F       		.byte	0x1f
+ 693 02d4 00       		.byte	0
+ 694 02d5 0F       		.uleb128 0xf
+ 695 02d6 3A050000 		.4byte	.LASF50
+ 696 02da 08       		.byte	0x8
+ 697 02db 07       		.byte	0x7
+ 698 02dc 73       		.byte	0x73
+ 699 02dd FA020000 		.4byte	0x2fa
+ 700 02e1 0D       		.uleb128 0xd
+ 701 02e2 DE020000 		.4byte	.LASF51
+ 702 02e6 07       		.byte	0x7
+ 703 02e7 74       		.byte	0x74
+ 704 02e8 FA020000 		.4byte	0x2fa
+ 705 02ec 00       		.byte	0
+ 706 02ed 0D       		.uleb128 0xd
+ 707 02ee A1050000 		.4byte	.LASF52
+ 708 02f2 07       		.byte	0x7
+ 709 02f3 75       		.byte	0x75
+ 710 02f4 68000000 		.4byte	0x68
+ 711 02f8 04       		.byte	0x4
+ 712 02f9 00       		.byte	0
+ 713 02fa 05       		.uleb128 0x5
+ 714 02fb 04       		.byte	0x4
+ 715 02fc 2C000000 		.4byte	0x2c
+ 716 0300 0F       		.uleb128 0xf
+ 717 0301 8B010000 		.4byte	.LASF53
+ 718 0305 68       		.byte	0x68
+ 719 0306 07       		.byte	0x7
+ 720 0307 B3       		.byte	0xb3
+ 721 0308 2A040000 		.4byte	0x42a
+ 722 030c 10       		.uleb128 0x10
+ 723 030d 5F7000   		.ascii	"_p\000"
+ 724 0310 07       		.byte	0x7
+ 725 0311 B4       		.byte	0xb4
+ 726 0312 FA020000 		.4byte	0x2fa
+ 727 0316 00       		.byte	0
+ 728 0317 10       		.uleb128 0x10
+ 729 0318 5F7200   		.ascii	"_r\000"
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 16
+
+
+ 730 031b 07       		.byte	0x7
+ 731 031c B5       		.byte	0xb5
+ 732 031d 68000000 		.4byte	0x68
+ 733 0321 04       		.byte	0x4
+ 734 0322 10       		.uleb128 0x10
+ 735 0323 5F7700   		.ascii	"_w\000"
+ 736 0326 07       		.byte	0x7
+ 737 0327 B6       		.byte	0xb6
+ 738 0328 68000000 		.4byte	0x68
+ 739 032c 08       		.byte	0x8
+ 740 032d 0D       		.uleb128 0xd
+ 741 032e 59000000 		.4byte	.LASF54
+ 742 0332 07       		.byte	0x7
+ 743 0333 B7       		.byte	0xb7
+ 744 0334 33000000 		.4byte	0x33
+ 745 0338 0C       		.byte	0xc
+ 746 0339 0D       		.uleb128 0xd
+ 747 033a 0B030000 		.4byte	.LASF55
+ 748 033e 07       		.byte	0x7
+ 749 033f B8       		.byte	0xb8
+ 750 0340 33000000 		.4byte	0x33
+ 751 0344 0E       		.byte	0xe
+ 752 0345 10       		.uleb128 0x10
+ 753 0346 5F626600 		.ascii	"_bf\000"
+ 754 034a 07       		.byte	0x7
+ 755 034b B9       		.byte	0xb9
+ 756 034c D5020000 		.4byte	0x2d5
+ 757 0350 10       		.byte	0x10
+ 758 0351 0D       		.uleb128 0xd
+ 759 0352 50000000 		.4byte	.LASF56
+ 760 0356 07       		.byte	0x7
+ 761 0357 BA       		.byte	0xba
+ 762 0358 68000000 		.4byte	0x68
+ 763 035c 18       		.byte	0x18
+ 764 035d 0D       		.uleb128 0xd
+ 765 035e FF000000 		.4byte	.LASF57
+ 766 0362 07       		.byte	0x7
+ 767 0363 C1       		.byte	0xc1
+ 768 0364 42010000 		.4byte	0x142
+ 769 0368 1C       		.byte	0x1c
+ 770 0369 0D       		.uleb128 0xd
+ 771 036a D6000000 		.4byte	.LASF58
+ 772 036e 07       		.byte	0x7
+ 773 036f C3       		.byte	0xc3
+ 774 0370 86050000 		.4byte	0x586
+ 775 0374 20       		.byte	0x20
+ 776 0375 0D       		.uleb128 0xd
+ 777 0376 58030000 		.4byte	.LASF59
+ 778 037a 07       		.byte	0x7
+ 779 037b C5       		.byte	0xc5
+ 780 037c B5050000 		.4byte	0x5b5
+ 781 0380 24       		.byte	0x24
+ 782 0381 0D       		.uleb128 0xd
+ 783 0382 EE050000 		.4byte	.LASF60
+ 784 0386 07       		.byte	0x7
+ 785 0387 C8       		.byte	0xc8
+ 786 0388 D9050000 		.4byte	0x5d9
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 17
+
+
+ 787 038c 28       		.byte	0x28
+ 788 038d 0D       		.uleb128 0xd
+ 789 038e 99020000 		.4byte	.LASF61
+ 790 0392 07       		.byte	0x7
+ 791 0393 C9       		.byte	0xc9
+ 792 0394 F3050000 		.4byte	0x5f3
+ 793 0398 2C       		.byte	0x2c
+ 794 0399 10       		.uleb128 0x10
+ 795 039a 5F756200 		.ascii	"_ub\000"
+ 796 039e 07       		.byte	0x7
+ 797 039f CC       		.byte	0xcc
+ 798 03a0 D5020000 		.4byte	0x2d5
+ 799 03a4 30       		.byte	0x30
+ 800 03a5 10       		.uleb128 0x10
+ 801 03a6 5F757000 		.ascii	"_up\000"
+ 802 03aa 07       		.byte	0x7
+ 803 03ab CD       		.byte	0xcd
+ 804 03ac FA020000 		.4byte	0x2fa
+ 805 03b0 38       		.byte	0x38
+ 806 03b1 10       		.uleb128 0x10
+ 807 03b2 5F757200 		.ascii	"_ur\000"
+ 808 03b6 07       		.byte	0x7
+ 809 03b7 CE       		.byte	0xce
+ 810 03b8 68000000 		.4byte	0x68
+ 811 03bc 3C       		.byte	0x3c
+ 812 03bd 0D       		.uleb128 0xd
+ 813 03be 05060000 		.4byte	.LASF62
+ 814 03c2 07       		.byte	0x7
+ 815 03c3 D1       		.byte	0xd1
+ 816 03c4 F9050000 		.4byte	0x5f9
+ 817 03c8 40       		.byte	0x40
+ 818 03c9 0D       		.uleb128 0xd
+ 819 03ca B5050000 		.4byte	.LASF63
+ 820 03ce 07       		.byte	0x7
+ 821 03cf D2       		.byte	0xd2
+ 822 03d0 09060000 		.4byte	0x609
+ 823 03d4 43       		.byte	0x43
+ 824 03d5 10       		.uleb128 0x10
+ 825 03d6 5F6C6200 		.ascii	"_lb\000"
+ 826 03da 07       		.byte	0x7
+ 827 03db D5       		.byte	0xd5
+ 828 03dc D5020000 		.4byte	0x2d5
+ 829 03e0 44       		.byte	0x44
+ 830 03e1 0D       		.uleb128 0xd
+ 831 03e2 21040000 		.4byte	.LASF64
+ 832 03e6 07       		.byte	0x7
+ 833 03e7 D8       		.byte	0xd8
+ 834 03e8 68000000 		.4byte	0x68
+ 835 03ec 4C       		.byte	0x4c
+ 836 03ed 0D       		.uleb128 0xd
+ 837 03ee 9F010000 		.4byte	.LASF65
+ 838 03f2 07       		.byte	0x7
+ 839 03f3 D9       		.byte	0xd9
+ 840 03f4 B3000000 		.4byte	0xb3
+ 841 03f8 50       		.byte	0x50
+ 842 03f9 0D       		.uleb128 0xd
+ 843 03fa BB030000 		.4byte	.LASF66
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 18
+
+
+ 844 03fe 07       		.byte	0x7
+ 845 03ff DC       		.byte	0xdc
+ 846 0400 48040000 		.4byte	0x448
+ 847 0404 54       		.byte	0x54
+ 848 0405 0D       		.uleb128 0xd
+ 849 0406 2F040000 		.4byte	.LASF67
+ 850 040a 07       		.byte	0x7
+ 851 040b E0       		.byte	0xe0
+ 852 040c 37010000 		.4byte	0x137
+ 853 0410 58       		.byte	0x58
+ 854 0411 0D       		.uleb128 0xd
+ 855 0412 71030000 		.4byte	.LASF68
+ 856 0416 07       		.byte	0x7
+ 857 0417 E2       		.byte	0xe2
+ 858 0418 2C010000 		.4byte	0x12c
+ 859 041c 5C       		.byte	0x5c
+ 860 041d 0D       		.uleb128 0xd
+ 861 041e CD050000 		.4byte	.LASF69
+ 862 0422 07       		.byte	0x7
+ 863 0423 E3       		.byte	0xe3
+ 864 0424 68000000 		.4byte	0x68
+ 865 0428 64       		.byte	0x64
+ 866 0429 00       		.byte	0
+ 867 042a 13       		.uleb128 0x13
+ 868 042b 68000000 		.4byte	0x68
+ 869 042f 48040000 		.4byte	0x448
+ 870 0433 14       		.uleb128 0x14
+ 871 0434 48040000 		.4byte	0x448
+ 872 0438 14       		.uleb128 0x14
+ 873 0439 42010000 		.4byte	0x142
+ 874 043d 14       		.uleb128 0x14
+ 875 043e 80050000 		.4byte	0x580
+ 876 0442 14       		.uleb128 0x14
+ 877 0443 68000000 		.4byte	0x68
+ 878 0447 00       		.byte	0
+ 879 0448 05       		.uleb128 0x5
+ 880 0449 04       		.byte	0x4
+ 881 044a 4E040000 		.4byte	0x44e
+ 882 044e 15       		.uleb128 0x15
+ 883 044f 7E050000 		.4byte	.LASF70
+ 884 0453 2804     		.2byte	0x428
+ 885 0455 07       		.byte	0x7
+ 886 0456 3902     		.2byte	0x239
+ 887 0458 80050000 		.4byte	0x580
+ 888 045c 16       		.uleb128 0x16
+ 889 045d 6A000000 		.4byte	.LASF71
+ 890 0461 07       		.byte	0x7
+ 891 0462 3B02     		.2byte	0x23b
+ 892 0464 68000000 		.4byte	0x68
+ 893 0468 00       		.byte	0
+ 894 0469 16       		.uleb128 0x16
+ 895 046a B3020000 		.4byte	.LASF72
+ 896 046e 07       		.byte	0x7
+ 897 046f 4002     		.2byte	0x240
+ 898 0471 60060000 		.4byte	0x660
+ 899 0475 04       		.byte	0x4
+ 900 0476 16       		.uleb128 0x16
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 19
+
+
+ 901 0477 EA000000 		.4byte	.LASF73
+ 902 047b 07       		.byte	0x7
+ 903 047c 4002     		.2byte	0x240
+ 904 047e 60060000 		.4byte	0x660
+ 905 0482 08       		.byte	0x8
+ 906 0483 16       		.uleb128 0x16
+ 907 0484 F4050000 		.4byte	.LASF74
+ 908 0488 07       		.byte	0x7
+ 909 0489 4002     		.2byte	0x240
+ 910 048b 60060000 		.4byte	0x660
+ 911 048f 0C       		.byte	0xc
+ 912 0490 16       		.uleb128 0x16
+ 913 0491 DA010000 		.4byte	.LASF75
+ 914 0495 07       		.byte	0x7
+ 915 0496 4202     		.2byte	0x242
+ 916 0498 68000000 		.4byte	0x68
+ 917 049c 10       		.byte	0x10
+ 918 049d 16       		.uleb128 0x16
+ 919 049e A7010000 		.4byte	.LASF76
+ 920 04a2 07       		.byte	0x7
+ 921 04a3 4302     		.2byte	0x243
+ 922 04a5 42080000 		.4byte	0x842
+ 923 04a9 14       		.byte	0x14
+ 924 04aa 16       		.uleb128 0x16
+ 925 04ab 0F040000 		.4byte	.LASF77
+ 926 04af 07       		.byte	0x7
+ 927 04b0 4502     		.2byte	0x245
+ 928 04b2 68000000 		.4byte	0x68
+ 929 04b6 30       		.byte	0x30
+ 930 04b7 16       		.uleb128 0x16
+ 931 04b8 AB030000 		.4byte	.LASF78
+ 932 04bc 07       		.byte	0x7
+ 933 04bd 4602     		.2byte	0x246
+ 934 04bf AA050000 		.4byte	0x5aa
+ 935 04c3 34       		.byte	0x34
+ 936 04c4 16       		.uleb128 0x16
+ 937 04c5 A0020000 		.4byte	.LASF79
+ 938 04c9 07       		.byte	0x7
+ 939 04ca 4802     		.2byte	0x248
+ 940 04cc 68000000 		.4byte	0x68
+ 941 04d0 38       		.byte	0x38
+ 942 04d1 16       		.uleb128 0x16
+ 943 04d2 11030000 		.4byte	.LASF80
+ 944 04d6 07       		.byte	0x7
+ 945 04d7 4A02     		.2byte	0x24a
+ 946 04d9 5D080000 		.4byte	0x85d
+ 947 04dd 3C       		.byte	0x3c
+ 948 04de 16       		.uleb128 0x16
+ 949 04df 19010000 		.4byte	.LASF81
+ 950 04e3 07       		.byte	0x7
+ 951 04e4 4D02     		.2byte	0x24d
+ 952 04e6 A2010000 		.4byte	0x1a2
+ 953 04ea 40       		.byte	0x40
+ 954 04eb 16       		.uleb128 0x16
+ 955 04ec 5D010000 		.4byte	.LASF82
+ 956 04f0 07       		.byte	0x7
+ 957 04f1 4E02     		.2byte	0x24e
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 20
+
+
+ 958 04f3 68000000 		.4byte	0x68
+ 959 04f7 44       		.byte	0x44
+ 960 04f8 16       		.uleb128 0x16
+ 961 04f9 21020000 		.4byte	.LASF83
+ 962 04fd 07       		.byte	0x7
+ 963 04fe 4F02     		.2byte	0x24f
+ 964 0500 A2010000 		.4byte	0x1a2
+ 965 0504 48       		.byte	0x48
+ 966 0505 16       		.uleb128 0x16
+ 967 0506 E4020000 		.4byte	.LASF84
+ 968 050a 07       		.byte	0x7
+ 969 050b 5002     		.2byte	0x250
+ 970 050d 63080000 		.4byte	0x863
+ 971 0511 4C       		.byte	0x4c
+ 972 0512 16       		.uleb128 0x16
+ 973 0513 F5030000 		.4byte	.LASF85
+ 974 0517 07       		.byte	0x7
+ 975 0518 5302     		.2byte	0x253
+ 976 051a 68000000 		.4byte	0x68
+ 977 051e 50       		.byte	0x50
+ 978 051f 16       		.uleb128 0x16
+ 979 0520 7D040000 		.4byte	.LASF86
+ 980 0524 07       		.byte	0x7
+ 981 0525 5402     		.2byte	0x254
+ 982 0527 80050000 		.4byte	0x580
+ 983 052b 54       		.byte	0x54
+ 984 052c 16       		.uleb128 0x16
+ 985 052d E9030000 		.4byte	.LASF87
+ 986 0531 07       		.byte	0x7
+ 987 0532 7702     		.2byte	0x277
+ 988 0534 20080000 		.4byte	0x820
+ 989 0538 58       		.byte	0x58
+ 990 0539 17       		.uleb128 0x17
+ 991 053a 69030000 		.4byte	.LASF47
+ 992 053e 07       		.byte	0x7
+ 993 053f 7B02     		.2byte	0x27b
+ 994 0541 BF020000 		.4byte	0x2bf
+ 995 0545 4801     		.2byte	0x148
+ 996 0547 17       		.uleb128 0x17
+ 997 0548 6C020000 		.4byte	.LASF88
+ 998 054c 07       		.byte	0x7
+ 999 054d 7C02     		.2byte	0x27c
+ 1000 054f 81020000 		.4byte	0x281
+ 1001 0553 4C01     		.2byte	0x14c
+ 1002 0555 17       		.uleb128 0x17
+ 1003 0556 53020000 		.4byte	.LASF89
+ 1004 055a 07       		.byte	0x7
+ 1005 055b 8002     		.2byte	0x280
+ 1006 055d 74080000 		.4byte	0x874
+ 1007 0561 DC02     		.2byte	0x2dc
+ 1008 0563 17       		.uleb128 0x17
+ 1009 0564 47050000 		.4byte	.LASF90
+ 1010 0568 07       		.byte	0x7
+ 1011 0569 8502     		.2byte	0x285
+ 1012 056b 25060000 		.4byte	0x625
+ 1013 056f E002     		.2byte	0x2e0
+ 1014 0571 17       		.uleb128 0x17
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 21
+
+
+ 1015 0572 A0030000 		.4byte	.LASF91
+ 1016 0576 07       		.byte	0x7
+ 1017 0577 8602     		.2byte	0x286
+ 1018 0579 80080000 		.4byte	0x880
+ 1019 057d EC02     		.2byte	0x2ec
+ 1020 057f 00       		.byte	0
+ 1021 0580 05       		.uleb128 0x5
+ 1022 0581 04       		.byte	0x4
+ 1023 0582 8F000000 		.4byte	0x8f
+ 1024 0586 05       		.uleb128 0x5
+ 1025 0587 04       		.byte	0x4
+ 1026 0588 2A040000 		.4byte	0x42a
+ 1027 058c 13       		.uleb128 0x13
+ 1028 058d 68000000 		.4byte	0x68
+ 1029 0591 AA050000 		.4byte	0x5aa
+ 1030 0595 14       		.uleb128 0x14
+ 1031 0596 48040000 		.4byte	0x448
+ 1032 059a 14       		.uleb128 0x14
+ 1033 059b 42010000 		.4byte	0x142
+ 1034 059f 14       		.uleb128 0x14
+ 1035 05a0 AA050000 		.4byte	0x5aa
+ 1036 05a4 14       		.uleb128 0x14
+ 1037 05a5 68000000 		.4byte	0x68
+ 1038 05a9 00       		.byte	0
+ 1039 05aa 05       		.uleb128 0x5
+ 1040 05ab 04       		.byte	0x4
+ 1041 05ac B0050000 		.4byte	0x5b0
+ 1042 05b0 18       		.uleb128 0x18
+ 1043 05b1 8F000000 		.4byte	0x8f
+ 1044 05b5 05       		.uleb128 0x5
+ 1045 05b6 04       		.byte	0x4
+ 1046 05b7 8C050000 		.4byte	0x58c
+ 1047 05bb 13       		.uleb128 0x13
+ 1048 05bc BE000000 		.4byte	0xbe
+ 1049 05c0 D9050000 		.4byte	0x5d9
+ 1050 05c4 14       		.uleb128 0x14
+ 1051 05c5 48040000 		.4byte	0x448
+ 1052 05c9 14       		.uleb128 0x14
+ 1053 05ca 42010000 		.4byte	0x142
+ 1054 05ce 14       		.uleb128 0x14
+ 1055 05cf BE000000 		.4byte	0xbe
+ 1056 05d3 14       		.uleb128 0x14
+ 1057 05d4 68000000 		.4byte	0x68
+ 1058 05d8 00       		.byte	0
+ 1059 05d9 05       		.uleb128 0x5
+ 1060 05da 04       		.byte	0x4
+ 1061 05db BB050000 		.4byte	0x5bb
+ 1062 05df 13       		.uleb128 0x13
+ 1063 05e0 68000000 		.4byte	0x68
+ 1064 05e4 F3050000 		.4byte	0x5f3
+ 1065 05e8 14       		.uleb128 0x14
+ 1066 05e9 48040000 		.4byte	0x448
+ 1067 05ed 14       		.uleb128 0x14
+ 1068 05ee 42010000 		.4byte	0x142
+ 1069 05f2 00       		.byte	0
+ 1070 05f3 05       		.uleb128 0x5
+ 1071 05f4 04       		.byte	0x4
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 22
+
+
+ 1072 05f5 DF050000 		.4byte	0x5df
+ 1073 05f9 0A       		.uleb128 0xa
+ 1074 05fa 2C000000 		.4byte	0x2c
+ 1075 05fe 09060000 		.4byte	0x609
+ 1076 0602 0B       		.uleb128 0xb
+ 1077 0603 04010000 		.4byte	0x104
+ 1078 0607 02       		.byte	0x2
+ 1079 0608 00       		.byte	0
+ 1080 0609 0A       		.uleb128 0xa
+ 1081 060a 2C000000 		.4byte	0x2c
+ 1082 060e 19060000 		.4byte	0x619
+ 1083 0612 0B       		.uleb128 0xb
+ 1084 0613 04010000 		.4byte	0x104
+ 1085 0617 00       		.byte	0
+ 1086 0618 00       		.byte	0
+ 1087 0619 07       		.uleb128 0x7
+ 1088 061a 98010000 		.4byte	.LASF92
+ 1089 061e 07       		.byte	0x7
+ 1090 061f 1D01     		.2byte	0x11d
+ 1091 0621 00030000 		.4byte	0x300
+ 1092 0625 19       		.uleb128 0x19
+ 1093 0626 41050000 		.4byte	.LASF93
+ 1094 062a 0C       		.byte	0xc
+ 1095 062b 07       		.byte	0x7
+ 1096 062c 2101     		.2byte	0x121
+ 1097 062e 5A060000 		.4byte	0x65a
+ 1098 0632 16       		.uleb128 0x16
+ 1099 0633 EA010000 		.4byte	.LASF27
+ 1100 0637 07       		.byte	0x7
+ 1101 0638 2301     		.2byte	0x123
+ 1102 063a 5A060000 		.4byte	0x65a
+ 1103 063e 00       		.byte	0
+ 1104 063f 16       		.uleb128 0x16
+ 1105 0640 5B040000 		.4byte	.LASF94
+ 1106 0644 07       		.byte	0x7
+ 1107 0645 2401     		.2byte	0x124
+ 1108 0647 68000000 		.4byte	0x68
+ 1109 064b 04       		.byte	0x4
+ 1110 064c 16       		.uleb128 0x16
+ 1111 064d 84020000 		.4byte	.LASF95
+ 1112 0651 07       		.byte	0x7
+ 1113 0652 2501     		.2byte	0x125
+ 1114 0654 60060000 		.4byte	0x660
+ 1115 0658 08       		.byte	0x8
+ 1116 0659 00       		.byte	0
+ 1117 065a 05       		.uleb128 0x5
+ 1118 065b 04       		.byte	0x4
+ 1119 065c 25060000 		.4byte	0x625
+ 1120 0660 05       		.uleb128 0x5
+ 1121 0661 04       		.byte	0x4
+ 1122 0662 19060000 		.4byte	0x619
+ 1123 0666 19       		.uleb128 0x19
+ 1124 0667 55010000 		.4byte	.LASF96
+ 1125 066b 0E       		.byte	0xe
+ 1126 066c 07       		.byte	0x7
+ 1127 066d 3D01     		.2byte	0x13d
+ 1128 066f 9B060000 		.4byte	0x69b
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 23
+
+
+ 1129 0673 16       		.uleb128 0x16
+ 1130 0674 DD050000 		.4byte	.LASF97
+ 1131 0678 07       		.byte	0x7
+ 1132 0679 3E01     		.2byte	0x13e
+ 1133 067b 9B060000 		.4byte	0x69b
+ 1134 067f 00       		.byte	0
+ 1135 0680 16       		.uleb128 0x16
+ 1136 0681 EE020000 		.4byte	.LASF98
+ 1137 0685 07       		.byte	0x7
+ 1138 0686 3F01     		.2byte	0x13f
+ 1139 0688 9B060000 		.4byte	0x69b
+ 1140 068c 06       		.byte	0x6
+ 1141 068d 16       		.uleb128 0x16
+ 1142 068e 35050000 		.4byte	.LASF99
+ 1143 0692 07       		.byte	0x7
+ 1144 0693 4001     		.2byte	0x140
+ 1145 0695 3A000000 		.4byte	0x3a
+ 1146 0699 0C       		.byte	0xc
+ 1147 069a 00       		.byte	0
+ 1148 069b 0A       		.uleb128 0xa
+ 1149 069c 3A000000 		.4byte	0x3a
+ 1150 06a0 AB060000 		.4byte	0x6ab
+ 1151 06a4 0B       		.uleb128 0xb
+ 1152 06a5 04010000 		.4byte	0x104
+ 1153 06a9 02       		.byte	0x2
+ 1154 06aa 00       		.byte	0
+ 1155 06ab 1A       		.uleb128 0x1a
+ 1156 06ac D0       		.byte	0xd0
+ 1157 06ad 07       		.byte	0x7
+ 1158 06ae 5802     		.2byte	0x258
+ 1159 06b0 AC070000 		.4byte	0x7ac
+ 1160 06b4 16       		.uleb128 0x16
+ 1161 06b5 BB050000 		.4byte	.LASF100
+ 1162 06b9 07       		.byte	0x7
+ 1163 06ba 5A02     		.2byte	0x25a
+ 1164 06bc 6F000000 		.4byte	0x6f
+ 1165 06c0 00       		.byte	0
+ 1166 06c1 16       		.uleb128 0x16
+ 1167 06c2 4F050000 		.4byte	.LASF101
+ 1168 06c6 07       		.byte	0x7
+ 1169 06c7 5B02     		.2byte	0x25b
+ 1170 06c9 80050000 		.4byte	0x580
+ 1171 06cd 04       		.byte	0x4
+ 1172 06ce 16       		.uleb128 0x16
+ 1173 06cf 7E010000 		.4byte	.LASF102
+ 1174 06d3 07       		.byte	0x7
+ 1175 06d4 5C02     		.2byte	0x25c
+ 1176 06d6 AC070000 		.4byte	0x7ac
+ 1177 06da 08       		.byte	0x8
+ 1178 06db 16       		.uleb128 0x16
+ 1179 06dc D2030000 		.4byte	.LASF103
+ 1180 06e0 07       		.byte	0x7
+ 1181 06e1 5D02     		.2byte	0x25d
+ 1182 06e3 B8010000 		.4byte	0x1b8
+ 1183 06e7 24       		.byte	0x24
+ 1184 06e8 16       		.uleb128 0x16
+ 1185 06e9 BA020000 		.4byte	.LASF104
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 24
+
+
+ 1186 06ed 07       		.byte	0x7
+ 1187 06ee 5E02     		.2byte	0x25e
+ 1188 06f0 68000000 		.4byte	0x68
+ 1189 06f4 48       		.byte	0x48
+ 1190 06f5 16       		.uleb128 0x16
+ 1191 06f6 E3050000 		.4byte	.LASF105
+ 1192 06fa 07       		.byte	0x7
+ 1193 06fb 5F02     		.2byte	0x25f
+ 1194 06fd 61000000 		.4byte	0x61
+ 1195 0701 50       		.byte	0x50
+ 1196 0702 16       		.uleb128 0x16
+ 1197 0703 32000000 		.4byte	.LASF106
+ 1198 0707 07       		.byte	0x7
+ 1199 0708 6002     		.2byte	0x260
+ 1200 070a 66060000 		.4byte	0x666
+ 1201 070e 58       		.byte	0x58
+ 1202 070f 16       		.uleb128 0x16
+ 1203 0710 37020000 		.4byte	.LASF107
+ 1204 0714 07       		.byte	0x7
+ 1205 0715 6102     		.2byte	0x261
+ 1206 0717 2C010000 		.4byte	0x12c
+ 1207 071b 68       		.byte	0x68
+ 1208 071c 16       		.uleb128 0x16
+ 1209 071d 5C050000 		.4byte	.LASF108
+ 1210 0721 07       		.byte	0x7
+ 1211 0722 6202     		.2byte	0x262
+ 1212 0724 2C010000 		.4byte	0x12c
+ 1213 0728 70       		.byte	0x70
+ 1214 0729 16       		.uleb128 0x16
+ 1215 072a 24000000 		.4byte	.LASF109
+ 1216 072e 07       		.byte	0x7
+ 1217 072f 6302     		.2byte	0x263
+ 1218 0731 2C010000 		.4byte	0x12c
+ 1219 0735 78       		.byte	0x78
+ 1220 0736 16       		.uleb128 0x16
+ 1221 0737 05040000 		.4byte	.LASF110
+ 1222 073b 07       		.byte	0x7
+ 1223 073c 6402     		.2byte	0x264
+ 1224 073e BC070000 		.4byte	0x7bc
+ 1225 0742 80       		.byte	0x80
+ 1226 0743 16       		.uleb128 0x16
+ 1227 0744 37000000 		.4byte	.LASF111
+ 1228 0748 07       		.byte	0x7
+ 1229 0749 6502     		.2byte	0x265
+ 1230 074b CC070000 		.4byte	0x7cc
+ 1231 074f 88       		.byte	0x88
+ 1232 0750 16       		.uleb128 0x16
+ 1233 0751 21050000 		.4byte	.LASF112
+ 1234 0755 07       		.byte	0x7
+ 1235 0756 6602     		.2byte	0x266
+ 1236 0758 68000000 		.4byte	0x68
+ 1237 075c A0       		.byte	0xa0
+ 1238 075d 16       		.uleb128 0x16
+ 1239 075e DC000000 		.4byte	.LASF113
+ 1240 0762 07       		.byte	0x7
+ 1241 0763 6702     		.2byte	0x267
+ 1242 0765 2C010000 		.4byte	0x12c
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 25
+
+
+ 1243 0769 A4       		.byte	0xa4
+ 1244 076a 16       		.uleb128 0x16
+ 1245 076b 5D020000 		.4byte	.LASF114
+ 1246 076f 07       		.byte	0x7
+ 1247 0770 6802     		.2byte	0x268
+ 1248 0772 2C010000 		.4byte	0x12c
+ 1249 0776 AC       		.byte	0xac
+ 1250 0777 16       		.uleb128 0x16
+ 1251 0778 F0010000 		.4byte	.LASF115
+ 1252 077c 07       		.byte	0x7
+ 1253 077d 6902     		.2byte	0x269
+ 1254 077f 2C010000 		.4byte	0x12c
+ 1255 0783 B4       		.byte	0xb4
+ 1256 0784 16       		.uleb128 0x16
+ 1257 0785 FC020000 		.4byte	.LASF116
+ 1258 0789 07       		.byte	0x7
+ 1259 078a 6A02     		.2byte	0x26a
+ 1260 078c 2C010000 		.4byte	0x12c
+ 1261 0790 BC       		.byte	0xbc
+ 1262 0791 16       		.uleb128 0x16
+ 1263 0792 26020000 		.4byte	.LASF117
+ 1264 0796 07       		.byte	0x7
+ 1265 0797 6B02     		.2byte	0x26b
+ 1266 0799 2C010000 		.4byte	0x12c
+ 1267 079d C4       		.byte	0xc4
+ 1268 079e 16       		.uleb128 0x16
+ 1269 079f 31030000 		.4byte	.LASF118
+ 1270 07a3 07       		.byte	0x7
+ 1271 07a4 6C02     		.2byte	0x26c
+ 1272 07a6 68000000 		.4byte	0x68
+ 1273 07aa CC       		.byte	0xcc
+ 1274 07ab 00       		.byte	0
+ 1275 07ac 0A       		.uleb128 0xa
+ 1276 07ad 8F000000 		.4byte	0x8f
+ 1277 07b1 BC070000 		.4byte	0x7bc
+ 1278 07b5 0B       		.uleb128 0xb
+ 1279 07b6 04010000 		.4byte	0x104
+ 1280 07ba 19       		.byte	0x19
+ 1281 07bb 00       		.byte	0
+ 1282 07bc 0A       		.uleb128 0xa
+ 1283 07bd 8F000000 		.4byte	0x8f
+ 1284 07c1 CC070000 		.4byte	0x7cc
+ 1285 07c5 0B       		.uleb128 0xb
+ 1286 07c6 04010000 		.4byte	0x104
+ 1287 07ca 07       		.byte	0x7
+ 1288 07cb 00       		.byte	0
+ 1289 07cc 0A       		.uleb128 0xa
+ 1290 07cd 8F000000 		.4byte	0x8f
+ 1291 07d1 DC070000 		.4byte	0x7dc
+ 1292 07d5 0B       		.uleb128 0xb
+ 1293 07d6 04010000 		.4byte	0x104
+ 1294 07da 17       		.byte	0x17
+ 1295 07db 00       		.byte	0
+ 1296 07dc 1A       		.uleb128 0x1a
+ 1297 07dd F0       		.byte	0xf0
+ 1298 07de 07       		.byte	0x7
+ 1299 07df 7102     		.2byte	0x271
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 26
+
+
+ 1300 07e1 00080000 		.4byte	0x800
+ 1301 07e5 16       		.uleb128 0x16
+ 1302 07e6 4E010000 		.4byte	.LASF119
+ 1303 07ea 07       		.byte	0x7
+ 1304 07eb 7402     		.2byte	0x274
+ 1305 07ed 00080000 		.4byte	0x800
+ 1306 07f1 00       		.byte	0
+ 1307 07f2 16       		.uleb128 0x16
+ 1308 07f3 FC050000 		.4byte	.LASF120
+ 1309 07f7 07       		.byte	0x7
+ 1310 07f8 7502     		.2byte	0x275
+ 1311 07fa 10080000 		.4byte	0x810
+ 1312 07fe 78       		.byte	0x78
+ 1313 07ff 00       		.byte	0
+ 1314 0800 0A       		.uleb128 0xa
+ 1315 0801 FA020000 		.4byte	0x2fa
+ 1316 0805 10080000 		.4byte	0x810
+ 1317 0809 0B       		.uleb128 0xb
+ 1318 080a 04010000 		.4byte	0x104
+ 1319 080e 1D       		.byte	0x1d
+ 1320 080f 00       		.byte	0
+ 1321 0810 0A       		.uleb128 0xa
+ 1322 0811 6F000000 		.4byte	0x6f
+ 1323 0815 20080000 		.4byte	0x820
+ 1324 0819 0B       		.uleb128 0xb
+ 1325 081a 04010000 		.4byte	0x104
+ 1326 081e 1D       		.byte	0x1d
+ 1327 081f 00       		.byte	0
+ 1328 0820 1B       		.uleb128 0x1b
+ 1329 0821 F0       		.byte	0xf0
+ 1330 0822 07       		.byte	0x7
+ 1331 0823 5602     		.2byte	0x256
+ 1332 0825 42080000 		.4byte	0x842
+ 1333 0829 1C       		.uleb128 0x1c
+ 1334 082a 7E050000 		.4byte	.LASF70
+ 1335 082e 07       		.byte	0x7
+ 1336 082f 6D02     		.2byte	0x26d
+ 1337 0831 AB060000 		.4byte	0x6ab
+ 1338 0835 1C       		.uleb128 0x1c
+ 1339 0836 E1030000 		.4byte	.LASF121
+ 1340 083a 07       		.byte	0x7
+ 1341 083b 7602     		.2byte	0x276
+ 1342 083d DC070000 		.4byte	0x7dc
+ 1343 0841 00       		.byte	0
+ 1344 0842 0A       		.uleb128 0xa
+ 1345 0843 8F000000 		.4byte	0x8f
+ 1346 0847 52080000 		.4byte	0x852
+ 1347 084b 0B       		.uleb128 0xb
+ 1348 084c 04010000 		.4byte	0x104
+ 1349 0850 18       		.byte	0x18
+ 1350 0851 00       		.byte	0
+ 1351 0852 1D       		.uleb128 0x1d
+ 1352 0853 5D080000 		.4byte	0x85d
+ 1353 0857 14       		.uleb128 0x14
+ 1354 0858 48040000 		.4byte	0x448
+ 1355 085c 00       		.byte	0
+ 1356 085d 05       		.uleb128 0x5
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 27
+
+
+ 1357 085e 04       		.byte	0x4
+ 1358 085f 52080000 		.4byte	0x852
+ 1359 0863 05       		.uleb128 0x5
+ 1360 0864 04       		.byte	0x4
+ 1361 0865 A2010000 		.4byte	0x1a2
+ 1362 0869 1D       		.uleb128 0x1d
+ 1363 086a 74080000 		.4byte	0x874
+ 1364 086e 14       		.uleb128 0x14
+ 1365 086f 68000000 		.4byte	0x68
+ 1366 0873 00       		.byte	0
+ 1367 0874 05       		.uleb128 0x5
+ 1368 0875 04       		.byte	0x4
+ 1369 0876 7A080000 		.4byte	0x87a
+ 1370 087a 05       		.uleb128 0x5
+ 1371 087b 04       		.byte	0x4
+ 1372 087c 69080000 		.4byte	0x869
+ 1373 0880 0A       		.uleb128 0xa
+ 1374 0881 19060000 		.4byte	0x619
+ 1375 0885 90080000 		.4byte	0x890
+ 1376 0889 0B       		.uleb128 0xb
+ 1377 088a 04010000 		.4byte	0x104
+ 1378 088e 02       		.byte	0x2
+ 1379 088f 00       		.byte	0
+ 1380 0890 03       		.uleb128 0x3
+ 1381 0891 C8050000 		.4byte	.LASF122
+ 1382 0895 08       		.byte	0x8
+ 1383 0896 34       		.byte	0x34
+ 1384 0897 19060000 		.4byte	0x619
+ 1385 089b 0F       		.uleb128 0xf
+ 1386 089c E4010000 		.4byte	.LASF123
+ 1387 08a0 14       		.byte	0x14
+ 1388 08a1 01       		.byte	0x1
+ 1389 08a2 11       		.byte	0x11
+ 1390 08a3 C0080000 		.4byte	0x8c0
+ 1391 08a7 0D       		.uleb128 0xd
+ 1392 08a8 0A000000 		.4byte	.LASF124
+ 1393 08ac 01       		.byte	0x1
+ 1394 08ad 12       		.byte	0x12
+ 1395 08ae C0080000 		.4byte	0x8c0
+ 1396 08b2 00       		.byte	0
+ 1397 08b3 0D       		.uleb128 0xd
+ 1398 08b4 EE030000 		.4byte	.LASF125
+ 1399 08b8 01       		.byte	0x1
+ 1400 08b9 13       		.byte	0x13
+ 1401 08ba 68000000 		.4byte	0x68
+ 1402 08be 10       		.byte	0x10
+ 1403 08bf 00       		.byte	0
+ 1404 08c0 0A       		.uleb128 0xa
+ 1405 08c1 8F000000 		.4byte	0x8f
+ 1406 08c5 D0080000 		.4byte	0x8d0
+ 1407 08c9 0B       		.uleb128 0xb
+ 1408 08ca 04010000 		.4byte	0x104
+ 1409 08ce 0F       		.byte	0xf
+ 1410 08cf 00       		.byte	0
+ 1411 08d0 1E       		.uleb128 0x1e
+ 1412 08d1 3E040000 		.4byte	.LASF126
+ 1413 08d5 01       		.byte	0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 28
+
+
+ 1414 08d6 16       		.byte	0x16
+ 1415 08d7 00000000 		.4byte	.LFB63
+ 1416 08db 14000000 		.4byte	.LFE63-.LFB63
+ 1417 08df 01       		.uleb128 0x1
+ 1418 08e0 9C       		.byte	0x9c
+ 1419 08e1 0D090000 		.4byte	0x90d
+ 1420 08e5 1F       		.uleb128 0x1f
+ 1421 08e6 6D00     		.ascii	"m\000"
+ 1422 08e8 01       		.byte	0x1
+ 1423 08e9 16       		.byte	0x16
+ 1424 08ea 0D090000 		.4byte	0x90d
+ 1425 08ee 00000000 		.4byte	.LLST0
+ 1426 08f2 20       		.uleb128 0x20
+ 1427 08f3 0C000000 		.4byte	.LVL2
+ 1428 08f7 360B0000 		.4byte	0xb36
+ 1429 08fb 21       		.uleb128 0x21
+ 1430 08fc 01       		.uleb128 0x1
+ 1431 08fd 52       		.byte	0x52
+ 1432 08fe 03       		.uleb128 0x3
+ 1433 08ff F3       		.byte	0xf3
+ 1434 0900 01       		.uleb128 0x1
+ 1435 0901 50       		.byte	0x50
+ 1436 0902 21       		.uleb128 0x21
+ 1437 0903 01       		.uleb128 0x1
+ 1438 0904 50       		.byte	0x50
+ 1439 0905 05       		.uleb128 0x5
+ 1440 0906 03       		.byte	0x3
+ 1441 0907 00000000 		.4byte	.LC0
+ 1442 090b 00       		.byte	0
+ 1443 090c 00       		.byte	0
+ 1444 090d 05       		.uleb128 0x5
+ 1445 090e 04       		.byte	0x4
+ 1446 090f 9B080000 		.4byte	0x89b
+ 1447 0913 1E       		.uleb128 0x1e
+ 1448 0914 0E020000 		.4byte	.LASF127
+ 1449 0918 01       		.byte	0x1
+ 1450 0919 1A       		.byte	0x1a
+ 1451 091a 00000000 		.4byte	.LFB64
+ 1452 091e 48010000 		.4byte	.LFE64-.LFB64
+ 1453 0922 01       		.uleb128 0x1
+ 1454 0923 9C       		.byte	0x9c
+ 1455 0924 D60A0000 		.4byte	0xad6
+ 1456 0928 22       		.uleb128 0x22
+ 1457 0929 AB020000 		.4byte	.LASF128
+ 1458 092d 01       		.byte	0x1
+ 1459 092e 1E       		.byte	0x1e
+ 1460 092f 68000000 		.4byte	0x68
+ 1461 0933 02       		.uleb128 0x2
+ 1462 0934 91       		.byte	0x91
+ 1463 0935 6C       		.sleb128 -20
+ 1464 0936 23       		.uleb128 0x23
+ 1465 0937 3A030000 		.4byte	.LASF129
+ 1466 093b 01       		.byte	0x1
+ 1467 093c 1E       		.byte	0x1e
+ 1468 093d 68000000 		.4byte	0x68
+ 1469 0941 2C000000 		.4byte	.LLST1
+ 1470 0945 24       		.uleb128 0x24
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 29
+
+
+ 1471 0946 6F7000   		.ascii	"op\000"
+ 1472 0949 01       		.byte	0x1
+ 1473 094a 1E       		.byte	0x1e
+ 1474 094b 68000000 		.4byte	0x68
+ 1475 094f 02       		.uleb128 0x2
+ 1476 0950 91       		.byte	0x91
+ 1477 0951 68       		.sleb128 -24
+ 1478 0952 22       		.uleb128 0x22
+ 1479 0953 5F030000 		.4byte	.LASF130
+ 1480 0957 01       		.byte	0x1
+ 1481 0958 1F       		.byte	0x1f
+ 1482 0959 C0080000 		.4byte	0x8c0
+ 1483 095d 02       		.uleb128 0x2
+ 1484 095e 91       		.byte	0x91
+ 1485 095f 58       		.sleb128 -40
+ 1486 0960 25       		.uleb128 0x25
+ 1487 0961 6900     		.ascii	"i\000"
+ 1488 0963 01       		.byte	0x1
+ 1489 0964 4C       		.byte	0x4c
+ 1490 0965 68000000 		.4byte	0x68
+ 1491 0969 4B000000 		.4byte	.LLST2
+ 1492 096d 26       		.uleb128 0x26
+ 1493 096e 00000000 		.4byte	.Ldebug_ranges0+0
+ 1494 0972 3F0A0000 		.4byte	0xa3f
+ 1495 0976 25       		.uleb128 0x25
+ 1496 0977 6900     		.ascii	"i\000"
+ 1497 0979 01       		.byte	0x1
+ 1498 097a 28       		.byte	0x28
+ 1499 097b 6F000000 		.4byte	0x6f
+ 1500 097f 6A000000 		.4byte	.LLST3
+ 1501 0983 26       		.uleb128 0x26
+ 1502 0984 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1503 0988 F7090000 		.4byte	0x9f7
+ 1504 098c 25       		.uleb128 0x25
+ 1505 098d 6300     		.ascii	"c\000"
+ 1506 098f 01       		.byte	0x1
+ 1507 0990 31       		.byte	0x31
+ 1508 0991 68000000 		.4byte	0x68
+ 1509 0995 7D000000 		.4byte	.LLST4
+ 1510 0999 27       		.uleb128 0x27
+ 1511 099a 52000000 		.4byte	.LVL9
+ 1512 099e 4C0B0000 		.4byte	0xb4c
+ 1513 09a2 B0090000 		.4byte	0x9b0
+ 1514 09a6 21       		.uleb128 0x21
+ 1515 09a7 01       		.uleb128 0x1
+ 1516 09a8 50       		.byte	0x50
+ 1517 09a9 05       		.uleb128 0x5
+ 1518 09aa 03       		.byte	0x3
+ 1519 09ab 7C000000 		.4byte	.LC5
+ 1520 09af 00       		.byte	0
+ 1521 09b0 28       		.uleb128 0x28
+ 1522 09b1 6A000000 		.4byte	.LVL10
+ 1523 09b5 650B0000 		.4byte	0xb65
+ 1524 09b9 27       		.uleb128 0x27
+ 1525 09ba 8E000000 		.4byte	.LVL13
+ 1526 09be 860B0000 		.4byte	0xb86
+ 1527 09c2 D2090000 		.4byte	0x9d2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 30
+
+
+ 1528 09c6 21       		.uleb128 0x21
+ 1529 09c7 01       		.uleb128 0x1
+ 1530 09c8 51       		.byte	0x51
+ 1531 09c9 01       		.uleb128 0x1
+ 1532 09ca 40       		.byte	0x40
+ 1533 09cb 21       		.uleb128 0x21
+ 1534 09cc 01       		.uleb128 0x1
+ 1535 09cd 50       		.byte	0x50
+ 1536 09ce 02       		.uleb128 0x2
+ 1537 09cf 7D       		.byte	0x7d
+ 1538 09d0 00       		.sleb128 0
+ 1539 09d1 00       		.byte	0
+ 1540 09d2 27       		.uleb128 0x27
+ 1541 09d3 94000000 		.4byte	.LVL14
+ 1542 09d7 A50B0000 		.4byte	0xba5
+ 1543 09db E6090000 		.4byte	0x9e6
+ 1544 09df 21       		.uleb128 0x21
+ 1545 09e0 01       		.uleb128 0x1
+ 1546 09e1 50       		.byte	0x50
+ 1547 09e2 02       		.uleb128 0x2
+ 1548 09e3 7D       		.byte	0x7d
+ 1549 09e4 00       		.sleb128 0
+ 1550 09e5 00       		.byte	0
+ 1551 09e6 20       		.uleb128 0x20
+ 1552 09e7 D0000000 		.4byte	.LVL17
+ 1553 09eb A50B0000 		.4byte	0xba5
+ 1554 09ef 21       		.uleb128 0x21
+ 1555 09f0 01       		.uleb128 0x1
+ 1556 09f1 50       		.byte	0x50
+ 1557 09f2 02       		.uleb128 0x2
+ 1558 09f3 7D       		.byte	0x7d
+ 1559 09f4 00       		.sleb128 0
+ 1560 09f5 00       		.byte	0
+ 1561 09f6 00       		.byte	0
+ 1562 09f7 27       		.uleb128 0x27
+ 1563 09f8 30000000 		.4byte	.LVL7
+ 1564 09fc 4C0B0000 		.4byte	0xb4c
+ 1565 0a00 0E0A0000 		.4byte	0xa0e
+ 1566 0a04 21       		.uleb128 0x21
+ 1567 0a05 01       		.uleb128 0x1
+ 1568 0a06 50       		.byte	0x50
+ 1569 0a07 05       		.uleb128 0x5
+ 1570 0a08 03       		.byte	0x3
+ 1571 0a09 68000000 		.4byte	.LC4
+ 1572 0a0d 00       		.byte	0
+ 1573 0a0e 27       		.uleb128 0x27
+ 1574 0a0f 38000000 		.4byte	.LVL8
+ 1575 0a13 BA0B0000 		.4byte	0xbba
+ 1576 0a17 2B0A0000 		.4byte	0xa2b
+ 1577 0a1b 21       		.uleb128 0x21
+ 1578 0a1c 01       		.uleb128 0x1
+ 1579 0a1d 51       		.byte	0x51
+ 1580 0a1e 02       		.uleb128 0x2
+ 1581 0a1f 91       		.byte	0x91
+ 1582 0a20 6C       		.sleb128 -20
+ 1583 0a21 21       		.uleb128 0x21
+ 1584 0a22 01       		.uleb128 0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 31
+
+
+ 1585 0a23 50       		.byte	0x50
+ 1586 0a24 05       		.uleb128 0x5
+ 1587 0a25 03       		.byte	0x3
+ 1588 0a26 64000000 		.4byte	.LC3
+ 1589 0a2a 00       		.byte	0
+ 1590 0a2b 20       		.uleb128 0x20
+ 1591 0a2c DC000000 		.4byte	.LVL19
+ 1592 0a30 4C0B0000 		.4byte	0xb4c
+ 1593 0a34 21       		.uleb128 0x21
+ 1594 0a35 01       		.uleb128 0x1
+ 1595 0a36 50       		.byte	0x50
+ 1596 0a37 05       		.uleb128 0x5
+ 1597 0a38 03       		.byte	0x3
+ 1598 0a39 90000000 		.4byte	.LC6
+ 1599 0a3d 00       		.byte	0
+ 1600 0a3e 00       		.byte	0
+ 1601 0a3f 27       		.uleb128 0x27
+ 1602 0a40 0A000000 		.4byte	.LVL3
+ 1603 0a44 4C0B0000 		.4byte	0xb4c
+ 1604 0a48 560A0000 		.4byte	0xa56
+ 1605 0a4c 21       		.uleb128 0x21
+ 1606 0a4d 01       		.uleb128 0x1
+ 1607 0a4e 50       		.byte	0x50
+ 1608 0a4f 05       		.uleb128 0x5
+ 1609 0a50 03       		.byte	0x3
+ 1610 0a51 0C000000 		.4byte	.LC1
+ 1611 0a55 00       		.byte	0
+ 1612 0a56 27       		.uleb128 0x27
+ 1613 0a57 16000000 		.4byte	.LVL5
+ 1614 0a5b 4C0B0000 		.4byte	0xb4c
+ 1615 0a5f 6D0A0000 		.4byte	0xa6d
+ 1616 0a63 21       		.uleb128 0x21
+ 1617 0a64 01       		.uleb128 0x1
+ 1618 0a65 50       		.byte	0x50
+ 1619 0a66 05       		.uleb128 0x5
+ 1620 0a67 03       		.byte	0x3
+ 1621 0a68 20000000 		.4byte	.LC2
+ 1622 0a6c 00       		.byte	0
+ 1623 0a6d 27       		.uleb128 0x27
+ 1624 0a6e 1E000000 		.4byte	.LVL6
+ 1625 0a72 BA0B0000 		.4byte	0xbba
+ 1626 0a76 8A0A0000 		.4byte	0xa8a
+ 1627 0a7a 21       		.uleb128 0x21
+ 1628 0a7b 01       		.uleb128 0x1
+ 1629 0a7c 51       		.byte	0x51
+ 1630 0a7d 02       		.uleb128 0x2
+ 1631 0a7e 91       		.byte	0x91
+ 1632 0a7f 68       		.sleb128 -24
+ 1633 0a80 21       		.uleb128 0x21
+ 1634 0a81 01       		.uleb128 0x1
+ 1635 0a82 50       		.byte	0x50
+ 1636 0a83 05       		.uleb128 0x5
+ 1637 0a84 03       		.byte	0x3
+ 1638 0a85 64000000 		.4byte	.LC3
+ 1639 0a89 00       		.byte	0
+ 1640 0a8a 27       		.uleb128 0x27
+ 1641 0a8b F2000000 		.4byte	.LVL21
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 32
+
+
+ 1642 0a8f 4C0B0000 		.4byte	0xb4c
+ 1643 0a93 A10A0000 		.4byte	0xaa1
+ 1644 0a97 21       		.uleb128 0x21
+ 1645 0a98 01       		.uleb128 0x1
+ 1646 0a99 50       		.byte	0x50
+ 1647 0a9a 05       		.uleb128 0x5
+ 1648 0a9b 03       		.byte	0x3
+ 1649 0a9c C0000000 		.4byte	.LC7
+ 1650 0aa0 00       		.byte	0
+ 1651 0aa1 27       		.uleb128 0x27
+ 1652 0aa2 10010000 		.4byte	.LVL23
+ 1653 0aa6 D0080000 		.4byte	0x8d0
+ 1654 0aaa C20A0000 		.4byte	0xac2
+ 1655 0aae 21       		.uleb128 0x21
+ 1656 0aaf 01       		.uleb128 0x1
+ 1657 0ab0 50       		.byte	0x50
+ 1658 0ab1 0F       		.uleb128 0xf
+ 1659 0ab2 74       		.byte	0x74
+ 1660 0ab3 00       		.sleb128 0
+ 1661 0ab4 32       		.byte	0x32
+ 1662 0ab5 24       		.byte	0x24
+ 1663 0ab6 74       		.byte	0x74
+ 1664 0ab7 00       		.sleb128 0
+ 1665 0ab8 22       		.byte	0x22
+ 1666 0ab9 32       		.byte	0x32
+ 1667 0aba 24       		.byte	0x24
+ 1668 0abb 03       		.byte	0x3
+ 1669 0abc 00000000 		.4byte	Months
+ 1670 0ac0 22       		.byte	0x22
+ 1671 0ac1 00       		.byte	0
+ 1672 0ac2 20       		.uleb128 0x20
+ 1673 0ac3 1C010000 		.4byte	.LVL25
+ 1674 0ac7 4C0B0000 		.4byte	0xb4c
+ 1675 0acb 21       		.uleb128 0x21
+ 1676 0acc 01       		.uleb128 0x1
+ 1677 0acd 50       		.byte	0x50
+ 1678 0ace 05       		.uleb128 0x5
+ 1679 0acf 03       		.byte	0x3
+ 1680 0ad0 EC000000 		.4byte	.LC8
+ 1681 0ad4 00       		.byte	0
+ 1682 0ad5 00       		.byte	0
+ 1683 0ad6 29       		.uleb128 0x29
+ 1684 0ad7 42010000 		.4byte	.LASF131
+ 1685 0adb 07       		.byte	0x7
+ 1686 0adc FA02     		.2byte	0x2fa
+ 1687 0ade 48040000 		.4byte	0x448
+ 1688 0ae2 29       		.uleb128 0x29
+ 1689 0ae3 93030000 		.4byte	.LASF132
+ 1690 0ae7 09       		.byte	0x9
+ 1691 0ae8 9606     		.2byte	0x696
+ 1692 0aea EE0A0000 		.4byte	0xaee
+ 1693 0aee 2A       		.uleb128 0x2a
+ 1694 0aef 76000000 		.4byte	0x76
+ 1695 0af3 2B       		.uleb128 0x2b
+ 1696 0af4 C7010000 		.4byte	.LASF133
+ 1697 0af8 01       		.byte	0x1
+ 1698 0af9 14       		.byte	0x14
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 33
+
+
+ 1699 0afa 9B080000 		.4byte	0x89b
+ 1700 0afe 05       		.uleb128 0x5
+ 1701 0aff 03       		.byte	0x3
+ 1702 0b00 00000000 		.4byte	newMonth
+ 1703 0b04 0A       		.uleb128 0xa
+ 1704 0b05 9B080000 		.4byte	0x89b
+ 1705 0b09 140B0000 		.4byte	0xb14
+ 1706 0b0d 0B       		.uleb128 0xb
+ 1707 0b0e 04010000 		.4byte	0x104
+ 1708 0b12 0B       		.byte	0xb
+ 1709 0b13 00       		.byte	0
+ 1710 0b14 2B       		.uleb128 0x2b
+ 1711 0b15 2E050000 		.4byte	.LASF134
+ 1712 0b19 01       		.byte	0x1
+ 1713 0b1a 14       		.byte	0x14
+ 1714 0b1b 040B0000 		.4byte	0xb04
+ 1715 0b1f 05       		.uleb128 0x5
+ 1716 0b20 03       		.byte	0x3
+ 1717 0b21 00000000 		.4byte	Months
+ 1718 0b25 2B       		.uleb128 0x2b
+ 1719 0b26 00000000 		.4byte	.LASF135
+ 1720 0b2a 01       		.byte	0x1
+ 1721 0b2b 14       		.byte	0x14
+ 1722 0b2c 0D090000 		.4byte	0x90d
+ 1723 0b30 05       		.uleb128 0x5
+ 1724 0b31 03       		.byte	0x3
+ 1725 0b32 00000000 		.4byte	nextMonth
+ 1726 0b36 2C       		.uleb128 0x2c
+ 1727 0b37 D7020000 		.4byte	.LASF136
+ 1728 0b3b 08       		.byte	0x8
+ 1729 0b3c B2       		.byte	0xb2
+ 1730 0b3d 68000000 		.4byte	0x68
+ 1731 0b41 4C0B0000 		.4byte	0xb4c
+ 1732 0b45 14       		.uleb128 0x14
+ 1733 0b46 AA050000 		.4byte	0x5aa
+ 1734 0b4a 2D       		.uleb128 0x2d
+ 1735 0b4b 00       		.byte	0
+ 1736 0b4c 2E       		.uleb128 0x2e
+ 1737 0b4d 8A020000 		.4byte	.LASF143
+ 1738 0b51 0B       		.byte	0xb
+ 1739 0b52 00       		.byte	0
+ 1740 0b53 B2010000 		.4byte	.LASF144
+ 1741 0b57 68000000 		.4byte	0x68
+ 1742 0b5b 650B0000 		.4byte	0xb65
+ 1743 0b5f 14       		.uleb128 0x14
+ 1744 0b60 AA050000 		.4byte	0x5aa
+ 1745 0b64 00       		.byte	0
+ 1746 0b65 2F       		.uleb128 0x2f
+ 1747 0b66 4E030000 		.4byte	.LASF137
+ 1748 0b6a 08       		.byte	0x8
+ 1749 0b6b 1A02     		.2byte	0x21a
+ 1750 0b6d 68000000 		.4byte	0x68
+ 1751 0b71 800B0000 		.4byte	0xb80
+ 1752 0b75 14       		.uleb128 0x14
+ 1753 0b76 48040000 		.4byte	0x448
+ 1754 0b7a 14       		.uleb128 0x14
+ 1755 0b7b 800B0000 		.4byte	0xb80
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 34
+
+
+ 1756 0b7f 00       		.byte	0
+ 1757 0b80 05       		.uleb128 0x5
+ 1758 0b81 04       		.byte	0x4
+ 1759 0b82 90080000 		.4byte	0x890
+ 1760 0b86 2C       		.uleb128 0x2c
+ 1761 0b87 3F030000 		.4byte	.LASF138
+ 1762 0b8b 08       		.byte	0x8
+ 1763 0b8c BF       		.byte	0xbf
+ 1764 0b8d 80050000 		.4byte	0x580
+ 1765 0b91 A50B0000 		.4byte	0xba5
+ 1766 0b95 14       		.uleb128 0x14
+ 1767 0b96 80050000 		.4byte	0x580
+ 1768 0b9a 14       		.uleb128 0x14
+ 1769 0b9b 68000000 		.4byte	0x68
+ 1770 0b9f 14       		.uleb128 0x14
+ 1771 0ba0 800B0000 		.4byte	0xb80
+ 1772 0ba4 00       		.byte	0
+ 1773 0ba5 2C       		.uleb128 0x2c
+ 1774 0ba6 0F000000 		.4byte	.LASF139
+ 1775 0baa 0A       		.byte	0xa
+ 1776 0bab 21       		.byte	0x21
+ 1777 0bac 9D000000 		.4byte	0x9d
+ 1778 0bb0 BA0B0000 		.4byte	0xbba
+ 1779 0bb4 14       		.uleb128 0x14
+ 1780 0bb5 AA050000 		.4byte	0x5aa
+ 1781 0bb9 00       		.byte	0
+ 1782 0bba 30       		.uleb128 0x30
+ 1783 0bbb 7A030000 		.4byte	.LASF145
+ 1784 0bbf 08       		.byte	0x8
+ 1785 0bc0 B4       		.byte	0xb4
+ 1786 0bc1 68000000 		.4byte	0x68
+ 1787 0bc5 14       		.uleb128 0x14
+ 1788 0bc6 AA050000 		.4byte	0x5aa
+ 1789 0bca 2D       		.uleb128 0x2d
+ 1790 0bcb 00       		.byte	0
+ 1791 0bcc 00       		.byte	0
+ 1792              		.section	.debug_abbrev,"",%progbits
+ 1793              	.Ldebug_abbrev0:
+ 1794 0000 01       		.uleb128 0x1
+ 1795 0001 11       		.uleb128 0x11
+ 1796 0002 01       		.byte	0x1
+ 1797 0003 25       		.uleb128 0x25
+ 1798 0004 0E       		.uleb128 0xe
+ 1799 0005 13       		.uleb128 0x13
+ 1800 0006 0B       		.uleb128 0xb
+ 1801 0007 03       		.uleb128 0x3
+ 1802 0008 0E       		.uleb128 0xe
+ 1803 0009 1B       		.uleb128 0x1b
+ 1804 000a 0E       		.uleb128 0xe
+ 1805 000b 55       		.uleb128 0x55
+ 1806 000c 17       		.uleb128 0x17
+ 1807 000d 11       		.uleb128 0x11
+ 1808 000e 01       		.uleb128 0x1
+ 1809 000f 10       		.uleb128 0x10
+ 1810 0010 17       		.uleb128 0x17
+ 1811 0011 00       		.byte	0
+ 1812 0012 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 35
+
+
+ 1813 0013 02       		.uleb128 0x2
+ 1814 0014 24       		.uleb128 0x24
+ 1815 0015 00       		.byte	0
+ 1816 0016 0B       		.uleb128 0xb
+ 1817 0017 0B       		.uleb128 0xb
+ 1818 0018 3E       		.uleb128 0x3e
+ 1819 0019 0B       		.uleb128 0xb
+ 1820 001a 03       		.uleb128 0x3
+ 1821 001b 0E       		.uleb128 0xe
+ 1822 001c 00       		.byte	0
+ 1823 001d 00       		.byte	0
+ 1824 001e 03       		.uleb128 0x3
+ 1825 001f 16       		.uleb128 0x16
+ 1826 0020 00       		.byte	0
+ 1827 0021 03       		.uleb128 0x3
+ 1828 0022 0E       		.uleb128 0xe
+ 1829 0023 3A       		.uleb128 0x3a
+ 1830 0024 0B       		.uleb128 0xb
+ 1831 0025 3B       		.uleb128 0x3b
+ 1832 0026 0B       		.uleb128 0xb
+ 1833 0027 49       		.uleb128 0x49
+ 1834 0028 13       		.uleb128 0x13
+ 1835 0029 00       		.byte	0
+ 1836 002a 00       		.byte	0
+ 1837 002b 04       		.uleb128 0x4
+ 1838 002c 24       		.uleb128 0x24
+ 1839 002d 00       		.byte	0
+ 1840 002e 0B       		.uleb128 0xb
+ 1841 002f 0B       		.uleb128 0xb
+ 1842 0030 3E       		.uleb128 0x3e
+ 1843 0031 0B       		.uleb128 0xb
+ 1844 0032 03       		.uleb128 0x3
+ 1845 0033 08       		.uleb128 0x8
+ 1846 0034 00       		.byte	0
+ 1847 0035 00       		.byte	0
+ 1848 0036 05       		.uleb128 0x5
+ 1849 0037 0F       		.uleb128 0xf
+ 1850 0038 00       		.byte	0
+ 1851 0039 0B       		.uleb128 0xb
+ 1852 003a 0B       		.uleb128 0xb
+ 1853 003b 49       		.uleb128 0x49
+ 1854 003c 13       		.uleb128 0x13
+ 1855 003d 00       		.byte	0
+ 1856 003e 00       		.byte	0
+ 1857 003f 06       		.uleb128 0x6
+ 1858 0040 15       		.uleb128 0x15
+ 1859 0041 00       		.byte	0
+ 1860 0042 27       		.uleb128 0x27
+ 1861 0043 19       		.uleb128 0x19
+ 1862 0044 00       		.byte	0
+ 1863 0045 00       		.byte	0
+ 1864 0046 07       		.uleb128 0x7
+ 1865 0047 16       		.uleb128 0x16
+ 1866 0048 00       		.byte	0
+ 1867 0049 03       		.uleb128 0x3
+ 1868 004a 0E       		.uleb128 0xe
+ 1869 004b 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 36
+
+
+ 1870 004c 0B       		.uleb128 0xb
+ 1871 004d 3B       		.uleb128 0x3b
+ 1872 004e 05       		.uleb128 0x5
+ 1873 004f 49       		.uleb128 0x49
+ 1874 0050 13       		.uleb128 0x13
+ 1875 0051 00       		.byte	0
+ 1876 0052 00       		.byte	0
+ 1877 0053 08       		.uleb128 0x8
+ 1878 0054 17       		.uleb128 0x17
+ 1879 0055 01       		.byte	0x1
+ 1880 0056 0B       		.uleb128 0xb
+ 1881 0057 0B       		.uleb128 0xb
+ 1882 0058 3A       		.uleb128 0x3a
+ 1883 0059 0B       		.uleb128 0xb
+ 1884 005a 3B       		.uleb128 0x3b
+ 1885 005b 0B       		.uleb128 0xb
+ 1886 005c 01       		.uleb128 0x1
+ 1887 005d 13       		.uleb128 0x13
+ 1888 005e 00       		.byte	0
+ 1889 005f 00       		.byte	0
+ 1890 0060 09       		.uleb128 0x9
+ 1891 0061 0D       		.uleb128 0xd
+ 1892 0062 00       		.byte	0
+ 1893 0063 03       		.uleb128 0x3
+ 1894 0064 0E       		.uleb128 0xe
+ 1895 0065 3A       		.uleb128 0x3a
+ 1896 0066 0B       		.uleb128 0xb
+ 1897 0067 3B       		.uleb128 0x3b
+ 1898 0068 0B       		.uleb128 0xb
+ 1899 0069 49       		.uleb128 0x49
+ 1900 006a 13       		.uleb128 0x13
+ 1901 006b 00       		.byte	0
+ 1902 006c 00       		.byte	0
+ 1903 006d 0A       		.uleb128 0xa
+ 1904 006e 01       		.uleb128 0x1
+ 1905 006f 01       		.byte	0x1
+ 1906 0070 49       		.uleb128 0x49
+ 1907 0071 13       		.uleb128 0x13
+ 1908 0072 01       		.uleb128 0x1
+ 1909 0073 13       		.uleb128 0x13
+ 1910 0074 00       		.byte	0
+ 1911 0075 00       		.byte	0
+ 1912 0076 0B       		.uleb128 0xb
+ 1913 0077 21       		.uleb128 0x21
+ 1914 0078 00       		.byte	0
+ 1915 0079 49       		.uleb128 0x49
+ 1916 007a 13       		.uleb128 0x13
+ 1917 007b 2F       		.uleb128 0x2f
+ 1918 007c 0B       		.uleb128 0xb
+ 1919 007d 00       		.byte	0
+ 1920 007e 00       		.byte	0
+ 1921 007f 0C       		.uleb128 0xc
+ 1922 0080 13       		.uleb128 0x13
+ 1923 0081 01       		.byte	0x1
+ 1924 0082 0B       		.uleb128 0xb
+ 1925 0083 0B       		.uleb128 0xb
+ 1926 0084 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 37
+
+
+ 1927 0085 0B       		.uleb128 0xb
+ 1928 0086 3B       		.uleb128 0x3b
+ 1929 0087 0B       		.uleb128 0xb
+ 1930 0088 01       		.uleb128 0x1
+ 1931 0089 13       		.uleb128 0x13
+ 1932 008a 00       		.byte	0
+ 1933 008b 00       		.byte	0
+ 1934 008c 0D       		.uleb128 0xd
+ 1935 008d 0D       		.uleb128 0xd
+ 1936 008e 00       		.byte	0
+ 1937 008f 03       		.uleb128 0x3
+ 1938 0090 0E       		.uleb128 0xe
+ 1939 0091 3A       		.uleb128 0x3a
+ 1940 0092 0B       		.uleb128 0xb
+ 1941 0093 3B       		.uleb128 0x3b
+ 1942 0094 0B       		.uleb128 0xb
+ 1943 0095 49       		.uleb128 0x49
+ 1944 0096 13       		.uleb128 0x13
+ 1945 0097 38       		.uleb128 0x38
+ 1946 0098 0B       		.uleb128 0xb
+ 1947 0099 00       		.byte	0
+ 1948 009a 00       		.byte	0
+ 1949 009b 0E       		.uleb128 0xe
+ 1950 009c 0F       		.uleb128 0xf
+ 1951 009d 00       		.byte	0
+ 1952 009e 0B       		.uleb128 0xb
+ 1953 009f 0B       		.uleb128 0xb
+ 1954 00a0 00       		.byte	0
+ 1955 00a1 00       		.byte	0
+ 1956 00a2 0F       		.uleb128 0xf
+ 1957 00a3 13       		.uleb128 0x13
+ 1958 00a4 01       		.byte	0x1
+ 1959 00a5 03       		.uleb128 0x3
+ 1960 00a6 0E       		.uleb128 0xe
+ 1961 00a7 0B       		.uleb128 0xb
+ 1962 00a8 0B       		.uleb128 0xb
+ 1963 00a9 3A       		.uleb128 0x3a
+ 1964 00aa 0B       		.uleb128 0xb
+ 1965 00ab 3B       		.uleb128 0x3b
+ 1966 00ac 0B       		.uleb128 0xb
+ 1967 00ad 01       		.uleb128 0x1
+ 1968 00ae 13       		.uleb128 0x13
+ 1969 00af 00       		.byte	0
+ 1970 00b0 00       		.byte	0
+ 1971 00b1 10       		.uleb128 0x10
+ 1972 00b2 0D       		.uleb128 0xd
+ 1973 00b3 00       		.byte	0
+ 1974 00b4 03       		.uleb128 0x3
+ 1975 00b5 08       		.uleb128 0x8
+ 1976 00b6 3A       		.uleb128 0x3a
+ 1977 00b7 0B       		.uleb128 0xb
+ 1978 00b8 3B       		.uleb128 0x3b
+ 1979 00b9 0B       		.uleb128 0xb
+ 1980 00ba 49       		.uleb128 0x49
+ 1981 00bb 13       		.uleb128 0x13
+ 1982 00bc 38       		.uleb128 0x38
+ 1983 00bd 0B       		.uleb128 0xb
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 38
+
+
+ 1984 00be 00       		.byte	0
+ 1985 00bf 00       		.byte	0
+ 1986 00c0 11       		.uleb128 0x11
+ 1987 00c1 13       		.uleb128 0x13
+ 1988 00c2 01       		.byte	0x1
+ 1989 00c3 03       		.uleb128 0x3
+ 1990 00c4 0E       		.uleb128 0xe
+ 1991 00c5 0B       		.uleb128 0xb
+ 1992 00c6 05       		.uleb128 0x5
+ 1993 00c7 3A       		.uleb128 0x3a
+ 1994 00c8 0B       		.uleb128 0xb
+ 1995 00c9 3B       		.uleb128 0x3b
+ 1996 00ca 0B       		.uleb128 0xb
+ 1997 00cb 01       		.uleb128 0x1
+ 1998 00cc 13       		.uleb128 0x13
+ 1999 00cd 00       		.byte	0
+ 2000 00ce 00       		.byte	0
+ 2001 00cf 12       		.uleb128 0x12
+ 2002 00d0 0D       		.uleb128 0xd
+ 2003 00d1 00       		.byte	0
+ 2004 00d2 03       		.uleb128 0x3
+ 2005 00d3 0E       		.uleb128 0xe
+ 2006 00d4 3A       		.uleb128 0x3a
+ 2007 00d5 0B       		.uleb128 0xb
+ 2008 00d6 3B       		.uleb128 0x3b
+ 2009 00d7 0B       		.uleb128 0xb
+ 2010 00d8 49       		.uleb128 0x49
+ 2011 00d9 13       		.uleb128 0x13
+ 2012 00da 38       		.uleb128 0x38
+ 2013 00db 05       		.uleb128 0x5
+ 2014 00dc 00       		.byte	0
+ 2015 00dd 00       		.byte	0
+ 2016 00de 13       		.uleb128 0x13
+ 2017 00df 15       		.uleb128 0x15
+ 2018 00e0 01       		.byte	0x1
+ 2019 00e1 27       		.uleb128 0x27
+ 2020 00e2 19       		.uleb128 0x19
+ 2021 00e3 49       		.uleb128 0x49
+ 2022 00e4 13       		.uleb128 0x13
+ 2023 00e5 01       		.uleb128 0x1
+ 2024 00e6 13       		.uleb128 0x13
+ 2025 00e7 00       		.byte	0
+ 2026 00e8 00       		.byte	0
+ 2027 00e9 14       		.uleb128 0x14
+ 2028 00ea 05       		.uleb128 0x5
+ 2029 00eb 00       		.byte	0
+ 2030 00ec 49       		.uleb128 0x49
+ 2031 00ed 13       		.uleb128 0x13
+ 2032 00ee 00       		.byte	0
+ 2033 00ef 00       		.byte	0
+ 2034 00f0 15       		.uleb128 0x15
+ 2035 00f1 13       		.uleb128 0x13
+ 2036 00f2 01       		.byte	0x1
+ 2037 00f3 03       		.uleb128 0x3
+ 2038 00f4 0E       		.uleb128 0xe
+ 2039 00f5 0B       		.uleb128 0xb
+ 2040 00f6 05       		.uleb128 0x5
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 39
+
+
+ 2041 00f7 3A       		.uleb128 0x3a
+ 2042 00f8 0B       		.uleb128 0xb
+ 2043 00f9 3B       		.uleb128 0x3b
+ 2044 00fa 05       		.uleb128 0x5
+ 2045 00fb 01       		.uleb128 0x1
+ 2046 00fc 13       		.uleb128 0x13
+ 2047 00fd 00       		.byte	0
+ 2048 00fe 00       		.byte	0
+ 2049 00ff 16       		.uleb128 0x16
+ 2050 0100 0D       		.uleb128 0xd
+ 2051 0101 00       		.byte	0
+ 2052 0102 03       		.uleb128 0x3
+ 2053 0103 0E       		.uleb128 0xe
+ 2054 0104 3A       		.uleb128 0x3a
+ 2055 0105 0B       		.uleb128 0xb
+ 2056 0106 3B       		.uleb128 0x3b
+ 2057 0107 05       		.uleb128 0x5
+ 2058 0108 49       		.uleb128 0x49
+ 2059 0109 13       		.uleb128 0x13
+ 2060 010a 38       		.uleb128 0x38
+ 2061 010b 0B       		.uleb128 0xb
+ 2062 010c 00       		.byte	0
+ 2063 010d 00       		.byte	0
+ 2064 010e 17       		.uleb128 0x17
+ 2065 010f 0D       		.uleb128 0xd
+ 2066 0110 00       		.byte	0
+ 2067 0111 03       		.uleb128 0x3
+ 2068 0112 0E       		.uleb128 0xe
+ 2069 0113 3A       		.uleb128 0x3a
+ 2070 0114 0B       		.uleb128 0xb
+ 2071 0115 3B       		.uleb128 0x3b
+ 2072 0116 05       		.uleb128 0x5
+ 2073 0117 49       		.uleb128 0x49
+ 2074 0118 13       		.uleb128 0x13
+ 2075 0119 38       		.uleb128 0x38
+ 2076 011a 05       		.uleb128 0x5
+ 2077 011b 00       		.byte	0
+ 2078 011c 00       		.byte	0
+ 2079 011d 18       		.uleb128 0x18
+ 2080 011e 26       		.uleb128 0x26
+ 2081 011f 00       		.byte	0
+ 2082 0120 49       		.uleb128 0x49
+ 2083 0121 13       		.uleb128 0x13
+ 2084 0122 00       		.byte	0
+ 2085 0123 00       		.byte	0
+ 2086 0124 19       		.uleb128 0x19
+ 2087 0125 13       		.uleb128 0x13
+ 2088 0126 01       		.byte	0x1
+ 2089 0127 03       		.uleb128 0x3
+ 2090 0128 0E       		.uleb128 0xe
+ 2091 0129 0B       		.uleb128 0xb
+ 2092 012a 0B       		.uleb128 0xb
+ 2093 012b 3A       		.uleb128 0x3a
+ 2094 012c 0B       		.uleb128 0xb
+ 2095 012d 3B       		.uleb128 0x3b
+ 2096 012e 05       		.uleb128 0x5
+ 2097 012f 01       		.uleb128 0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 40
+
+
+ 2098 0130 13       		.uleb128 0x13
+ 2099 0131 00       		.byte	0
+ 2100 0132 00       		.byte	0
+ 2101 0133 1A       		.uleb128 0x1a
+ 2102 0134 13       		.uleb128 0x13
+ 2103 0135 01       		.byte	0x1
+ 2104 0136 0B       		.uleb128 0xb
+ 2105 0137 0B       		.uleb128 0xb
+ 2106 0138 3A       		.uleb128 0x3a
+ 2107 0139 0B       		.uleb128 0xb
+ 2108 013a 3B       		.uleb128 0x3b
+ 2109 013b 05       		.uleb128 0x5
+ 2110 013c 01       		.uleb128 0x1
+ 2111 013d 13       		.uleb128 0x13
+ 2112 013e 00       		.byte	0
+ 2113 013f 00       		.byte	0
+ 2114 0140 1B       		.uleb128 0x1b
+ 2115 0141 17       		.uleb128 0x17
+ 2116 0142 01       		.byte	0x1
+ 2117 0143 0B       		.uleb128 0xb
+ 2118 0144 0B       		.uleb128 0xb
+ 2119 0145 3A       		.uleb128 0x3a
+ 2120 0146 0B       		.uleb128 0xb
+ 2121 0147 3B       		.uleb128 0x3b
+ 2122 0148 05       		.uleb128 0x5
+ 2123 0149 01       		.uleb128 0x1
+ 2124 014a 13       		.uleb128 0x13
+ 2125 014b 00       		.byte	0
+ 2126 014c 00       		.byte	0
+ 2127 014d 1C       		.uleb128 0x1c
+ 2128 014e 0D       		.uleb128 0xd
+ 2129 014f 00       		.byte	0
+ 2130 0150 03       		.uleb128 0x3
+ 2131 0151 0E       		.uleb128 0xe
+ 2132 0152 3A       		.uleb128 0x3a
+ 2133 0153 0B       		.uleb128 0xb
+ 2134 0154 3B       		.uleb128 0x3b
+ 2135 0155 05       		.uleb128 0x5
+ 2136 0156 49       		.uleb128 0x49
+ 2137 0157 13       		.uleb128 0x13
+ 2138 0158 00       		.byte	0
+ 2139 0159 00       		.byte	0
+ 2140 015a 1D       		.uleb128 0x1d
+ 2141 015b 15       		.uleb128 0x15
+ 2142 015c 01       		.byte	0x1
+ 2143 015d 27       		.uleb128 0x27
+ 2144 015e 19       		.uleb128 0x19
+ 2145 015f 01       		.uleb128 0x1
+ 2146 0160 13       		.uleb128 0x13
+ 2147 0161 00       		.byte	0
+ 2148 0162 00       		.byte	0
+ 2149 0163 1E       		.uleb128 0x1e
+ 2150 0164 2E       		.uleb128 0x2e
+ 2151 0165 01       		.byte	0x1
+ 2152 0166 3F       		.uleb128 0x3f
+ 2153 0167 19       		.uleb128 0x19
+ 2154 0168 03       		.uleb128 0x3
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 41
+
+
+ 2155 0169 0E       		.uleb128 0xe
+ 2156 016a 3A       		.uleb128 0x3a
+ 2157 016b 0B       		.uleb128 0xb
+ 2158 016c 3B       		.uleb128 0x3b
+ 2159 016d 0B       		.uleb128 0xb
+ 2160 016e 27       		.uleb128 0x27
+ 2161 016f 19       		.uleb128 0x19
+ 2162 0170 11       		.uleb128 0x11
+ 2163 0171 01       		.uleb128 0x1
+ 2164 0172 12       		.uleb128 0x12
+ 2165 0173 06       		.uleb128 0x6
+ 2166 0174 40       		.uleb128 0x40
+ 2167 0175 18       		.uleb128 0x18
+ 2168 0176 9742     		.uleb128 0x2117
+ 2169 0178 19       		.uleb128 0x19
+ 2170 0179 01       		.uleb128 0x1
+ 2171 017a 13       		.uleb128 0x13
+ 2172 017b 00       		.byte	0
+ 2173 017c 00       		.byte	0
+ 2174 017d 1F       		.uleb128 0x1f
+ 2175 017e 05       		.uleb128 0x5
+ 2176 017f 00       		.byte	0
+ 2177 0180 03       		.uleb128 0x3
+ 2178 0181 08       		.uleb128 0x8
+ 2179 0182 3A       		.uleb128 0x3a
+ 2180 0183 0B       		.uleb128 0xb
+ 2181 0184 3B       		.uleb128 0x3b
+ 2182 0185 0B       		.uleb128 0xb
+ 2183 0186 49       		.uleb128 0x49
+ 2184 0187 13       		.uleb128 0x13
+ 2185 0188 02       		.uleb128 0x2
+ 2186 0189 17       		.uleb128 0x17
+ 2187 018a 00       		.byte	0
+ 2188 018b 00       		.byte	0
+ 2189 018c 20       		.uleb128 0x20
+ 2190 018d 898201   		.uleb128 0x4109
+ 2191 0190 01       		.byte	0x1
+ 2192 0191 11       		.uleb128 0x11
+ 2193 0192 01       		.uleb128 0x1
+ 2194 0193 31       		.uleb128 0x31
+ 2195 0194 13       		.uleb128 0x13
+ 2196 0195 00       		.byte	0
+ 2197 0196 00       		.byte	0
+ 2198 0197 21       		.uleb128 0x21
+ 2199 0198 8A8201   		.uleb128 0x410a
+ 2200 019b 00       		.byte	0
+ 2201 019c 02       		.uleb128 0x2
+ 2202 019d 18       		.uleb128 0x18
+ 2203 019e 9142     		.uleb128 0x2111
+ 2204 01a0 18       		.uleb128 0x18
+ 2205 01a1 00       		.byte	0
+ 2206 01a2 00       		.byte	0
+ 2207 01a3 22       		.uleb128 0x22
+ 2208 01a4 34       		.uleb128 0x34
+ 2209 01a5 00       		.byte	0
+ 2210 01a6 03       		.uleb128 0x3
+ 2211 01a7 0E       		.uleb128 0xe
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 42
+
+
+ 2212 01a8 3A       		.uleb128 0x3a
+ 2213 01a9 0B       		.uleb128 0xb
+ 2214 01aa 3B       		.uleb128 0x3b
+ 2215 01ab 0B       		.uleb128 0xb
+ 2216 01ac 49       		.uleb128 0x49
+ 2217 01ad 13       		.uleb128 0x13
+ 2218 01ae 02       		.uleb128 0x2
+ 2219 01af 18       		.uleb128 0x18
+ 2220 01b0 00       		.byte	0
+ 2221 01b1 00       		.byte	0
+ 2222 01b2 23       		.uleb128 0x23
+ 2223 01b3 34       		.uleb128 0x34
+ 2224 01b4 00       		.byte	0
+ 2225 01b5 03       		.uleb128 0x3
+ 2226 01b6 0E       		.uleb128 0xe
+ 2227 01b7 3A       		.uleb128 0x3a
+ 2228 01b8 0B       		.uleb128 0xb
+ 2229 01b9 3B       		.uleb128 0x3b
+ 2230 01ba 0B       		.uleb128 0xb
+ 2231 01bb 49       		.uleb128 0x49
+ 2232 01bc 13       		.uleb128 0x13
+ 2233 01bd 02       		.uleb128 0x2
+ 2234 01be 17       		.uleb128 0x17
+ 2235 01bf 00       		.byte	0
+ 2236 01c0 00       		.byte	0
+ 2237 01c1 24       		.uleb128 0x24
+ 2238 01c2 34       		.uleb128 0x34
+ 2239 01c3 00       		.byte	0
+ 2240 01c4 03       		.uleb128 0x3
+ 2241 01c5 08       		.uleb128 0x8
+ 2242 01c6 3A       		.uleb128 0x3a
+ 2243 01c7 0B       		.uleb128 0xb
+ 2244 01c8 3B       		.uleb128 0x3b
+ 2245 01c9 0B       		.uleb128 0xb
+ 2246 01ca 49       		.uleb128 0x49
+ 2247 01cb 13       		.uleb128 0x13
+ 2248 01cc 02       		.uleb128 0x2
+ 2249 01cd 18       		.uleb128 0x18
+ 2250 01ce 00       		.byte	0
+ 2251 01cf 00       		.byte	0
+ 2252 01d0 25       		.uleb128 0x25
+ 2253 01d1 34       		.uleb128 0x34
+ 2254 01d2 00       		.byte	0
+ 2255 01d3 03       		.uleb128 0x3
+ 2256 01d4 08       		.uleb128 0x8
+ 2257 01d5 3A       		.uleb128 0x3a
+ 2258 01d6 0B       		.uleb128 0xb
+ 2259 01d7 3B       		.uleb128 0x3b
+ 2260 01d8 0B       		.uleb128 0xb
+ 2261 01d9 49       		.uleb128 0x49
+ 2262 01da 13       		.uleb128 0x13
+ 2263 01db 02       		.uleb128 0x2
+ 2264 01dc 17       		.uleb128 0x17
+ 2265 01dd 00       		.byte	0
+ 2266 01de 00       		.byte	0
+ 2267 01df 26       		.uleb128 0x26
+ 2268 01e0 0B       		.uleb128 0xb
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 43
+
+
+ 2269 01e1 01       		.byte	0x1
+ 2270 01e2 55       		.uleb128 0x55
+ 2271 01e3 17       		.uleb128 0x17
+ 2272 01e4 01       		.uleb128 0x1
+ 2273 01e5 13       		.uleb128 0x13
+ 2274 01e6 00       		.byte	0
+ 2275 01e7 00       		.byte	0
+ 2276 01e8 27       		.uleb128 0x27
+ 2277 01e9 898201   		.uleb128 0x4109
+ 2278 01ec 01       		.byte	0x1
+ 2279 01ed 11       		.uleb128 0x11
+ 2280 01ee 01       		.uleb128 0x1
+ 2281 01ef 31       		.uleb128 0x31
+ 2282 01f0 13       		.uleb128 0x13
+ 2283 01f1 01       		.uleb128 0x1
+ 2284 01f2 13       		.uleb128 0x13
+ 2285 01f3 00       		.byte	0
+ 2286 01f4 00       		.byte	0
+ 2287 01f5 28       		.uleb128 0x28
+ 2288 01f6 898201   		.uleb128 0x4109
+ 2289 01f9 00       		.byte	0
+ 2290 01fa 11       		.uleb128 0x11
+ 2291 01fb 01       		.uleb128 0x1
+ 2292 01fc 31       		.uleb128 0x31
+ 2293 01fd 13       		.uleb128 0x13
+ 2294 01fe 00       		.byte	0
+ 2295 01ff 00       		.byte	0
+ 2296 0200 29       		.uleb128 0x29
+ 2297 0201 34       		.uleb128 0x34
+ 2298 0202 00       		.byte	0
+ 2299 0203 03       		.uleb128 0x3
+ 2300 0204 0E       		.uleb128 0xe
+ 2301 0205 3A       		.uleb128 0x3a
+ 2302 0206 0B       		.uleb128 0xb
+ 2303 0207 3B       		.uleb128 0x3b
+ 2304 0208 05       		.uleb128 0x5
+ 2305 0209 49       		.uleb128 0x49
+ 2306 020a 13       		.uleb128 0x13
+ 2307 020b 3F       		.uleb128 0x3f
+ 2308 020c 19       		.uleb128 0x19
+ 2309 020d 3C       		.uleb128 0x3c
+ 2310 020e 19       		.uleb128 0x19
+ 2311 020f 00       		.byte	0
+ 2312 0210 00       		.byte	0
+ 2313 0211 2A       		.uleb128 0x2a
+ 2314 0212 35       		.uleb128 0x35
+ 2315 0213 00       		.byte	0
+ 2316 0214 49       		.uleb128 0x49
+ 2317 0215 13       		.uleb128 0x13
+ 2318 0216 00       		.byte	0
+ 2319 0217 00       		.byte	0
+ 2320 0218 2B       		.uleb128 0x2b
+ 2321 0219 34       		.uleb128 0x34
+ 2322 021a 00       		.byte	0
+ 2323 021b 03       		.uleb128 0x3
+ 2324 021c 0E       		.uleb128 0xe
+ 2325 021d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 44
+
+
+ 2326 021e 0B       		.uleb128 0xb
+ 2327 021f 3B       		.uleb128 0x3b
+ 2328 0220 0B       		.uleb128 0xb
+ 2329 0221 49       		.uleb128 0x49
+ 2330 0222 13       		.uleb128 0x13
+ 2331 0223 3F       		.uleb128 0x3f
+ 2332 0224 19       		.uleb128 0x19
+ 2333 0225 02       		.uleb128 0x2
+ 2334 0226 18       		.uleb128 0x18
+ 2335 0227 00       		.byte	0
+ 2336 0228 00       		.byte	0
+ 2337 0229 2C       		.uleb128 0x2c
+ 2338 022a 2E       		.uleb128 0x2e
+ 2339 022b 01       		.byte	0x1
+ 2340 022c 3F       		.uleb128 0x3f
+ 2341 022d 19       		.uleb128 0x19
+ 2342 022e 03       		.uleb128 0x3
+ 2343 022f 0E       		.uleb128 0xe
+ 2344 0230 3A       		.uleb128 0x3a
+ 2345 0231 0B       		.uleb128 0xb
+ 2346 0232 3B       		.uleb128 0x3b
+ 2347 0233 0B       		.uleb128 0xb
+ 2348 0234 27       		.uleb128 0x27
+ 2349 0235 19       		.uleb128 0x19
+ 2350 0236 49       		.uleb128 0x49
+ 2351 0237 13       		.uleb128 0x13
+ 2352 0238 3C       		.uleb128 0x3c
+ 2353 0239 19       		.uleb128 0x19
+ 2354 023a 01       		.uleb128 0x1
+ 2355 023b 13       		.uleb128 0x13
+ 2356 023c 00       		.byte	0
+ 2357 023d 00       		.byte	0
+ 2358 023e 2D       		.uleb128 0x2d
+ 2359 023f 18       		.uleb128 0x18
+ 2360 0240 00       		.byte	0
+ 2361 0241 00       		.byte	0
+ 2362 0242 00       		.byte	0
+ 2363 0243 2E       		.uleb128 0x2e
+ 2364 0244 2E       		.uleb128 0x2e
+ 2365 0245 01       		.byte	0x1
+ 2366 0246 3F       		.uleb128 0x3f
+ 2367 0247 19       		.uleb128 0x19
+ 2368 0248 03       		.uleb128 0x3
+ 2369 0249 0E       		.uleb128 0xe
+ 2370 024a 3A       		.uleb128 0x3a
+ 2371 024b 0B       		.uleb128 0xb
+ 2372 024c 3B       		.uleb128 0x3b
+ 2373 024d 0B       		.uleb128 0xb
+ 2374 024e 6E       		.uleb128 0x6e
+ 2375 024f 0E       		.uleb128 0xe
+ 2376 0250 27       		.uleb128 0x27
+ 2377 0251 19       		.uleb128 0x19
+ 2378 0252 49       		.uleb128 0x49
+ 2379 0253 13       		.uleb128 0x13
+ 2380 0254 3C       		.uleb128 0x3c
+ 2381 0255 19       		.uleb128 0x19
+ 2382 0256 01       		.uleb128 0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 45
+
+
+ 2383 0257 13       		.uleb128 0x13
+ 2384 0258 00       		.byte	0
+ 2385 0259 00       		.byte	0
+ 2386 025a 2F       		.uleb128 0x2f
+ 2387 025b 2E       		.uleb128 0x2e
+ 2388 025c 01       		.byte	0x1
+ 2389 025d 3F       		.uleb128 0x3f
+ 2390 025e 19       		.uleb128 0x19
+ 2391 025f 03       		.uleb128 0x3
+ 2392 0260 0E       		.uleb128 0xe
+ 2393 0261 3A       		.uleb128 0x3a
+ 2394 0262 0B       		.uleb128 0xb
+ 2395 0263 3B       		.uleb128 0x3b
+ 2396 0264 05       		.uleb128 0x5
+ 2397 0265 27       		.uleb128 0x27
+ 2398 0266 19       		.uleb128 0x19
+ 2399 0267 49       		.uleb128 0x49
+ 2400 0268 13       		.uleb128 0x13
+ 2401 0269 3C       		.uleb128 0x3c
+ 2402 026a 19       		.uleb128 0x19
+ 2403 026b 01       		.uleb128 0x1
+ 2404 026c 13       		.uleb128 0x13
+ 2405 026d 00       		.byte	0
+ 2406 026e 00       		.byte	0
+ 2407 026f 30       		.uleb128 0x30
+ 2408 0270 2E       		.uleb128 0x2e
+ 2409 0271 01       		.byte	0x1
+ 2410 0272 3F       		.uleb128 0x3f
+ 2411 0273 19       		.uleb128 0x19
+ 2412 0274 03       		.uleb128 0x3
+ 2413 0275 0E       		.uleb128 0xe
+ 2414 0276 3A       		.uleb128 0x3a
+ 2415 0277 0B       		.uleb128 0xb
+ 2416 0278 3B       		.uleb128 0x3b
+ 2417 0279 0B       		.uleb128 0xb
+ 2418 027a 27       		.uleb128 0x27
+ 2419 027b 19       		.uleb128 0x19
+ 2420 027c 49       		.uleb128 0x49
+ 2421 027d 13       		.uleb128 0x13
+ 2422 027e 3C       		.uleb128 0x3c
+ 2423 027f 19       		.uleb128 0x19
+ 2424 0280 00       		.byte	0
+ 2425 0281 00       		.byte	0
+ 2426 0282 00       		.byte	0
+ 2427              		.section	.debug_loc,"",%progbits
+ 2428              	.Ldebug_loc0:
+ 2429              	.LLST0:
+ 2430 0000 00000000 		.4byte	.LVL0
+ 2431 0004 06000000 		.4byte	.LVL1
+ 2432 0008 0100     		.2byte	0x1
+ 2433 000a 50       		.byte	0x50
+ 2434 000b 06000000 		.4byte	.LVL1
+ 2435 000f 0B000000 		.4byte	.LVL2-1
+ 2436 0013 0100     		.2byte	0x1
+ 2437 0015 52       		.byte	0x52
+ 2438 0016 0B000000 		.4byte	.LVL2-1
+ 2439 001a 14000000 		.4byte	.LFE63
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 46
+
+
+ 2440 001e 0400     		.2byte	0x4
+ 2441 0020 F3       		.byte	0xf3
+ 2442 0021 01       		.uleb128 0x1
+ 2443 0022 50       		.byte	0x50
+ 2444 0023 9F       		.byte	0x9f
+ 2445 0024 00000000 		.4byte	0
+ 2446 0028 00000000 		.4byte	0
+ 2447              	.LLST1:
+ 2448 002c 0A000000 		.4byte	.LVL3
+ 2449 0030 10000000 		.4byte	.LVL4
+ 2450 0034 0200     		.2byte	0x2
+ 2451 0036 30       		.byte	0x30
+ 2452 0037 9F       		.byte	0x9f
+ 2453 0038 10000000 		.4byte	.LVL4
+ 2454 003c 20010000 		.4byte	.LVL26
+ 2455 0040 0100     		.2byte	0x1
+ 2456 0042 55       		.byte	0x55
+ 2457 0043 00000000 		.4byte	0
+ 2458 0047 00000000 		.4byte	0
+ 2459              	.LLST2:
+ 2460 004b F2000000 		.4byte	.LVL21
+ 2461 004f F6000000 		.4byte	.LVL22
+ 2462 0053 0200     		.2byte	0x2
+ 2463 0055 30       		.byte	0x30
+ 2464 0056 9F       		.byte	0x9f
+ 2465 0057 F6000000 		.4byte	.LVL22
+ 2466 005b 20010000 		.4byte	.LVL26
+ 2467 005f 0100     		.2byte	0x1
+ 2468 0061 54       		.byte	0x54
+ 2469 0062 00000000 		.4byte	0
+ 2470 0066 00000000 		.4byte	0
+ 2471              	.LLST3:
+ 2472 006a B0000000 		.4byte	.LVL15
+ 2473 006e D6000000 		.4byte	.LVL18
+ 2474 0072 0100     		.2byte	0x1
+ 2475 0074 54       		.byte	0x54
+ 2476 0075 00000000 		.4byte	0
+ 2477 0079 00000000 		.4byte	0
+ 2478              	.LLST4:
+ 2479 007d 76000000 		.4byte	.LVL11
+ 2480 0081 86000000 		.4byte	.LVL12
+ 2481 0085 0100     		.2byte	0x1
+ 2482 0087 50       		.byte	0x50
+ 2483 0088 00000000 		.4byte	0
+ 2484 008c 00000000 		.4byte	0
+ 2485              		.section	.debug_aranges,"",%progbits
+ 2486 0000 24000000 		.4byte	0x24
+ 2487 0004 0200     		.2byte	0x2
+ 2488 0006 00000000 		.4byte	.Ldebug_info0
+ 2489 000a 04       		.byte	0x4
+ 2490 000b 00       		.byte	0
+ 2491 000c 0000     		.2byte	0
+ 2492 000e 0000     		.2byte	0
+ 2493 0010 00000000 		.4byte	.LFB63
+ 2494 0014 14000000 		.4byte	.LFE63-.LFB63
+ 2495 0018 00000000 		.4byte	.LFB64
+ 2496 001c 48010000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 47
+
+
+ 2497 0020 00000000 		.4byte	0
+ 2498 0024 00000000 		.4byte	0
+ 2499              		.section	.debug_ranges,"",%progbits
+ 2500              	.Ldebug_ranges0:
+ 2501 0000 2A000000 		.4byte	.LBB2
+ 2502 0004 AC000000 		.4byte	.LBE2
+ 2503 0008 B0000000 		.4byte	.LBB5
+ 2504 000c DC000000 		.4byte	.LBE5
+ 2505 0010 00000000 		.4byte	0
+ 2506 0014 00000000 		.4byte	0
+ 2507 0018 40000000 		.4byte	.LBB3
+ 2508 001c AC000000 		.4byte	.LBE3
+ 2509 0020 B0000000 		.4byte	.LBB4
+ 2510 0024 D6000000 		.4byte	.LBE4
+ 2511 0028 00000000 		.4byte	0
+ 2512 002c 00000000 		.4byte	0
+ 2513 0030 00000000 		.4byte	.LFB63
+ 2514 0034 14000000 		.4byte	.LFE63
+ 2515 0038 00000000 		.4byte	.LFB64
+ 2516 003c 48010000 		.4byte	.LFE64
+ 2517 0040 00000000 		.4byte	0
+ 2518 0044 00000000 		.4byte	0
+ 2519              		.section	.debug_line,"",%progbits
+ 2520              	.Ldebug_line0:
+ 2521 0000 FC020000 		.section	.debug_str,"MS",%progbits,1
+ 2521      02007402 
+ 2521      00000201 
+ 2521      FB0E0D00 
+ 2521      01010101 
+ 2522              	.LASF135:
+ 2523 0000 6E657874 		.ascii	"nextMonth\000"
+ 2523      4D6F6E74 
+ 2523      6800
+ 2524              	.LASF124:
+ 2525 000a 6E616D65 		.ascii	"name\000"
+ 2525      00
+ 2526              	.LASF139:
+ 2527 000f 7374726C 		.ascii	"strlen\000"
+ 2527      656E00
+ 2528              	.LASF42:
+ 2529 0016 5F6F6E5F 		.ascii	"_on_exit_args\000"
+ 2529      65786974 
+ 2529      5F617267 
+ 2529      7300
+ 2530              	.LASF109:
+ 2531 0024 5F776374 		.ascii	"_wctomb_state\000"
+ 2531      6F6D625F 
+ 2531      73746174 
+ 2531      6500
+ 2532              	.LASF106:
+ 2533 0032 5F723438 		.ascii	"_r48\000"
+ 2533      00
+ 2534              	.LASF111:
+ 2535 0037 5F736967 		.ascii	"_signal_buf\000"
+ 2535      6E616C5F 
+ 2535      62756600 
+ 2536              	.LASF8:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 48
+
+
+ 2537 0043 756E7369 		.ascii	"unsigned int\000"
+ 2537      676E6564 
+ 2537      20696E74 
+ 2537      00
+ 2538              	.LASF56:
+ 2539 0050 5F6C6266 		.ascii	"_lbfsize\000"
+ 2539      73697A65 
+ 2539      00
+ 2540              	.LASF54:
+ 2541 0059 5F666C61 		.ascii	"_flags\000"
+ 2541      677300
+ 2542              	.LASF9:
+ 2543 0060 5F5F696E 		.ascii	"__int32_t\000"
+ 2543      7433325F 
+ 2543      7400
+ 2544              	.LASF71:
+ 2545 006a 5F657272 		.ascii	"_errno\000"
+ 2545      6E6F00
+ 2546              	.LASF142:
+ 2547 0071 463A5C4F 		.ascii	"F:\\OneDrive\\Metropolia\\Devices\\Workspaces\\Work"
+ 2547      6E654472 
+ 2547      6976655C 
+ 2547      4D657472 
+ 2547      6F706F6C 
+ 2548 009f 73706163 		.ascii	"space 1\\Workspace01\\Hello Word.cydsn\000"
+ 2548      6520315C 
+ 2548      576F726B 
+ 2548      73706163 
+ 2548      6530315C 
+ 2549              	.LASF15:
+ 2550 00c4 5F4C4F43 		.ascii	"_LOCK_RECURSIVE_T\000"
+ 2550      4B5F5245 
+ 2550      43555253 
+ 2550      4956455F 
+ 2550      5400
+ 2551              	.LASF58:
+ 2552 00d6 5F726561 		.ascii	"_read\000"
+ 2552      6400
+ 2553              	.LASF113:
+ 2554 00dc 5F6D6272 		.ascii	"_mbrlen_state\000"
+ 2554      6C656E5F 
+ 2554      73746174 
+ 2554      6500
+ 2555              	.LASF73:
+ 2556 00ea 5F737464 		.ascii	"_stdout\000"
+ 2556      6F757400 
+ 2557              	.LASF17:
+ 2558 00f2 5F66706F 		.ascii	"_fpos_t\000"
+ 2558      735F7400 
+ 2559              	.LASF49:
+ 2560 00fa 5F666E73 		.ascii	"_fns\000"
+ 2560      00
+ 2561              	.LASF57:
+ 2562 00ff 5F636F6F 		.ascii	"_cookie\000"
+ 2562      6B696500 
+ 2563              	.LASF31:
+ 2564 0107 5F426967 		.ascii	"_Bigint\000"
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 49
+
+
+ 2564      696E7400 
+ 2565              	.LASF39:
+ 2566 010f 5F5F746D 		.ascii	"__tm_wday\000"
+ 2566      5F776461 
+ 2566      7900
+ 2567              	.LASF81:
+ 2568 0119 5F726573 		.ascii	"_result\000"
+ 2568      756C7400 
+ 2569              	.LASF35:
+ 2570 0121 5F5F746D 		.ascii	"__tm_hour\000"
+ 2570      5F686F75 
+ 2570      7200
+ 2571              	.LASF22:
+ 2572 012b 5F5F636F 		.ascii	"__count\000"
+ 2572      756E7400 
+ 2573              	.LASF11:
+ 2574 0133 666C6F61 		.ascii	"float\000"
+ 2574      7400
+ 2575              	.LASF34:
+ 2576 0139 5F5F746D 		.ascii	"__tm_min\000"
+ 2576      5F6D696E 
+ 2576      00
+ 2577              	.LASF131:
+ 2578 0142 5F696D70 		.ascii	"_impure_ptr\000"
+ 2578      7572655F 
+ 2578      70747200 
+ 2579              	.LASF119:
+ 2580 014e 5F6E6578 		.ascii	"_nextf\000"
+ 2580      746600
+ 2581              	.LASF96:
+ 2582 0155 5F72616E 		.ascii	"_rand48\000"
+ 2582      64343800 
+ 2583              	.LASF82:
+ 2584 015d 5F726573 		.ascii	"_result_k\000"
+ 2584      756C745F 
+ 2584      6B00
+ 2585              	.LASF7:
+ 2586 0167 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2586      206C6F6E 
+ 2586      6720756E 
+ 2586      7369676E 
+ 2586      65642069 
+ 2587              	.LASF102:
+ 2588 017e 5F617363 		.ascii	"_asctime_buf\000"
+ 2588      74696D65 
+ 2588      5F627566 
+ 2588      00
+ 2589              	.LASF53:
+ 2590 018b 5F5F7346 		.ascii	"__sFILE\000"
+ 2590      494C4500 
+ 2591              	.LASF30:
+ 2592 0193 5F776473 		.ascii	"_wds\000"
+ 2592      00
+ 2593              	.LASF92:
+ 2594 0198 5F5F4649 		.ascii	"__FILE\000"
+ 2594      4C4500
+ 2595              	.LASF65:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 50
+
+
+ 2596 019f 5F6F6666 		.ascii	"_offset\000"
+ 2596      73657400 
+ 2597              	.LASF76:
+ 2598 01a7 5F656D65 		.ascii	"_emergency\000"
+ 2598      7267656E 
+ 2598      637900
+ 2599              	.LASF144:
+ 2600 01b2 70757473 		.ascii	"puts\000"
+ 2600      00
+ 2601              	.LASF14:
+ 2602 01b7 73697A65 		.ascii	"size_t\000"
+ 2602      5F7400
+ 2603              	.LASF33:
+ 2604 01be 5F5F746D 		.ascii	"__tm_sec\000"
+ 2604      5F736563 
+ 2604      00
+ 2605              	.LASF133:
+ 2606 01c7 6E65774D 		.ascii	"newMonth\000"
+ 2606      6F6E7468 
+ 2606      00
+ 2607              	.LASF40:
+ 2608 01d0 5F5F746D 		.ascii	"__tm_yday\000"
+ 2608      5F796461 
+ 2608      7900
+ 2609              	.LASF75:
+ 2610 01da 5F696E63 		.ascii	"_inc\000"
+ 2610      00
+ 2611              	.LASF48:
+ 2612 01df 5F696E64 		.ascii	"_ind\000"
+ 2612      00
+ 2613              	.LASF123:
+ 2614 01e4 6D6F6E74 		.ascii	"month\000"
+ 2614      6800
+ 2615              	.LASF27:
+ 2616 01ea 5F6E6578 		.ascii	"_next\000"
+ 2616      7400
+ 2617              	.LASF115:
+ 2618 01f0 5F6D6273 		.ascii	"_mbsrtowcs_state\000"
+ 2618      72746F77 
+ 2618      63735F73 
+ 2618      74617465 
+ 2618      00
+ 2619              	.LASF141:
+ 2620 0201 65786572 		.ascii	"exercise20.c\000"
+ 2620      63697365 
+ 2620      32302E63 
+ 2620      00
+ 2621              	.LASF127:
+ 2622 020e 65786572 		.ascii	"exercise20\000"
+ 2622      63697365 
+ 2622      323000
+ 2623              	.LASF23:
+ 2624 0219 5F5F7661 		.ascii	"__value\000"
+ 2624      6C756500 
+ 2625              	.LASF83:
+ 2626 0221 5F703573 		.ascii	"_p5s\000"
+ 2626      00
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 51
+
+
+ 2627              	.LASF117:
+ 2628 0226 5F776373 		.ascii	"_wcsrtombs_state\000"
+ 2628      72746F6D 
+ 2628      62735F73 
+ 2628      74617465 
+ 2628      00
+ 2629              	.LASF107:
+ 2630 0237 5F6D626C 		.ascii	"_mblen_state\000"
+ 2630      656E5F73 
+ 2630      74617465 
+ 2630      00
+ 2631              	.LASF13:
+ 2632 0244 63686172 		.ascii	"char\000"
+ 2632      00
+ 2633              	.LASF36:
+ 2634 0249 5F5F746D 		.ascii	"__tm_mday\000"
+ 2634      5F6D6461 
+ 2634      7900
+ 2635              	.LASF89:
+ 2636 0253 5F736967 		.ascii	"_sig_func\000"
+ 2636      5F66756E 
+ 2636      6300
+ 2637              	.LASF114:
+ 2638 025d 5F6D6272 		.ascii	"_mbrtowc_state\000"
+ 2638      746F7763 
+ 2638      5F737461 
+ 2638      746500
+ 2639              	.LASF88:
+ 2640 026c 5F617465 		.ascii	"_atexit0\000"
+ 2640      78697430 
+ 2640      00
+ 2641              	.LASF25:
+ 2642 0275 5F666C6F 		.ascii	"_flock_t\000"
+ 2642      636B5F74 
+ 2642      00
+ 2643              	.LASF19:
+ 2644 027e 5F5F7763 		.ascii	"__wch\000"
+ 2644      6800
+ 2645              	.LASF95:
+ 2646 0284 5F696F62 		.ascii	"_iobs\000"
+ 2646      7300
+ 2647              	.LASF143:
+ 2648 028a 5F5F6275 		.ascii	"__builtin_puts\000"
+ 2648      696C7469 
+ 2648      6E5F7075 
+ 2648      747300
+ 2649              	.LASF61:
+ 2650 0299 5F636C6F 		.ascii	"_close\000"
+ 2650      736500
+ 2651              	.LASF79:
+ 2652 02a0 5F5F7364 		.ascii	"__sdidinit\000"
+ 2652      6964696E 
+ 2652      697400
+ 2653              	.LASF128:
+ 2654 02ab 6D6F6E74 		.ascii	"monthNo\000"
+ 2654      684E6F00 
+ 2655              	.LASF72:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 52
+
+
+ 2656 02b3 5F737464 		.ascii	"_stdin\000"
+ 2656      696E00
+ 2657              	.LASF104:
+ 2658 02ba 5F67616D 		.ascii	"_gamma_signgam\000"
+ 2658      6D615F73 
+ 2658      69676E67 
+ 2658      616D00
+ 2659              	.LASF6:
+ 2660 02c9 6C6F6E67 		.ascii	"long long int\000"
+ 2660      206C6F6E 
+ 2660      6720696E 
+ 2660      7400
+ 2661              	.LASF136:
+ 2662 02d7 7072696E 		.ascii	"printf\000"
+ 2662      746600
+ 2663              	.LASF51:
+ 2664 02de 5F626173 		.ascii	"_base\000"
+ 2664      6500
+ 2665              	.LASF84:
+ 2666 02e4 5F667265 		.ascii	"_freelist\000"
+ 2666      656C6973 
+ 2666      7400
+ 2667              	.LASF98:
+ 2668 02ee 5F6D756C 		.ascii	"_mult\000"
+ 2668      7400
+ 2669              	.LASF26:
+ 2670 02f4 5F5F554C 		.ascii	"__ULong\000"
+ 2670      6F6E6700 
+ 2671              	.LASF116:
+ 2672 02fc 5F776372 		.ascii	"_wcrtomb_state\000"
+ 2672      746F6D62 
+ 2672      5F737461 
+ 2672      746500
+ 2673              	.LASF55:
+ 2674 030b 5F66696C 		.ascii	"_file\000"
+ 2674      6500
+ 2675              	.LASF80:
+ 2676 0311 5F5F636C 		.ascii	"__cleanup\000"
+ 2676      65616E75 
+ 2676      7000
+ 2677              	.LASF24:
+ 2678 031b 5F6D6273 		.ascii	"_mbstate_t\000"
+ 2678      74617465 
+ 2678      5F7400
+ 2679              	.LASF41:
+ 2680 0326 5F5F746D 		.ascii	"__tm_isdst\000"
+ 2680      5F697364 
+ 2680      737400
+ 2681              	.LASF118:
+ 2682 0331 5F685F65 		.ascii	"_h_errno\000"
+ 2682      72726E6F 
+ 2682      00
+ 2683              	.LASF129:
+ 2684 033a 646F6E65 		.ascii	"done\000"
+ 2684      00
+ 2685              	.LASF138:
+ 2686 033f 66676574 		.ascii	"fgets\000"
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 53
+
+
+ 2686      7300
+ 2687              	.LASF37:
+ 2688 0345 5F5F746D 		.ascii	"__tm_mon\000"
+ 2688      5F6D6F6E 
+ 2688      00
+ 2689              	.LASF137:
+ 2690 034e 5F5F7372 		.ascii	"__srget_r\000"
+ 2690      6765745F 
+ 2690      7200
+ 2691              	.LASF59:
+ 2692 0358 5F777269 		.ascii	"_write\000"
+ 2692      746500
+ 2693              	.LASF130:
+ 2694 035f 6D6F6E74 		.ascii	"monthName\000"
+ 2694      684E616D 
+ 2694      6500
+ 2695              	.LASF47:
+ 2696 0369 5F617465 		.ascii	"_atexit\000"
+ 2696      78697400 
+ 2697              	.LASF68:
+ 2698 0371 5F6D6273 		.ascii	"_mbstate\000"
+ 2698      74617465 
+ 2698      00
+ 2699              	.LASF145:
+ 2700 037a 7363616E 		.ascii	"scanf\000"
+ 2700      6600
+ 2701              	.LASF2:
+ 2702 0380 73686F72 		.ascii	"short int\000"
+ 2702      7420696E 
+ 2702      7400
+ 2703              	.LASF4:
+ 2704 038a 6C6F6E67 		.ascii	"long int\000"
+ 2704      20696E74 
+ 2704      00
+ 2705              	.LASF132:
+ 2706 0393 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2706      52784275 
+ 2706      66666572 
+ 2706      00
+ 2707              	.LASF91:
+ 2708 03a0 5F5F7366 		.ascii	"__sf\000"
+ 2708      00
+ 2709              	.LASF29:
+ 2710 03a5 5F736967 		.ascii	"_sign\000"
+ 2710      6E00
+ 2711              	.LASF78:
+ 2712 03ab 5F637572 		.ascii	"_current_locale\000"
+ 2712      72656E74 
+ 2712      5F6C6F63 
+ 2712      616C6500 
+ 2713              	.LASF66:
+ 2714 03bb 5F646174 		.ascii	"_data\000"
+ 2714      6100
+ 2715              	.LASF20:
+ 2716 03c1 5F5F7763 		.ascii	"__wchb\000"
+ 2716      686200
+ 2717              	.LASF38:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 54
+
+
+ 2718 03c8 5F5F746D 		.ascii	"__tm_year\000"
+ 2718      5F796561 
+ 2718      7200
+ 2719              	.LASF103:
+ 2720 03d2 5F6C6F63 		.ascii	"_localtime_buf\000"
+ 2720      616C7469 
+ 2720      6D655F62 
+ 2720      756600
+ 2721              	.LASF121:
+ 2722 03e1 5F756E75 		.ascii	"_unused\000"
+ 2722      73656400 
+ 2723              	.LASF87:
+ 2724 03e9 5F6E6577 		.ascii	"_new\000"
+ 2724      00
+ 2725              	.LASF125:
+ 2726 03ee 6E756D62 		.ascii	"number\000"
+ 2726      657200
+ 2727              	.LASF85:
+ 2728 03f5 5F637674 		.ascii	"_cvtlen\000"
+ 2728      6C656E00 
+ 2729              	.LASF28:
+ 2730 03fd 5F6D6178 		.ascii	"_maxwds\000"
+ 2730      77647300 
+ 2731              	.LASF110:
+ 2732 0405 5F6C3634 		.ascii	"_l64a_buf\000"
+ 2732      615F6275 
+ 2732      6600
+ 2733              	.LASF77:
+ 2734 040f 5F637572 		.ascii	"_current_category\000"
+ 2734      72656E74 
+ 2734      5F636174 
+ 2734      65676F72 
+ 2734      7900
+ 2735              	.LASF64:
+ 2736 0421 5F626C6B 		.ascii	"_blksize\000"
+ 2736      73697A65 
+ 2736      00
+ 2737              	.LASF32:
+ 2738 042a 5F5F746D 		.ascii	"__tm\000"
+ 2738      00
+ 2739              	.LASF67:
+ 2740 042f 5F6C6F63 		.ascii	"_lock\000"
+ 2740      6B00
+ 2741              	.LASF21:
+ 2742 0435 73697A65 		.ascii	"sizetype\000"
+ 2742      74797065 
+ 2742      00
+ 2743              	.LASF126:
+ 2744 043e 7072696E 		.ascii	"printMonth\000"
+ 2744      744D6F6E 
+ 2744      746800
+ 2745              	.LASF5:
+ 2746 0449 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2746      20756E73 
+ 2746      69676E65 
+ 2746      6420696E 
+ 2746      7400
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 55
+
+
+ 2747              	.LASF94:
+ 2748 045b 5F6E696F 		.ascii	"_niobs\000"
+ 2748      627300
+ 2749              	.LASF18:
+ 2750 0462 77696E74 		.ascii	"wint_t\000"
+ 2750      5F7400
+ 2751              	.LASF10:
+ 2752 0469 696E7433 		.ascii	"int32_t\000"
+ 2752      325F7400 
+ 2753              	.LASF44:
+ 2754 0471 5F64736F 		.ascii	"_dso_handle\000"
+ 2754      5F68616E 
+ 2754      646C6500 
+ 2755              	.LASF86:
+ 2756 047d 5F637674 		.ascii	"_cvtbuf\000"
+ 2756      62756600 
+ 2757              	.LASF1:
+ 2758 0485 756E7369 		.ascii	"unsigned char\000"
+ 2758      676E6564 
+ 2758      20636861 
+ 2758      7200
+ 2759              	.LASF140:
+ 2760 0493 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2760      4320342E 
+ 2760      392E3320 
+ 2760      32303135 
+ 2760      30333033 
+ 2761 04c6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2761      20726576 
+ 2761      6973696F 
+ 2761      6E203232 
+ 2761      31323230 
+ 2762 04f9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2762      66756E63 
+ 2762      74696F6E 
+ 2762      2D736563 
+ 2762      74696F6E 
+ 2763              	.LASF112:
+ 2764 0521 5F676574 		.ascii	"_getdate_err\000"
+ 2764      64617465 
+ 2764      5F657272 
+ 2764      00
+ 2765              	.LASF134:
+ 2766 052e 4D6F6E74 		.ascii	"Months\000"
+ 2766      687300
+ 2767              	.LASF99:
+ 2768 0535 5F616464 		.ascii	"_add\000"
+ 2768      00
+ 2769              	.LASF50:
+ 2770 053a 5F5F7362 		.ascii	"__sbuf\000"
+ 2770      756600
+ 2771              	.LASF93:
+ 2772 0541 5F676C75 		.ascii	"_glue\000"
+ 2772      6500
+ 2773              	.LASF90:
+ 2774 0547 5F5F7367 		.ascii	"__sglue\000"
+ 2774      6C756500 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 56
+
+
+ 2775              	.LASF101:
+ 2776 054f 5F737472 		.ascii	"_strtok_last\000"
+ 2776      746F6B5F 
+ 2776      6C617374 
+ 2776      00
+ 2777              	.LASF108:
+ 2778 055c 5F6D6274 		.ascii	"_mbtowc_state\000"
+ 2778      6F77635F 
+ 2778      73746174 
+ 2778      6500
+ 2779              	.LASF43:
+ 2780 056a 5F666E61 		.ascii	"_fnargs\000"
+ 2780      72677300 
+ 2781              	.LASF0:
+ 2782 0572 7369676E 		.ascii	"signed char\000"
+ 2782      65642063 
+ 2782      68617200 
+ 2783              	.LASF70:
+ 2784 057e 5F726565 		.ascii	"_reent\000"
+ 2784      6E7400
+ 2785              	.LASF3:
+ 2786 0585 73686F72 		.ascii	"short unsigned int\000"
+ 2786      7420756E 
+ 2786      7369676E 
+ 2786      65642069 
+ 2786      6E7400
+ 2787              	.LASF45:
+ 2788 0598 5F666E74 		.ascii	"_fntypes\000"
+ 2788      79706573 
+ 2788      00
+ 2789              	.LASF52:
+ 2790 05a1 5F73697A 		.ascii	"_size\000"
+ 2790      6500
+ 2791              	.LASF12:
+ 2792 05a7 646F7562 		.ascii	"double\000"
+ 2792      6C6500
+ 2793              	.LASF16:
+ 2794 05ae 5F6F6666 		.ascii	"_off_t\000"
+ 2794      5F7400
+ 2795              	.LASF63:
+ 2796 05b5 5F6E6275 		.ascii	"_nbuf\000"
+ 2796      6600
+ 2797              	.LASF100:
+ 2798 05bb 5F756E75 		.ascii	"_unused_rand\000"
+ 2798      7365645F 
+ 2798      72616E64 
+ 2798      00
+ 2799              	.LASF122:
+ 2800 05c8 46494C45 		.ascii	"FILE\000"
+ 2800      00
+ 2801              	.LASF69:
+ 2802 05cd 5F666C61 		.ascii	"_flags2\000"
+ 2802      67733200 
+ 2803              	.LASF46:
+ 2804 05d5 5F69735F 		.ascii	"_is_cxa\000"
+ 2804      63786100 
+ 2805              	.LASF97:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccdoqfl1.s 			page 57
+
+
+ 2806 05dd 5F736565 		.ascii	"_seed\000"
+ 2806      6400
+ 2807              	.LASF105:
+ 2808 05e3 5F72616E 		.ascii	"_rand_next\000"
+ 2808      645F6E65 
+ 2808      787400
+ 2809              	.LASF60:
+ 2810 05ee 5F736565 		.ascii	"_seek\000"
+ 2810      6B00
+ 2811              	.LASF74:
+ 2812 05f4 5F737464 		.ascii	"_stderr\000"
+ 2812      65727200 
+ 2813              	.LASF120:
+ 2814 05fc 5F6E6D61 		.ascii	"_nmalloc\000"
+ 2814      6C6C6F63 
+ 2814      00
+ 2815              	.LASF62:
+ 2816 0605 5F756275 		.ascii	"_ubuf\000"
+ 2816      6600
+ 2817              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

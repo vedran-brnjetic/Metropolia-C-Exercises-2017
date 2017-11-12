@@ -1,0 +1,6 @@
+F:\OneDrive\Metropolia\Devices\Workspaces\Workspace 1\Workspace01\Hello Word.cydsn\Hello Word.cyprj|c2d7cdba-77a5-41c5-b3b8-72de4996e574
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|0bfa5880-040a-4908-95eb-5e5f4f6dbef4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|eea63cb8-a814-44ba-abe0-688eaa90eeae
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|576b6363-2baa-4db9-a8a3-390899269448
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3933fca0-781c-448e-aaef-385f8537ba78
+F:\OneDrive\Metropolia\Devices\Workspaces\Workspace 1\Workspace01\Hello Word_Copy_01.cydsn\Hello Word_Copy_01.cyprj|fd55debe-c839-45ac-bf26-e59656e2d3c8

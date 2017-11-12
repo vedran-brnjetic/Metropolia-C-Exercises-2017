@@ -1,0 +1,735 @@
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"battery_check.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.readBattery,"ax",%progbits
+  19              		.align	2
+  20              		.global	readBattery
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	readBattery, %function
+  24              	readBattery:
+  25              	.LFB63:
+  26              		.file 1 "battery_check.c"
+   1:battery_check.c **** /* ========================================
+   2:battery_check.c ****  *
+   3:battery_check.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:battery_check.c ****  * All Rights Reserved
+   5:battery_check.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:battery_check.c ****  *
+   7:battery_check.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:battery_check.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:battery_check.c ****  *
+  10:battery_check.c ****  * ========================================
+  11:battery_check.c **** */
+  12:battery_check.c **** #include "project.h"
+  13:battery_check.c **** #include <stdio.h>
+  14:battery_check.c **** 
+  15:battery_check.c **** 
+  16:battery_check.c **** int readBattery(void){
+  27              		.loc 1 16 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  17:battery_check.c ****     
+  18:battery_check.c ****     return 2800; //TODO: replace with actual battery reading code;
+  19:battery_check.c **** }
+  32              		.loc 1 19 0
+  33 0000 4FF42F60 		mov	r0, #2800
+  34 0004 7047     		bx	lr
+  35              		.cfi_endproc
+  36              	.LFE63:
+  37              		.size	readBattery, .-readBattery
+  38 0006 00BF     		.section	.text.battery_check,"ax",%progbits
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 2
+
+
+  39              		.align	2
+  40              		.global	battery_check
+  41              		.thumb
+  42              		.thumb_func
+  43              		.type	battery_check, %function
+  44              	battery_check:
+  45              	.LFB64:
+  20:battery_check.c **** 
+  21:battery_check.c **** 
+  22:battery_check.c **** int battery_check(void){
+  46              		.loc 1 22 0
+  47              		.cfi_startproc
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 0, uses_anonymous_args = 0
+  50 0000 08B5     		push	{r3, lr}
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 3, -8
+  53              		.cfi_offset 14, -4
+  54              	.LVL0:
+  23:battery_check.c ****     int vBatMin=2185;
+  24:battery_check.c ****     
+  25:battery_check.c ****     int vBat=readBattery();
+  55              		.loc 1 25 0
+  56 0002 FFF7FEFF 		bl	readBattery
+  57              	.LVL1:
+  26:battery_check.c ****     
+  27:battery_check.c ****     while(vBat > vBatMin){
+  58              		.loc 1 27 0
+  59 0006 40F68903 		movw	r3, #2185
+  60 000a 9842     		cmp	r0, r3
+  61 000c 01DD     		ble	.L4
+  28:battery_check.c ****         return 1;
+  62              		.loc 1 28 0
+  63 000e 0120     		movs	r0, #1
+  64              	.LVL2:
+  65 0010 08BD     		pop	{r3, pc}
+  66              	.LVL3:
+  67              	.L4:
+  29:battery_check.c ****     }
+  30:battery_check.c ****     return 0;
+  68              		.loc 1 30 0
+  69 0012 0020     		movs	r0, #0
+  70              	.LVL4:
+  31:battery_check.c **** }
+  71              		.loc 1 31 0
+  72 0014 08BD     		pop	{r3, pc}
+  73              		.cfi_endproc
+  74              	.LFE64:
+  75              		.size	battery_check, .-battery_check
+  76              		.global	__aeabi_i2f
+  77              		.global	__aeabi_fsub
+  78              		.global	__aeabi_fdiv
+  79 0016 00BF     		.section	.text.battery_level,"ax",%progbits
+  80              		.align	2
+  81              		.global	battery_level
+  82              		.thumb
+  83              		.thumb_func
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 3
+
+
+  84              		.type	battery_level, %function
+  85              	battery_level:
+  86              	.LFB65:
+  32:battery_check.c **** 
+  33:battery_check.c **** float battery_level(void){
+  87              		.loc 1 33 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91 0000 08B5     		push	{r3, lr}
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 3, -8
+  94              		.cfi_offset 14, -4
+  95              	.LVL5:
+  34:battery_check.c ****     int vBatMax=3055;
+  35:battery_check.c ****     int vBatMin=2185;
+  36:battery_check.c ****     
+  37:battery_check.c ****     int vBat = readBattery();
+  96              		.loc 1 37 0
+  97 0002 FFF7FEFF 		bl	readBattery
+  98              	.LVL6:
+  38:battery_check.c **** 
+  39:battery_check.c ****     return ((float) vBat - vBatMin)/((float) vBatMax - vBatMin);
+  99              		.loc 1 39 0
+ 100 0006 FFF7FEFF 		bl	__aeabi_i2f
+ 101              	.LVL7:
+ 102 000a 0349     		ldr	r1, .L8
+ 103 000c FFF7FEFF 		bl	__aeabi_fsub
+ 104              	.LVL8:
+ 105 0010 0249     		ldr	r1, .L8+4
+ 106 0012 FFF7FEFF 		bl	__aeabi_fdiv
+ 107              	.LVL9:
+  40:battery_check.c **** 
+  41:battery_check.c **** }
+ 108              		.loc 1 41 0
+ 109 0016 08BD     		pop	{r3, pc}
+ 110              	.L9:
+ 111              		.align	2
+ 112              	.L8:
+ 113 0018 00900845 		.word	1158189056
+ 114 001c 00805944 		.word	1146716160
+ 115              		.cfi_endproc
+ 116              	.LFE65:
+ 117              		.size	battery_level, .-battery_level
+ 118              		.text
+ 119              	.Letext0:
+ 120              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 121              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 122              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 123              		.section	.debug_info,"",%progbits
+ 124              	.Ldebug_info0:
+ 125 0000 4B010000 		.4byte	0x14b
+ 126 0004 0400     		.2byte	0x4
+ 127 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 128 000a 04       		.byte	0x4
+ 129 000b 01       		.uleb128 0x1
+ 130 000c 81000000 		.4byte	.LASF20
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 4
+
+
+ 131 0010 01       		.byte	0x1
+ 132 0011 71000000 		.4byte	.LASF21
+ 133 0015 8B010000 		.4byte	.LASF22
+ 134 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 135 001d 00000000 		.4byte	0
+ 136 0021 00000000 		.4byte	.Ldebug_line0
+ 137 0025 02       		.uleb128 0x2
+ 138 0026 01       		.byte	0x1
+ 139 0027 06       		.byte	0x6
+ 140 0028 55010000 		.4byte	.LASF0
+ 141 002c 02       		.uleb128 0x2
+ 142 002d 01       		.byte	0x1
+ 143 002e 08       		.byte	0x8
+ 144 002f 1C010000 		.4byte	.LASF1
+ 145 0033 02       		.uleb128 0x2
+ 146 0034 02       		.byte	0x2
+ 147 0035 05       		.byte	0x5
+ 148 0036 79010000 		.4byte	.LASF2
+ 149 003a 02       		.uleb128 0x2
+ 150 003b 02       		.byte	0x2
+ 151 003c 07       		.byte	0x7
+ 152 003d 0E000000 		.4byte	.LASF3
+ 153 0041 03       		.uleb128 0x3
+ 154 0042 61010000 		.4byte	.LASF9
+ 155 0046 02       		.byte	0x2
+ 156 0047 3F       		.byte	0x3f
+ 157 0048 4C000000 		.4byte	0x4c
+ 158 004c 02       		.uleb128 0x2
+ 159 004d 04       		.byte	0x4
+ 160 004e 05       		.byte	0x5
+ 161 004f 2F010000 		.4byte	.LASF4
+ 162 0053 02       		.uleb128 0x2
+ 163 0054 04       		.byte	0x4
+ 164 0055 07       		.byte	0x7
+ 165 0056 48000000 		.4byte	.LASF5
+ 166 005a 02       		.uleb128 0x2
+ 167 005b 08       		.byte	0x8
+ 168 005c 05       		.byte	0x5
+ 169 005d 00000000 		.4byte	.LASF6
+ 170 0061 02       		.uleb128 0x2
+ 171 0062 08       		.byte	0x8
+ 172 0063 07       		.byte	0x7
+ 173 0064 5A000000 		.4byte	.LASF7
+ 174 0068 04       		.uleb128 0x4
+ 175 0069 04       		.byte	0x4
+ 176 006a 05       		.byte	0x5
+ 177 006b 696E7400 		.ascii	"int\000"
+ 178 006f 02       		.uleb128 0x2
+ 179 0070 04       		.byte	0x4
+ 180 0071 07       		.byte	0x7
+ 181 0072 21000000 		.4byte	.LASF8
+ 182 0076 03       		.uleb128 0x3
+ 183 0077 83010000 		.4byte	.LASF10
+ 184 007b 03       		.byte	0x3
+ 185 007c 2C       		.byte	0x2c
+ 186 007d 41000000 		.4byte	0x41
+ 187 0081 02       		.uleb128 0x2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 5
+
+
+ 188 0082 04       		.byte	0x4
+ 189 0083 04       		.byte	0x4
+ 190 0084 73010000 		.4byte	.LASF11
+ 191 0088 02       		.uleb128 0x2
+ 192 0089 08       		.byte	0x8
+ 193 008a 04       		.byte	0x4
+ 194 008b 38010000 		.4byte	.LASF12
+ 195 008f 02       		.uleb128 0x2
+ 196 0090 01       		.byte	0x1
+ 197 0091 08       		.byte	0x8
+ 198 0092 2A010000 		.4byte	.LASF13
+ 199 0096 02       		.uleb128 0x2
+ 200 0097 04       		.byte	0x4
+ 201 0098 07       		.byte	0x7
+ 202 0099 3F010000 		.4byte	.LASF14
+ 203 009d 05       		.uleb128 0x5
+ 204 009e 3C000000 		.4byte	.LASF23
+ 205 00a2 01       		.byte	0x1
+ 206 00a3 10       		.byte	0x10
+ 207 00a4 68000000 		.4byte	0x68
+ 208 00a8 00000000 		.4byte	.LFB63
+ 209 00ac 06000000 		.4byte	.LFE63-.LFB63
+ 210 00b0 01       		.uleb128 0x1
+ 211 00b1 9C       		.byte	0x9c
+ 212 00b2 06       		.uleb128 0x6
+ 213 00b3 D9010000 		.4byte	.LASF17
+ 214 00b7 01       		.byte	0x1
+ 215 00b8 16       		.byte	0x16
+ 216 00b9 68000000 		.4byte	0x68
+ 217 00bd 00000000 		.4byte	.LFB64
+ 218 00c1 16000000 		.4byte	.LFE64-.LFB64
+ 219 00c5 01       		.uleb128 0x1
+ 220 00c6 9C       		.byte	0x9c
+ 221 00c7 F1000000 		.4byte	0xf1
+ 222 00cb 07       		.uleb128 0x7
+ 223 00cc 0F010000 		.4byte	.LASF15
+ 224 00d0 01       		.byte	0x1
+ 225 00d1 17       		.byte	0x17
+ 226 00d2 68000000 		.4byte	0x68
+ 227 00d6 8908     		.2byte	0x889
+ 228 00d8 08       		.uleb128 0x8
+ 229 00d9 17010000 		.4byte	.LASF16
+ 230 00dd 01       		.byte	0x1
+ 231 00de 19       		.byte	0x19
+ 232 00df 68000000 		.4byte	0x68
+ 233 00e3 00000000 		.4byte	.LLST0
+ 234 00e7 09       		.uleb128 0x9
+ 235 00e8 06000000 		.4byte	.LVL1
+ 236 00ec 9D000000 		.4byte	0x9d
+ 237 00f0 00       		.byte	0
+ 238 00f1 0A       		.uleb128 0xa
+ 239 00f2 2E000000 		.4byte	.LASF18
+ 240 00f6 01       		.byte	0x1
+ 241 00f7 21       		.byte	0x21
+ 242 00f8 81000000 		.4byte	0x81
+ 243 00fc 00000000 		.4byte	.LFB65
+ 244 0100 20000000 		.4byte	.LFE65-.LFB65
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 6
+
+
+ 245 0104 01       		.uleb128 0x1
+ 246 0105 9C       		.byte	0x9c
+ 247 0106 3D010000 		.4byte	0x13d
+ 248 010a 07       		.uleb128 0x7
+ 249 010b 6B010000 		.4byte	.LASF19
+ 250 010f 01       		.byte	0x1
+ 251 0110 22       		.byte	0x22
+ 252 0111 68000000 		.4byte	0x68
+ 253 0115 EF0B     		.2byte	0xbef
+ 254 0117 07       		.uleb128 0x7
+ 255 0118 0F010000 		.4byte	.LASF15
+ 256 011c 01       		.byte	0x1
+ 257 011d 23       		.byte	0x23
+ 258 011e 68000000 		.4byte	0x68
+ 259 0122 8908     		.2byte	0x889
+ 260 0124 08       		.uleb128 0x8
+ 261 0125 17010000 		.4byte	.LASF16
+ 262 0129 01       		.byte	0x1
+ 263 012a 25       		.byte	0x25
+ 264 012b 68000000 		.4byte	0x68
+ 265 012f 1E000000 		.4byte	.LLST1
+ 266 0133 09       		.uleb128 0x9
+ 267 0134 06000000 		.4byte	.LVL6
+ 268 0138 9D000000 		.4byte	0x9d
+ 269 013c 00       		.byte	0
+ 270 013d 0B       		.uleb128 0xb
+ 271 013e 48010000 		.4byte	.LASF24
+ 272 0142 04       		.byte	0x4
+ 273 0143 9606     		.2byte	0x696
+ 274 0145 49010000 		.4byte	0x149
+ 275 0149 0C       		.uleb128 0xc
+ 276 014a 76000000 		.4byte	0x76
+ 277 014e 00       		.byte	0
+ 278              		.section	.debug_abbrev,"",%progbits
+ 279              	.Ldebug_abbrev0:
+ 280 0000 01       		.uleb128 0x1
+ 281 0001 11       		.uleb128 0x11
+ 282 0002 01       		.byte	0x1
+ 283 0003 25       		.uleb128 0x25
+ 284 0004 0E       		.uleb128 0xe
+ 285 0005 13       		.uleb128 0x13
+ 286 0006 0B       		.uleb128 0xb
+ 287 0007 03       		.uleb128 0x3
+ 288 0008 0E       		.uleb128 0xe
+ 289 0009 1B       		.uleb128 0x1b
+ 290 000a 0E       		.uleb128 0xe
+ 291 000b 55       		.uleb128 0x55
+ 292 000c 17       		.uleb128 0x17
+ 293 000d 11       		.uleb128 0x11
+ 294 000e 01       		.uleb128 0x1
+ 295 000f 10       		.uleb128 0x10
+ 296 0010 17       		.uleb128 0x17
+ 297 0011 00       		.byte	0
+ 298 0012 00       		.byte	0
+ 299 0013 02       		.uleb128 0x2
+ 300 0014 24       		.uleb128 0x24
+ 301 0015 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 7
+
+
+ 302 0016 0B       		.uleb128 0xb
+ 303 0017 0B       		.uleb128 0xb
+ 304 0018 3E       		.uleb128 0x3e
+ 305 0019 0B       		.uleb128 0xb
+ 306 001a 03       		.uleb128 0x3
+ 307 001b 0E       		.uleb128 0xe
+ 308 001c 00       		.byte	0
+ 309 001d 00       		.byte	0
+ 310 001e 03       		.uleb128 0x3
+ 311 001f 16       		.uleb128 0x16
+ 312 0020 00       		.byte	0
+ 313 0021 03       		.uleb128 0x3
+ 314 0022 0E       		.uleb128 0xe
+ 315 0023 3A       		.uleb128 0x3a
+ 316 0024 0B       		.uleb128 0xb
+ 317 0025 3B       		.uleb128 0x3b
+ 318 0026 0B       		.uleb128 0xb
+ 319 0027 49       		.uleb128 0x49
+ 320 0028 13       		.uleb128 0x13
+ 321 0029 00       		.byte	0
+ 322 002a 00       		.byte	0
+ 323 002b 04       		.uleb128 0x4
+ 324 002c 24       		.uleb128 0x24
+ 325 002d 00       		.byte	0
+ 326 002e 0B       		.uleb128 0xb
+ 327 002f 0B       		.uleb128 0xb
+ 328 0030 3E       		.uleb128 0x3e
+ 329 0031 0B       		.uleb128 0xb
+ 330 0032 03       		.uleb128 0x3
+ 331 0033 08       		.uleb128 0x8
+ 332 0034 00       		.byte	0
+ 333 0035 00       		.byte	0
+ 334 0036 05       		.uleb128 0x5
+ 335 0037 2E       		.uleb128 0x2e
+ 336 0038 00       		.byte	0
+ 337 0039 3F       		.uleb128 0x3f
+ 338 003a 19       		.uleb128 0x19
+ 339 003b 03       		.uleb128 0x3
+ 340 003c 0E       		.uleb128 0xe
+ 341 003d 3A       		.uleb128 0x3a
+ 342 003e 0B       		.uleb128 0xb
+ 343 003f 3B       		.uleb128 0x3b
+ 344 0040 0B       		.uleb128 0xb
+ 345 0041 27       		.uleb128 0x27
+ 346 0042 19       		.uleb128 0x19
+ 347 0043 49       		.uleb128 0x49
+ 348 0044 13       		.uleb128 0x13
+ 349 0045 11       		.uleb128 0x11
+ 350 0046 01       		.uleb128 0x1
+ 351 0047 12       		.uleb128 0x12
+ 352 0048 06       		.uleb128 0x6
+ 353 0049 40       		.uleb128 0x40
+ 354 004a 18       		.uleb128 0x18
+ 355 004b 9742     		.uleb128 0x2117
+ 356 004d 19       		.uleb128 0x19
+ 357 004e 00       		.byte	0
+ 358 004f 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 8
+
+
+ 359 0050 06       		.uleb128 0x6
+ 360 0051 2E       		.uleb128 0x2e
+ 361 0052 01       		.byte	0x1
+ 362 0053 3F       		.uleb128 0x3f
+ 363 0054 19       		.uleb128 0x19
+ 364 0055 03       		.uleb128 0x3
+ 365 0056 0E       		.uleb128 0xe
+ 366 0057 3A       		.uleb128 0x3a
+ 367 0058 0B       		.uleb128 0xb
+ 368 0059 3B       		.uleb128 0x3b
+ 369 005a 0B       		.uleb128 0xb
+ 370 005b 27       		.uleb128 0x27
+ 371 005c 19       		.uleb128 0x19
+ 372 005d 49       		.uleb128 0x49
+ 373 005e 13       		.uleb128 0x13
+ 374 005f 11       		.uleb128 0x11
+ 375 0060 01       		.uleb128 0x1
+ 376 0061 12       		.uleb128 0x12
+ 377 0062 06       		.uleb128 0x6
+ 378 0063 40       		.uleb128 0x40
+ 379 0064 18       		.uleb128 0x18
+ 380 0065 9742     		.uleb128 0x2117
+ 381 0067 19       		.uleb128 0x19
+ 382 0068 01       		.uleb128 0x1
+ 383 0069 13       		.uleb128 0x13
+ 384 006a 00       		.byte	0
+ 385 006b 00       		.byte	0
+ 386 006c 07       		.uleb128 0x7
+ 387 006d 34       		.uleb128 0x34
+ 388 006e 00       		.byte	0
+ 389 006f 03       		.uleb128 0x3
+ 390 0070 0E       		.uleb128 0xe
+ 391 0071 3A       		.uleb128 0x3a
+ 392 0072 0B       		.uleb128 0xb
+ 393 0073 3B       		.uleb128 0x3b
+ 394 0074 0B       		.uleb128 0xb
+ 395 0075 49       		.uleb128 0x49
+ 396 0076 13       		.uleb128 0x13
+ 397 0077 1C       		.uleb128 0x1c
+ 398 0078 05       		.uleb128 0x5
+ 399 0079 00       		.byte	0
+ 400 007a 00       		.byte	0
+ 401 007b 08       		.uleb128 0x8
+ 402 007c 34       		.uleb128 0x34
+ 403 007d 00       		.byte	0
+ 404 007e 03       		.uleb128 0x3
+ 405 007f 0E       		.uleb128 0xe
+ 406 0080 3A       		.uleb128 0x3a
+ 407 0081 0B       		.uleb128 0xb
+ 408 0082 3B       		.uleb128 0x3b
+ 409 0083 0B       		.uleb128 0xb
+ 410 0084 49       		.uleb128 0x49
+ 411 0085 13       		.uleb128 0x13
+ 412 0086 02       		.uleb128 0x2
+ 413 0087 17       		.uleb128 0x17
+ 414 0088 00       		.byte	0
+ 415 0089 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 9
+
+
+ 416 008a 09       		.uleb128 0x9
+ 417 008b 898201   		.uleb128 0x4109
+ 418 008e 00       		.byte	0
+ 419 008f 11       		.uleb128 0x11
+ 420 0090 01       		.uleb128 0x1
+ 421 0091 31       		.uleb128 0x31
+ 422 0092 13       		.uleb128 0x13
+ 423 0093 00       		.byte	0
+ 424 0094 00       		.byte	0
+ 425 0095 0A       		.uleb128 0xa
+ 426 0096 2E       		.uleb128 0x2e
+ 427 0097 01       		.byte	0x1
+ 428 0098 3F       		.uleb128 0x3f
+ 429 0099 19       		.uleb128 0x19
+ 430 009a 03       		.uleb128 0x3
+ 431 009b 0E       		.uleb128 0xe
+ 432 009c 3A       		.uleb128 0x3a
+ 433 009d 0B       		.uleb128 0xb
+ 434 009e 3B       		.uleb128 0x3b
+ 435 009f 0B       		.uleb128 0xb
+ 436 00a0 27       		.uleb128 0x27
+ 437 00a1 19       		.uleb128 0x19
+ 438 00a2 49       		.uleb128 0x49
+ 439 00a3 13       		.uleb128 0x13
+ 440 00a4 11       		.uleb128 0x11
+ 441 00a5 01       		.uleb128 0x1
+ 442 00a6 12       		.uleb128 0x12
+ 443 00a7 06       		.uleb128 0x6
+ 444 00a8 40       		.uleb128 0x40
+ 445 00a9 18       		.uleb128 0x18
+ 446 00aa 9642     		.uleb128 0x2116
+ 447 00ac 19       		.uleb128 0x19
+ 448 00ad 01       		.uleb128 0x1
+ 449 00ae 13       		.uleb128 0x13
+ 450 00af 00       		.byte	0
+ 451 00b0 00       		.byte	0
+ 452 00b1 0B       		.uleb128 0xb
+ 453 00b2 34       		.uleb128 0x34
+ 454 00b3 00       		.byte	0
+ 455 00b4 03       		.uleb128 0x3
+ 456 00b5 0E       		.uleb128 0xe
+ 457 00b6 3A       		.uleb128 0x3a
+ 458 00b7 0B       		.uleb128 0xb
+ 459 00b8 3B       		.uleb128 0x3b
+ 460 00b9 05       		.uleb128 0x5
+ 461 00ba 49       		.uleb128 0x49
+ 462 00bb 13       		.uleb128 0x13
+ 463 00bc 3F       		.uleb128 0x3f
+ 464 00bd 19       		.uleb128 0x19
+ 465 00be 3C       		.uleb128 0x3c
+ 466 00bf 19       		.uleb128 0x19
+ 467 00c0 00       		.byte	0
+ 468 00c1 00       		.byte	0
+ 469 00c2 0C       		.uleb128 0xc
+ 470 00c3 35       		.uleb128 0x35
+ 471 00c4 00       		.byte	0
+ 472 00c5 49       		.uleb128 0x49
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 10
+
+
+ 473 00c6 13       		.uleb128 0x13
+ 474 00c7 00       		.byte	0
+ 475 00c8 00       		.byte	0
+ 476 00c9 00       		.byte	0
+ 477              		.section	.debug_loc,"",%progbits
+ 478              	.Ldebug_loc0:
+ 479              	.LLST0:
+ 480 0000 06000000 		.4byte	.LVL1
+ 481 0004 10000000 		.4byte	.LVL2
+ 482 0008 0100     		.2byte	0x1
+ 483 000a 50       		.byte	0x50
+ 484 000b 12000000 		.4byte	.LVL3
+ 485 000f 14000000 		.4byte	.LVL4
+ 486 0013 0100     		.2byte	0x1
+ 487 0015 50       		.byte	0x50
+ 488 0016 00000000 		.4byte	0
+ 489 001a 00000000 		.4byte	0
+ 490              	.LLST1:
+ 491 001e 06000000 		.4byte	.LVL6
+ 492 0022 09000000 		.4byte	.LVL7-1
+ 493 0026 0100     		.2byte	0x1
+ 494 0028 50       		.byte	0x50
+ 495 0029 00000000 		.4byte	0
+ 496 002d 00000000 		.4byte	0
+ 497              		.section	.debug_aranges,"",%progbits
+ 498 0000 2C000000 		.4byte	0x2c
+ 499 0004 0200     		.2byte	0x2
+ 500 0006 00000000 		.4byte	.Ldebug_info0
+ 501 000a 04       		.byte	0x4
+ 502 000b 00       		.byte	0
+ 503 000c 0000     		.2byte	0
+ 504 000e 0000     		.2byte	0
+ 505 0010 00000000 		.4byte	.LFB63
+ 506 0014 06000000 		.4byte	.LFE63-.LFB63
+ 507 0018 00000000 		.4byte	.LFB64
+ 508 001c 16000000 		.4byte	.LFE64-.LFB64
+ 509 0020 00000000 		.4byte	.LFB65
+ 510 0024 20000000 		.4byte	.LFE65-.LFB65
+ 511 0028 00000000 		.4byte	0
+ 512 002c 00000000 		.4byte	0
+ 513              		.section	.debug_ranges,"",%progbits
+ 514              	.Ldebug_ranges0:
+ 515 0000 00000000 		.4byte	.LFB63
+ 516 0004 06000000 		.4byte	.LFE63
+ 517 0008 00000000 		.4byte	.LFB64
+ 518 000c 16000000 		.4byte	.LFE64
+ 519 0010 00000000 		.4byte	.LFB65
+ 520 0014 20000000 		.4byte	.LFE65
+ 521 0018 00000000 		.4byte	0
+ 522 001c 00000000 		.4byte	0
+ 523              		.section	.debug_line,"",%progbits
+ 524              	.Ldebug_line0:
+ 525 0000 7F010000 		.section	.debug_str,"MS",%progbits,1
+ 525      02004301 
+ 525      00000201 
+ 525      FB0E0D00 
+ 525      01010101 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 11
+
+
+ 526              	.LASF6:
+ 527 0000 6C6F6E67 		.ascii	"long long int\000"
+ 527      206C6F6E 
+ 527      6720696E 
+ 527      7400
+ 528              	.LASF3:
+ 529 000e 73686F72 		.ascii	"short unsigned int\000"
+ 529      7420756E 
+ 529      7369676E 
+ 529      65642069 
+ 529      6E7400
+ 530              	.LASF8:
+ 531 0021 756E7369 		.ascii	"unsigned int\000"
+ 531      676E6564 
+ 531      20696E74 
+ 531      00
+ 532              	.LASF18:
+ 533 002e 62617474 		.ascii	"battery_level\000"
+ 533      6572795F 
+ 533      6C657665 
+ 533      6C00
+ 534              	.LASF23:
+ 535 003c 72656164 		.ascii	"readBattery\000"
+ 535      42617474 
+ 535      65727900 
+ 536              	.LASF5:
+ 537 0048 6C6F6E67 		.ascii	"long unsigned int\000"
+ 537      20756E73 
+ 537      69676E65 
+ 537      6420696E 
+ 537      7400
+ 538              	.LASF7:
+ 539 005a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 539      206C6F6E 
+ 539      6720756E 
+ 539      7369676E 
+ 539      65642069 
+ 540              	.LASF21:
+ 541 0071 62617474 		.ascii	"battery_check.c\000"
+ 541      6572795F 
+ 541      63686563 
+ 541      6B2E6300 
+ 542              	.LASF20:
+ 543 0081 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 543      4320342E 
+ 543      392E3320 
+ 543      32303135 
+ 543      30333033 
+ 544 00b4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 544      20726576 
+ 544      6973696F 
+ 544      6E203232 
+ 544      31323230 
+ 545 00e7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 545      66756E63 
+ 545      74696F6E 
+ 545      2D736563 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 12
+
+
+ 545      74696F6E 
+ 546              	.LASF15:
+ 547 010f 76426174 		.ascii	"vBatMin\000"
+ 547      4D696E00 
+ 548              	.LASF16:
+ 549 0117 76426174 		.ascii	"vBat\000"
+ 549      00
+ 550              	.LASF1:
+ 551 011c 756E7369 		.ascii	"unsigned char\000"
+ 551      676E6564 
+ 551      20636861 
+ 551      7200
+ 552              	.LASF13:
+ 553 012a 63686172 		.ascii	"char\000"
+ 553      00
+ 554              	.LASF4:
+ 555 012f 6C6F6E67 		.ascii	"long int\000"
+ 555      20696E74 
+ 555      00
+ 556              	.LASF12:
+ 557 0138 646F7562 		.ascii	"double\000"
+ 557      6C6500
+ 558              	.LASF14:
+ 559 013f 73697A65 		.ascii	"sizetype\000"
+ 559      74797065 
+ 559      00
+ 560              	.LASF24:
+ 561 0148 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 561      52784275 
+ 561      66666572 
+ 561      00
+ 562              	.LASF0:
+ 563 0155 7369676E 		.ascii	"signed char\000"
+ 563      65642063 
+ 563      68617200 
+ 564              	.LASF9:
+ 565 0161 5F5F696E 		.ascii	"__int32_t\000"
+ 565      7433325F 
+ 565      7400
+ 566              	.LASF19:
+ 567 016b 76426174 		.ascii	"vBatMax\000"
+ 567      4D617800 
+ 568              	.LASF11:
+ 569 0173 666C6F61 		.ascii	"float\000"
+ 569      7400
+ 570              	.LASF2:
+ 571 0179 73686F72 		.ascii	"short int\000"
+ 571      7420696E 
+ 571      7400
+ 572              	.LASF10:
+ 573 0183 696E7433 		.ascii	"int32_t\000"
+ 573      325F7400 
+ 574              	.LASF22:
+ 575 018b 463A5C4F 		.ascii	"F:\\OneDrive\\Metropolia\\Devices\\Workspaces\\Work"
+ 575      6E654472 
+ 575      6976655C 
+ 575      4D657472 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccXMC66G.s 			page 13
+
+
+ 575      6F706F6C 
+ 576 01b9 73706163 		.ascii	"space 1\\Workspace01\\Zumo1.cydsn\000"
+ 576      6520315C 
+ 576      576F726B 
+ 576      73706163 
+ 576      6530315C 
+ 577              	.LASF17:
+ 578 01d9 62617474 		.ascii	"battery_check\000"
+ 578      6572795F 
+ 578      63686563 
+ 578      6B00
+ 579              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

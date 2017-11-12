@@ -1,0 +1,1236 @@
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	2
+  20              		.global	main
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	main, %function
+  24              	main:
+  25              	.LFB63:
+  26              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include "battery_check.h"
+  15:main.c        **** 
+  16:main.c        **** int main(void)
+  17:main.c        **** {
+  27              		.loc 1 17 0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  18:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  36              		.loc 1 18 0
+  37              	@ 18 "main.c" 1
+  38 0002 62B6     		CPSIE   i
+  39              	@ 0 "" 2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 2
+
+
+  19:main.c        **** 
+  20:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  21:main.c        ****     UART_1_Start();
+  40              		.loc 1 21 0
+  41              		.thumb
+  42 0004 FFF7FEFF 		bl	UART_1_Start
+  43              	.LVL0:
+  22:main.c        ****     printf("\n\n Execution started \n\n");
+  44              		.loc 1 22 0
+  45 0008 0248     		ldr	r0, .L4
+  46 000a FFF7FEFF 		bl	puts
+  47              	.LVL1:
+  48              	.L2:
+  23:main.c        ****     
+  24:main.c        ****     
+  25:main.c        ****     while(1)
+  26:main.c        ****     {
+  27:main.c        ****         while(battery_check()){
+  49              		.loc 1 27 0 discriminator 1
+  50 000e FFF7FEFF 		bl	battery_check
+  51              	.LVL2:
+  52 0012 FCE7     		b	.L2
+  53              	.L5:
+  54              		.align	2
+  55              	.L4:
+  56 0014 00000000 		.word	.LC0
+  57              		.cfi_endproc
+  58              	.LFE63:
+  59              		.size	main, .-main
+  60              		.section	.text._write,"ax",%progbits
+  61              		.align	2
+  62              		.global	_write
+  63              		.thumb
+  64              		.thumb_func
+  65              		.type	_write, %function
+  66              	_write:
+  67              	.LFB64:
+  28:main.c        ****         
+  29:main.c        ****         }        
+  30:main.c        ****     }//while(1)
+  31:main.c        **** }
+  32:main.c        **** 
+  33:main.c        **** int _write(int file, char *ptr, int len)
+  34:main.c        **** {
+  68              		.loc 1 34 0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              	.LVL3:
+  73 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  74              		.cfi_def_cfa_offset 24
+  75              		.cfi_offset 3, -24
+  76              		.cfi_offset 4, -20
+  77              		.cfi_offset 5, -16
+  78              		.cfi_offset 6, -12
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 14, -4
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 3
+
+
+  81 0002 0C46     		mov	r4, r1
+  82 0004 1746     		mov	r7, r2
+  83              	.LVL4:
+  35:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+  36:main.c        **** 	int n;
+  37:main.c        **** 	for(n = 0; n < len; n++) {
+  84              		.loc 1 37 0
+  85 0006 0025     		movs	r5, #0
+  86 0008 0BE0     		b	.L7
+  87              	.LVL5:
+  88              	.L9:
+  38:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+  89              		.loc 1 38 0
+  90 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  91 000c 0A2B     		cmp	r3, #10
+  92 000e 02D1     		bne	.L8
+  93              		.loc 1 38 0 is_stmt 0 discriminator 1
+  94 0010 0D20     		movs	r0, #13
+  95 0012 FFF7FEFF 		bl	UART_1_PutChar
+  96              	.LVL6:
+  97              	.L8:
+  39:main.c        **** 		UART_1_PutChar(*ptr++);
+  98              		.loc 1 39 0 is_stmt 1 discriminator 2
+  99 0016 661C     		adds	r6, r4, #1
+ 100              	.LVL7:
+ 101 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 102 001a FFF7FEFF 		bl	UART_1_PutChar
+ 103              	.LVL8:
+  37:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 104              		.loc 1 37 0 discriminator 2
+ 105 001e 0135     		adds	r5, r5, #1
+ 106              	.LVL9:
+ 107              		.loc 1 39 0 discriminator 2
+ 108 0020 3446     		mov	r4, r6
+ 109              	.LVL10:
+ 110              	.L7:
+  37:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 111              		.loc 1 37 0 discriminator 1
+ 112 0022 BD42     		cmp	r5, r7
+ 113 0024 F1DB     		blt	.L9
+  40:main.c        **** 	}
+  41:main.c        **** 	return len;
+  42:main.c        **** }
+ 114              		.loc 1 42 0
+ 115 0026 3846     		mov	r0, r7
+ 116 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 117              		.cfi_endproc
+ 118              	.LFE64:
+ 119              		.size	_write, .-_write
+ 120 002a 00BF     		.section	.text._read,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	_read
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	_read, %function
+ 126              	_read:
+ 127              	.LFB65:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 4
+
+
+  43:main.c        **** 
+  44:main.c        **** int _read (int file, char *ptr, int count)
+  45:main.c        **** {
+ 128              		.loc 1 45 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              	.LVL11:
+ 133 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 134              		.cfi_def_cfa_offset 24
+ 135              		.cfi_offset 3, -24
+ 136              		.cfi_offset 4, -20
+ 137              		.cfi_offset 5, -16
+ 138              		.cfi_offset 6, -12
+ 139              		.cfi_offset 7, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 0F46     		mov	r7, r1
+ 142 0004 1446     		mov	r4, r2
+ 143              	.LVL12:
+  46:main.c        ****     int chs = 0;
+ 144              		.loc 1 46 0
+ 145 0006 0026     		movs	r6, #0
+  47:main.c        ****     char ch;
+  48:main.c        ****  
+  49:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+  50:main.c        ****     while(count > 0) {
+ 146              		.loc 1 50 0
+ 147 0008 12E0     		b	.L13
+ 148              	.LVL13:
+ 149              	.L16:
+  51:main.c        ****         ch = UART_1_GetChar();
+ 150              		.loc 1 51 0
+ 151 000a FFF7FEFF 		bl	UART_1_GetChar
+ 152              	.LVL14:
+  52:main.c        ****         if(ch != 0) {
+ 153              		.loc 1 52 0
+ 154 000e 0546     		mov	r5, r0
+ 155 0010 70B1     		cbz	r0, .L13
+  53:main.c        ****             UART_1_PutChar(ch);
+ 156              		.loc 1 53 0
+ 157 0012 FFF7FEFF 		bl	UART_1_PutChar
+ 158              	.LVL15:
+  54:main.c        ****             chs++;
+ 159              		.loc 1 54 0
+ 160 0016 0136     		adds	r6, r6, #1
+ 161              	.LVL16:
+  55:main.c        ****             if(ch == '\r') {
+ 162              		.loc 1 55 0
+ 163 0018 0D2D     		cmp	r5, #13
+ 164 001a 03D1     		bne	.L14
+ 165              	.LVL17:
+  56:main.c        ****                 ch = '\n';
+  57:main.c        ****                 UART_1_PutChar(ch);
+ 166              		.loc 1 57 0
+ 167 001c 0A20     		movs	r0, #10
+ 168 001e FFF7FEFF 		bl	UART_1_PutChar
+ 169              	.LVL18:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 5
+
+
+  56:main.c        ****                 ch = '\n';
+ 170              		.loc 1 56 0
+ 171 0022 0A25     		movs	r5, #10
+ 172              	.LVL19:
+ 173              	.L14:
+  58:main.c        ****             }
+  59:main.c        ****             *ptr++ = ch;
+ 174              		.loc 1 59 0
+ 175 0024 7B1C     		adds	r3, r7, #1
+ 176              	.LVL20:
+ 177 0026 3D70     		strb	r5, [r7]
+  60:main.c        ****             count--;
+ 178              		.loc 1 60 0
+ 179 0028 013C     		subs	r4, r4, #1
+ 180              	.LVL21:
+  61:main.c        ****             if(ch == '\n') break;
+ 181              		.loc 1 61 0
+ 182 002a 0A2D     		cmp	r5, #10
+ 183 002c 02D0     		beq	.L15
+  59:main.c        ****             count--;
+ 184              		.loc 1 59 0
+ 185 002e 1F46     		mov	r7, r3
+ 186              	.LVL22:
+ 187              	.L13:
+  50:main.c        ****         ch = UART_1_GetChar();
+ 188              		.loc 1 50 0
+ 189 0030 002C     		cmp	r4, #0
+ 190 0032 EADC     		bgt	.L16
+ 191              	.LVL23:
+ 192              	.L15:
+  62:main.c        ****         }
+  63:main.c        ****     }
+  64:main.c        ****     return chs;
+  65:main.c        **** }
+ 193              		.loc 1 65 0
+ 194 0034 3046     		mov	r0, r6
+ 195 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 196              		.cfi_endproc
+ 197              	.LFE65:
+ 198              		.size	_read, .-_read
+ 199              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 200              		.align	2
+ 201              	.LC0:
+ 202 0000 0A0A2045 		.ascii	"\012\012 Execution started \012\000"
+ 202      78656375 
+ 202      74696F6E 
+ 202      20737461 
+ 202      72746564 
+ 203 0017 00       		.text
+ 204              	.Letext0:
+ 205              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 206              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 207              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 208              		.file 5 "battery_check.h"
+ 209              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
+ 210              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 211              		.file 8 "<built-in>"
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 6
+
+
+ 212              		.section	.debug_info,"",%progbits
+ 213              	.Ldebug_info0:
+ 214 0000 52020000 		.4byte	0x252
+ 215 0004 0400     		.2byte	0x4
+ 216 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 217 000a 04       		.byte	0x4
+ 218 000b 01       		.uleb128 0x1
+ 219 000c BD000000 		.4byte	.LASF23
+ 220 0010 01       		.byte	0x1
+ 221 0011 A2010000 		.4byte	.LASF24
+ 222 0015 6F000000 		.4byte	.LASF25
+ 223 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 224 001d 00000000 		.4byte	0
+ 225 0021 00000000 		.4byte	.Ldebug_line0
+ 226 0025 02       		.uleb128 0x2
+ 227 0026 01       		.byte	0x1
+ 228 0027 06       		.byte	0x6
+ 229 0028 E7010000 		.4byte	.LASF0
+ 230 002c 02       		.uleb128 0x2
+ 231 002d 01       		.byte	0x1
+ 232 002e 08       		.byte	0x8
+ 233 002f 3B000000 		.4byte	.LASF1
+ 234 0033 02       		.uleb128 0x2
+ 235 0034 02       		.byte	0x2
+ 236 0035 05       		.byte	0x5
+ 237 0036 BB010000 		.4byte	.LASF2
+ 238 003a 02       		.uleb128 0x2
+ 239 003b 02       		.byte	0x2
+ 240 003c 07       		.byte	0x7
+ 241 003d 17000000 		.4byte	.LASF3
+ 242 0041 03       		.uleb128 0x3
+ 243 0042 0D000000 		.4byte	.LASF9
+ 244 0046 02       		.byte	0x2
+ 245 0047 3F       		.byte	0x3f
+ 246 0048 4C000000 		.4byte	0x4c
+ 247 004c 02       		.uleb128 0x2
+ 248 004d 04       		.byte	0x4
+ 249 004e 05       		.byte	0x5
+ 250 004f D9010000 		.4byte	.LASF4
+ 251 0053 02       		.uleb128 0x2
+ 252 0054 04       		.byte	0x4
+ 253 0055 07       		.byte	0x7
+ 254 0056 49000000 		.4byte	.LASF5
+ 255 005a 02       		.uleb128 0x2
+ 256 005b 08       		.byte	0x8
+ 257 005c 05       		.byte	0x5
+ 258 005d 94010000 		.4byte	.LASF6
+ 259 0061 02       		.uleb128 0x2
+ 260 0062 08       		.byte	0x8
+ 261 0063 07       		.byte	0x7
+ 262 0064 67010000 		.4byte	.LASF7
+ 263 0068 04       		.uleb128 0x4
+ 264 0069 04       		.byte	0x4
+ 265 006a 05       		.byte	0x5
+ 266 006b 696E7400 		.ascii	"int\000"
+ 267 006f 02       		.uleb128 0x2
+ 268 0070 04       		.byte	0x4
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 7
+
+
+ 269 0071 07       		.byte	0x7
+ 270 0072 5A010000 		.4byte	.LASF8
+ 271 0076 03       		.uleb128 0x3
+ 272 0077 83010000 		.4byte	.LASF10
+ 273 007b 03       		.byte	0x3
+ 274 007c 2C       		.byte	0x2c
+ 275 007d 41000000 		.4byte	0x41
+ 276 0081 05       		.uleb128 0x5
+ 277 0082 D3010000 		.4byte	.LASF11
+ 278 0086 04       		.byte	0x4
+ 279 0087 9201     		.2byte	0x192
+ 280 0089 2C000000 		.4byte	0x2c
+ 281 008d 02       		.uleb128 0x2
+ 282 008e 04       		.byte	0x4
+ 283 008f 04       		.byte	0x4
+ 284 0090 30000000 		.4byte	.LASF12
+ 285 0094 02       		.uleb128 0x2
+ 286 0095 08       		.byte	0x8
+ 287 0096 04       		.byte	0x4
+ 288 0097 68000000 		.4byte	.LASF13
+ 289 009b 02       		.uleb128 0x2
+ 290 009c 01       		.byte	0x1
+ 291 009d 08       		.byte	0x8
+ 292 009e A9010000 		.4byte	.LASF14
+ 293 00a2 02       		.uleb128 0x2
+ 294 00a3 04       		.byte	0x4
+ 295 00a4 07       		.byte	0x7
+ 296 00a5 8B010000 		.4byte	.LASF15
+ 297 00a9 06       		.uleb128 0x6
+ 298 00aa 04       		.byte	0x4
+ 299 00ab 9B000000 		.4byte	0x9b
+ 300 00af 06       		.uleb128 0x6
+ 301 00b0 04       		.byte	0x4
+ 302 00b1 B5000000 		.4byte	0xb5
+ 303 00b5 07       		.uleb128 0x7
+ 304 00b6 9B000000 		.4byte	0x9b
+ 305 00ba 08       		.uleb128 0x8
+ 306 00bb 7E010000 		.4byte	.LASF16
+ 307 00bf 01       		.byte	0x1
+ 308 00c0 10       		.byte	0x10
+ 309 00c1 68000000 		.4byte	0x68
+ 310 00c5 00000000 		.4byte	.LFB63
+ 311 00c9 18000000 		.4byte	.LFE63-.LFB63
+ 312 00cd 01       		.uleb128 0x1
+ 313 00ce 9C       		.byte	0x9c
+ 314 00cf FD000000 		.4byte	0xfd
+ 315 00d3 09       		.uleb128 0x9
+ 316 00d4 08000000 		.4byte	.LVL0
+ 317 00d8 0E020000 		.4byte	0x20e
+ 318 00dc 0A       		.uleb128 0xa
+ 319 00dd 0E000000 		.4byte	.LVL1
+ 320 00e1 15020000 		.4byte	0x215
+ 321 00e5 F3000000 		.4byte	0xf3
+ 322 00e9 0B       		.uleb128 0xb
+ 323 00ea 01       		.uleb128 0x1
+ 324 00eb 50       		.byte	0x50
+ 325 00ec 05       		.uleb128 0x5
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 8
+
+
+ 326 00ed 03       		.byte	0x3
+ 327 00ee 00000000 		.4byte	.LC0
+ 328 00f2 00       		.byte	0
+ 329 00f3 09       		.uleb128 0x9
+ 330 00f4 12000000 		.4byte	.LVL2
+ 331 00f8 2E020000 		.4byte	0x22e
+ 332 00fc 00       		.byte	0
+ 333 00fd 08       		.uleb128 0x8
+ 334 00fe AE010000 		.4byte	.LASF17
+ 335 0102 01       		.byte	0x1
+ 336 0103 21       		.byte	0x21
+ 337 0104 68000000 		.4byte	0x68
+ 338 0108 00000000 		.4byte	.LFB64
+ 339 010c 2A000000 		.4byte	.LFE64-.LFB64
+ 340 0110 01       		.uleb128 0x1
+ 341 0111 9C       		.byte	0x9c
+ 342 0112 6D010000 		.4byte	0x16d
+ 343 0116 0C       		.uleb128 0xc
+ 344 0117 36000000 		.4byte	.LASF18
+ 345 011b 01       		.byte	0x1
+ 346 011c 21       		.byte	0x21
+ 347 011d 68000000 		.4byte	0x68
+ 348 0121 00000000 		.4byte	.LLST0
+ 349 0125 0D       		.uleb128 0xd
+ 350 0126 70747200 		.ascii	"ptr\000"
+ 351 012a 01       		.byte	0x1
+ 352 012b 21       		.byte	0x21
+ 353 012c A9000000 		.4byte	0xa9
+ 354 0130 21000000 		.4byte	.LLST1
+ 355 0134 0D       		.uleb128 0xd
+ 356 0135 6C656E00 		.ascii	"len\000"
+ 357 0139 01       		.byte	0x1
+ 358 013a 21       		.byte	0x21
+ 359 013b 68000000 		.4byte	0x68
+ 360 013f 55000000 		.4byte	.LLST2
+ 361 0143 0E       		.uleb128 0xe
+ 362 0144 6E00     		.ascii	"n\000"
+ 363 0146 01       		.byte	0x1
+ 364 0147 24       		.byte	0x24
+ 365 0148 68000000 		.4byte	0x68
+ 366 014c 73000000 		.4byte	.LLST3
+ 367 0150 0A       		.uleb128 0xa
+ 368 0151 16000000 		.4byte	.LVL6
+ 369 0155 39020000 		.4byte	0x239
+ 370 0159 63010000 		.4byte	0x163
+ 371 015d 0B       		.uleb128 0xb
+ 372 015e 01       		.uleb128 0x1
+ 373 015f 50       		.byte	0x50
+ 374 0160 01       		.uleb128 0x1
+ 375 0161 3D       		.byte	0x3d
+ 376 0162 00       		.byte	0
+ 377 0163 09       		.uleb128 0x9
+ 378 0164 1E000000 		.4byte	.LVL8
+ 379 0168 39020000 		.4byte	0x239
+ 380 016c 00       		.byte	0
+ 381 016d 08       		.uleb128 0x8
+ 382 016e 2A000000 		.4byte	.LASF19
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 9
+
+
+ 383 0172 01       		.byte	0x1
+ 384 0173 2C       		.byte	0x2c
+ 385 0174 68000000 		.4byte	0x68
+ 386 0178 00000000 		.4byte	.LFB65
+ 387 017c 38000000 		.4byte	.LFE65-.LFB65
+ 388 0180 01       		.uleb128 0x1
+ 389 0181 9C       		.byte	0x9c
+ 390 0182 FD010000 		.4byte	0x1fd
+ 391 0186 0C       		.uleb128 0xc
+ 392 0187 36000000 		.4byte	.LASF18
+ 393 018b 01       		.byte	0x1
+ 394 018c 2C       		.byte	0x2c
+ 395 018d 68000000 		.4byte	0x68
+ 396 0191 92000000 		.4byte	.LLST4
+ 397 0195 0D       		.uleb128 0xd
+ 398 0196 70747200 		.ascii	"ptr\000"
+ 399 019a 01       		.byte	0x1
+ 400 019b 2C       		.byte	0x2c
+ 401 019c A9000000 		.4byte	0xa9
+ 402 01a0 B3000000 		.4byte	.LLST5
+ 403 01a4 0C       		.uleb128 0xc
+ 404 01a5 B5010000 		.4byte	.LASF20
+ 405 01a9 01       		.byte	0x1
+ 406 01aa 2C       		.byte	0x2c
+ 407 01ab 68000000 		.4byte	0x68
+ 408 01af E7000000 		.4byte	.LLST6
+ 409 01b3 0E       		.uleb128 0xe
+ 410 01b4 63687300 		.ascii	"chs\000"
+ 411 01b8 01       		.byte	0x1
+ 412 01b9 2E       		.byte	0x2e
+ 413 01ba 68000000 		.4byte	0x68
+ 414 01be 05010000 		.4byte	.LLST7
+ 415 01c2 0E       		.uleb128 0xe
+ 416 01c3 636800   		.ascii	"ch\000"
+ 417 01c6 01       		.byte	0x1
+ 418 01c7 2F       		.byte	0x2f
+ 419 01c8 9B000000 		.4byte	0x9b
+ 420 01cc 24010000 		.4byte	.LLST8
+ 421 01d0 09       		.uleb128 0x9
+ 422 01d1 0E000000 		.4byte	.LVL14
+ 423 01d5 4A020000 		.4byte	0x24a
+ 424 01d9 0A       		.uleb128 0xa
+ 425 01da 16000000 		.4byte	.LVL15
+ 426 01de 39020000 		.4byte	0x239
+ 427 01e2 ED010000 		.4byte	0x1ed
+ 428 01e6 0B       		.uleb128 0xb
+ 429 01e7 01       		.uleb128 0x1
+ 430 01e8 50       		.byte	0x50
+ 431 01e9 02       		.uleb128 0x2
+ 432 01ea 75       		.byte	0x75
+ 433 01eb 00       		.sleb128 0
+ 434 01ec 00       		.byte	0
+ 435 01ed 0F       		.uleb128 0xf
+ 436 01ee 22000000 		.4byte	.LVL18
+ 437 01f2 39020000 		.4byte	0x239
+ 438 01f6 0B       		.uleb128 0xb
+ 439 01f7 01       		.uleb128 0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 10
+
+
+ 440 01f8 50       		.byte	0x50
+ 441 01f9 01       		.uleb128 0x1
+ 442 01fa 3A       		.byte	0x3a
+ 443 01fb 00       		.byte	0
+ 444 01fc 00       		.byte	0
+ 445 01fd 10       		.uleb128 0x10
+ 446 01fe 5B000000 		.4byte	.LASF26
+ 447 0202 07       		.byte	0x7
+ 448 0203 9606     		.2byte	0x696
+ 449 0205 09020000 		.4byte	0x209
+ 450 0209 11       		.uleb128 0x11
+ 451 020a 76000000 		.4byte	0x76
+ 452 020e 12       		.uleb128 0x12
+ 453 020f 00000000 		.4byte	.LASF27
+ 454 0213 06       		.byte	0x6
+ 455 0214 54       		.byte	0x54
+ 456 0215 13       		.uleb128 0x13
+ 457 0216 F3010000 		.4byte	.LASF28
+ 458 021a 08       		.byte	0x8
+ 459 021b 00       		.byte	0
+ 460 021c E2010000 		.4byte	.LASF29
+ 461 0220 68000000 		.4byte	0x68
+ 462 0224 2E020000 		.4byte	0x22e
+ 463 0228 14       		.uleb128 0x14
+ 464 0229 AF000000 		.4byte	0xaf
+ 465 022d 00       		.byte	0
+ 466 022e 15       		.uleb128 0x15
+ 467 022f C5010000 		.4byte	.LASF21
+ 468 0233 05       		.byte	0x5
+ 469 0234 0D       		.byte	0xd
+ 470 0235 68000000 		.4byte	0x68
+ 471 0239 16       		.uleb128 0x16
+ 472 023a 4B010000 		.4byte	.LASF30
+ 473 023e 06       		.byte	0x6
+ 474 023f 8A       		.byte	0x8a
+ 475 0240 4A020000 		.4byte	0x24a
+ 476 0244 14       		.uleb128 0x14
+ 477 0245 81000000 		.4byte	0x81
+ 478 0249 00       		.byte	0
+ 479 024a 15       		.uleb128 0x15
+ 480 024b 02020000 		.4byte	.LASF22
+ 481 024f 06       		.byte	0x6
+ 482 0250 71       		.byte	0x71
+ 483 0251 81000000 		.4byte	0x81
+ 484 0255 00       		.byte	0
+ 485              		.section	.debug_abbrev,"",%progbits
+ 486              	.Ldebug_abbrev0:
+ 487 0000 01       		.uleb128 0x1
+ 488 0001 11       		.uleb128 0x11
+ 489 0002 01       		.byte	0x1
+ 490 0003 25       		.uleb128 0x25
+ 491 0004 0E       		.uleb128 0xe
+ 492 0005 13       		.uleb128 0x13
+ 493 0006 0B       		.uleb128 0xb
+ 494 0007 03       		.uleb128 0x3
+ 495 0008 0E       		.uleb128 0xe
+ 496 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 11
+
+
+ 497 000a 0E       		.uleb128 0xe
+ 498 000b 55       		.uleb128 0x55
+ 499 000c 17       		.uleb128 0x17
+ 500 000d 11       		.uleb128 0x11
+ 501 000e 01       		.uleb128 0x1
+ 502 000f 10       		.uleb128 0x10
+ 503 0010 17       		.uleb128 0x17
+ 504 0011 00       		.byte	0
+ 505 0012 00       		.byte	0
+ 506 0013 02       		.uleb128 0x2
+ 507 0014 24       		.uleb128 0x24
+ 508 0015 00       		.byte	0
+ 509 0016 0B       		.uleb128 0xb
+ 510 0017 0B       		.uleb128 0xb
+ 511 0018 3E       		.uleb128 0x3e
+ 512 0019 0B       		.uleb128 0xb
+ 513 001a 03       		.uleb128 0x3
+ 514 001b 0E       		.uleb128 0xe
+ 515 001c 00       		.byte	0
+ 516 001d 00       		.byte	0
+ 517 001e 03       		.uleb128 0x3
+ 518 001f 16       		.uleb128 0x16
+ 519 0020 00       		.byte	0
+ 520 0021 03       		.uleb128 0x3
+ 521 0022 0E       		.uleb128 0xe
+ 522 0023 3A       		.uleb128 0x3a
+ 523 0024 0B       		.uleb128 0xb
+ 524 0025 3B       		.uleb128 0x3b
+ 525 0026 0B       		.uleb128 0xb
+ 526 0027 49       		.uleb128 0x49
+ 527 0028 13       		.uleb128 0x13
+ 528 0029 00       		.byte	0
+ 529 002a 00       		.byte	0
+ 530 002b 04       		.uleb128 0x4
+ 531 002c 24       		.uleb128 0x24
+ 532 002d 00       		.byte	0
+ 533 002e 0B       		.uleb128 0xb
+ 534 002f 0B       		.uleb128 0xb
+ 535 0030 3E       		.uleb128 0x3e
+ 536 0031 0B       		.uleb128 0xb
+ 537 0032 03       		.uleb128 0x3
+ 538 0033 08       		.uleb128 0x8
+ 539 0034 00       		.byte	0
+ 540 0035 00       		.byte	0
+ 541 0036 05       		.uleb128 0x5
+ 542 0037 16       		.uleb128 0x16
+ 543 0038 00       		.byte	0
+ 544 0039 03       		.uleb128 0x3
+ 545 003a 0E       		.uleb128 0xe
+ 546 003b 3A       		.uleb128 0x3a
+ 547 003c 0B       		.uleb128 0xb
+ 548 003d 3B       		.uleb128 0x3b
+ 549 003e 05       		.uleb128 0x5
+ 550 003f 49       		.uleb128 0x49
+ 551 0040 13       		.uleb128 0x13
+ 552 0041 00       		.byte	0
+ 553 0042 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 12
+
+
+ 554 0043 06       		.uleb128 0x6
+ 555 0044 0F       		.uleb128 0xf
+ 556 0045 00       		.byte	0
+ 557 0046 0B       		.uleb128 0xb
+ 558 0047 0B       		.uleb128 0xb
+ 559 0048 49       		.uleb128 0x49
+ 560 0049 13       		.uleb128 0x13
+ 561 004a 00       		.byte	0
+ 562 004b 00       		.byte	0
+ 563 004c 07       		.uleb128 0x7
+ 564 004d 26       		.uleb128 0x26
+ 565 004e 00       		.byte	0
+ 566 004f 49       		.uleb128 0x49
+ 567 0050 13       		.uleb128 0x13
+ 568 0051 00       		.byte	0
+ 569 0052 00       		.byte	0
+ 570 0053 08       		.uleb128 0x8
+ 571 0054 2E       		.uleb128 0x2e
+ 572 0055 01       		.byte	0x1
+ 573 0056 3F       		.uleb128 0x3f
+ 574 0057 19       		.uleb128 0x19
+ 575 0058 03       		.uleb128 0x3
+ 576 0059 0E       		.uleb128 0xe
+ 577 005a 3A       		.uleb128 0x3a
+ 578 005b 0B       		.uleb128 0xb
+ 579 005c 3B       		.uleb128 0x3b
+ 580 005d 0B       		.uleb128 0xb
+ 581 005e 27       		.uleb128 0x27
+ 582 005f 19       		.uleb128 0x19
+ 583 0060 49       		.uleb128 0x49
+ 584 0061 13       		.uleb128 0x13
+ 585 0062 11       		.uleb128 0x11
+ 586 0063 01       		.uleb128 0x1
+ 587 0064 12       		.uleb128 0x12
+ 588 0065 06       		.uleb128 0x6
+ 589 0066 40       		.uleb128 0x40
+ 590 0067 18       		.uleb128 0x18
+ 591 0068 9742     		.uleb128 0x2117
+ 592 006a 19       		.uleb128 0x19
+ 593 006b 01       		.uleb128 0x1
+ 594 006c 13       		.uleb128 0x13
+ 595 006d 00       		.byte	0
+ 596 006e 00       		.byte	0
+ 597 006f 09       		.uleb128 0x9
+ 598 0070 898201   		.uleb128 0x4109
+ 599 0073 00       		.byte	0
+ 600 0074 11       		.uleb128 0x11
+ 601 0075 01       		.uleb128 0x1
+ 602 0076 31       		.uleb128 0x31
+ 603 0077 13       		.uleb128 0x13
+ 604 0078 00       		.byte	0
+ 605 0079 00       		.byte	0
+ 606 007a 0A       		.uleb128 0xa
+ 607 007b 898201   		.uleb128 0x4109
+ 608 007e 01       		.byte	0x1
+ 609 007f 11       		.uleb128 0x11
+ 610 0080 01       		.uleb128 0x1
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 13
+
+
+ 611 0081 31       		.uleb128 0x31
+ 612 0082 13       		.uleb128 0x13
+ 613 0083 01       		.uleb128 0x1
+ 614 0084 13       		.uleb128 0x13
+ 615 0085 00       		.byte	0
+ 616 0086 00       		.byte	0
+ 617 0087 0B       		.uleb128 0xb
+ 618 0088 8A8201   		.uleb128 0x410a
+ 619 008b 00       		.byte	0
+ 620 008c 02       		.uleb128 0x2
+ 621 008d 18       		.uleb128 0x18
+ 622 008e 9142     		.uleb128 0x2111
+ 623 0090 18       		.uleb128 0x18
+ 624 0091 00       		.byte	0
+ 625 0092 00       		.byte	0
+ 626 0093 0C       		.uleb128 0xc
+ 627 0094 05       		.uleb128 0x5
+ 628 0095 00       		.byte	0
+ 629 0096 03       		.uleb128 0x3
+ 630 0097 0E       		.uleb128 0xe
+ 631 0098 3A       		.uleb128 0x3a
+ 632 0099 0B       		.uleb128 0xb
+ 633 009a 3B       		.uleb128 0x3b
+ 634 009b 0B       		.uleb128 0xb
+ 635 009c 49       		.uleb128 0x49
+ 636 009d 13       		.uleb128 0x13
+ 637 009e 02       		.uleb128 0x2
+ 638 009f 17       		.uleb128 0x17
+ 639 00a0 00       		.byte	0
+ 640 00a1 00       		.byte	0
+ 641 00a2 0D       		.uleb128 0xd
+ 642 00a3 05       		.uleb128 0x5
+ 643 00a4 00       		.byte	0
+ 644 00a5 03       		.uleb128 0x3
+ 645 00a6 08       		.uleb128 0x8
+ 646 00a7 3A       		.uleb128 0x3a
+ 647 00a8 0B       		.uleb128 0xb
+ 648 00a9 3B       		.uleb128 0x3b
+ 649 00aa 0B       		.uleb128 0xb
+ 650 00ab 49       		.uleb128 0x49
+ 651 00ac 13       		.uleb128 0x13
+ 652 00ad 02       		.uleb128 0x2
+ 653 00ae 17       		.uleb128 0x17
+ 654 00af 00       		.byte	0
+ 655 00b0 00       		.byte	0
+ 656 00b1 0E       		.uleb128 0xe
+ 657 00b2 34       		.uleb128 0x34
+ 658 00b3 00       		.byte	0
+ 659 00b4 03       		.uleb128 0x3
+ 660 00b5 08       		.uleb128 0x8
+ 661 00b6 3A       		.uleb128 0x3a
+ 662 00b7 0B       		.uleb128 0xb
+ 663 00b8 3B       		.uleb128 0x3b
+ 664 00b9 0B       		.uleb128 0xb
+ 665 00ba 49       		.uleb128 0x49
+ 666 00bb 13       		.uleb128 0x13
+ 667 00bc 02       		.uleb128 0x2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 14
+
+
+ 668 00bd 17       		.uleb128 0x17
+ 669 00be 00       		.byte	0
+ 670 00bf 00       		.byte	0
+ 671 00c0 0F       		.uleb128 0xf
+ 672 00c1 898201   		.uleb128 0x4109
+ 673 00c4 01       		.byte	0x1
+ 674 00c5 11       		.uleb128 0x11
+ 675 00c6 01       		.uleb128 0x1
+ 676 00c7 31       		.uleb128 0x31
+ 677 00c8 13       		.uleb128 0x13
+ 678 00c9 00       		.byte	0
+ 679 00ca 00       		.byte	0
+ 680 00cb 10       		.uleb128 0x10
+ 681 00cc 34       		.uleb128 0x34
+ 682 00cd 00       		.byte	0
+ 683 00ce 03       		.uleb128 0x3
+ 684 00cf 0E       		.uleb128 0xe
+ 685 00d0 3A       		.uleb128 0x3a
+ 686 00d1 0B       		.uleb128 0xb
+ 687 00d2 3B       		.uleb128 0x3b
+ 688 00d3 05       		.uleb128 0x5
+ 689 00d4 49       		.uleb128 0x49
+ 690 00d5 13       		.uleb128 0x13
+ 691 00d6 3F       		.uleb128 0x3f
+ 692 00d7 19       		.uleb128 0x19
+ 693 00d8 3C       		.uleb128 0x3c
+ 694 00d9 19       		.uleb128 0x19
+ 695 00da 00       		.byte	0
+ 696 00db 00       		.byte	0
+ 697 00dc 11       		.uleb128 0x11
+ 698 00dd 35       		.uleb128 0x35
+ 699 00de 00       		.byte	0
+ 700 00df 49       		.uleb128 0x49
+ 701 00e0 13       		.uleb128 0x13
+ 702 00e1 00       		.byte	0
+ 703 00e2 00       		.byte	0
+ 704 00e3 12       		.uleb128 0x12
+ 705 00e4 2E       		.uleb128 0x2e
+ 706 00e5 00       		.byte	0
+ 707 00e6 3F       		.uleb128 0x3f
+ 708 00e7 19       		.uleb128 0x19
+ 709 00e8 03       		.uleb128 0x3
+ 710 00e9 0E       		.uleb128 0xe
+ 711 00ea 3A       		.uleb128 0x3a
+ 712 00eb 0B       		.uleb128 0xb
+ 713 00ec 3B       		.uleb128 0x3b
+ 714 00ed 0B       		.uleb128 0xb
+ 715 00ee 27       		.uleb128 0x27
+ 716 00ef 19       		.uleb128 0x19
+ 717 00f0 3C       		.uleb128 0x3c
+ 718 00f1 19       		.uleb128 0x19
+ 719 00f2 00       		.byte	0
+ 720 00f3 00       		.byte	0
+ 721 00f4 13       		.uleb128 0x13
+ 722 00f5 2E       		.uleb128 0x2e
+ 723 00f6 01       		.byte	0x1
+ 724 00f7 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 15
+
+
+ 725 00f8 19       		.uleb128 0x19
+ 726 00f9 03       		.uleb128 0x3
+ 727 00fa 0E       		.uleb128 0xe
+ 728 00fb 3A       		.uleb128 0x3a
+ 729 00fc 0B       		.uleb128 0xb
+ 730 00fd 3B       		.uleb128 0x3b
+ 731 00fe 0B       		.uleb128 0xb
+ 732 00ff 6E       		.uleb128 0x6e
+ 733 0100 0E       		.uleb128 0xe
+ 734 0101 27       		.uleb128 0x27
+ 735 0102 19       		.uleb128 0x19
+ 736 0103 49       		.uleb128 0x49
+ 737 0104 13       		.uleb128 0x13
+ 738 0105 3C       		.uleb128 0x3c
+ 739 0106 19       		.uleb128 0x19
+ 740 0107 01       		.uleb128 0x1
+ 741 0108 13       		.uleb128 0x13
+ 742 0109 00       		.byte	0
+ 743 010a 00       		.byte	0
+ 744 010b 14       		.uleb128 0x14
+ 745 010c 05       		.uleb128 0x5
+ 746 010d 00       		.byte	0
+ 747 010e 49       		.uleb128 0x49
+ 748 010f 13       		.uleb128 0x13
+ 749 0110 00       		.byte	0
+ 750 0111 00       		.byte	0
+ 751 0112 15       		.uleb128 0x15
+ 752 0113 2E       		.uleb128 0x2e
+ 753 0114 00       		.byte	0
+ 754 0115 3F       		.uleb128 0x3f
+ 755 0116 19       		.uleb128 0x19
+ 756 0117 03       		.uleb128 0x3
+ 757 0118 0E       		.uleb128 0xe
+ 758 0119 3A       		.uleb128 0x3a
+ 759 011a 0B       		.uleb128 0xb
+ 760 011b 3B       		.uleb128 0x3b
+ 761 011c 0B       		.uleb128 0xb
+ 762 011d 27       		.uleb128 0x27
+ 763 011e 19       		.uleb128 0x19
+ 764 011f 49       		.uleb128 0x49
+ 765 0120 13       		.uleb128 0x13
+ 766 0121 3C       		.uleb128 0x3c
+ 767 0122 19       		.uleb128 0x19
+ 768 0123 00       		.byte	0
+ 769 0124 00       		.byte	0
+ 770 0125 16       		.uleb128 0x16
+ 771 0126 2E       		.uleb128 0x2e
+ 772 0127 01       		.byte	0x1
+ 773 0128 3F       		.uleb128 0x3f
+ 774 0129 19       		.uleb128 0x19
+ 775 012a 03       		.uleb128 0x3
+ 776 012b 0E       		.uleb128 0xe
+ 777 012c 3A       		.uleb128 0x3a
+ 778 012d 0B       		.uleb128 0xb
+ 779 012e 3B       		.uleb128 0x3b
+ 780 012f 0B       		.uleb128 0xb
+ 781 0130 27       		.uleb128 0x27
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 16
+
+
+ 782 0131 19       		.uleb128 0x19
+ 783 0132 3C       		.uleb128 0x3c
+ 784 0133 19       		.uleb128 0x19
+ 785 0134 01       		.uleb128 0x1
+ 786 0135 13       		.uleb128 0x13
+ 787 0136 00       		.byte	0
+ 788 0137 00       		.byte	0
+ 789 0138 00       		.byte	0
+ 790              		.section	.debug_loc,"",%progbits
+ 791              	.Ldebug_loc0:
+ 792              	.LLST0:
+ 793 0000 00000000 		.4byte	.LVL3
+ 794 0004 0A000000 		.4byte	.LVL5
+ 795 0008 0100     		.2byte	0x1
+ 796 000a 50       		.byte	0x50
+ 797 000b 0A000000 		.4byte	.LVL5
+ 798 000f 2A000000 		.4byte	.LFE64
+ 799 0013 0400     		.2byte	0x4
+ 800 0015 F3       		.byte	0xf3
+ 801 0016 01       		.uleb128 0x1
+ 802 0017 50       		.byte	0x50
+ 803 0018 9F       		.byte	0x9f
+ 804 0019 00000000 		.4byte	0
+ 805 001d 00000000 		.4byte	0
+ 806              	.LLST1:
+ 807 0021 00000000 		.4byte	.LVL3
+ 808 0025 0A000000 		.4byte	.LVL5
+ 809 0029 0100     		.2byte	0x1
+ 810 002b 51       		.byte	0x51
+ 811 002c 0A000000 		.4byte	.LVL5
+ 812 0030 18000000 		.4byte	.LVL7
+ 813 0034 0100     		.2byte	0x1
+ 814 0036 54       		.byte	0x54
+ 815 0037 18000000 		.4byte	.LVL7
+ 816 003b 22000000 		.4byte	.LVL10
+ 817 003f 0100     		.2byte	0x1
+ 818 0041 56       		.byte	0x56
+ 819 0042 22000000 		.4byte	.LVL10
+ 820 0046 2A000000 		.4byte	.LFE64
+ 821 004a 0100     		.2byte	0x1
+ 822 004c 54       		.byte	0x54
+ 823 004d 00000000 		.4byte	0
+ 824 0051 00000000 		.4byte	0
+ 825              	.LLST2:
+ 826 0055 00000000 		.4byte	.LVL3
+ 827 0059 0A000000 		.4byte	.LVL5
+ 828 005d 0100     		.2byte	0x1
+ 829 005f 52       		.byte	0x52
+ 830 0060 0A000000 		.4byte	.LVL5
+ 831 0064 2A000000 		.4byte	.LFE64
+ 832 0068 0100     		.2byte	0x1
+ 833 006a 57       		.byte	0x57
+ 834 006b 00000000 		.4byte	0
+ 835 006f 00000000 		.4byte	0
+ 836              	.LLST3:
+ 837 0073 06000000 		.4byte	.LVL4
+ 838 0077 0A000000 		.4byte	.LVL5
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 17
+
+
+ 839 007b 0200     		.2byte	0x2
+ 840 007d 30       		.byte	0x30
+ 841 007e 9F       		.byte	0x9f
+ 842 007f 0A000000 		.4byte	.LVL5
+ 843 0083 2A000000 		.4byte	.LFE64
+ 844 0087 0100     		.2byte	0x1
+ 845 0089 55       		.byte	0x55
+ 846 008a 00000000 		.4byte	0
+ 847 008e 00000000 		.4byte	0
+ 848              	.LLST4:
+ 849 0092 00000000 		.4byte	.LVL11
+ 850 0096 0A000000 		.4byte	.LVL13
+ 851 009a 0100     		.2byte	0x1
+ 852 009c 50       		.byte	0x50
+ 853 009d 0A000000 		.4byte	.LVL13
+ 854 00a1 38000000 		.4byte	.LFE65
+ 855 00a5 0400     		.2byte	0x4
+ 856 00a7 F3       		.byte	0xf3
+ 857 00a8 01       		.uleb128 0x1
+ 858 00a9 50       		.byte	0x50
+ 859 00aa 9F       		.byte	0x9f
+ 860 00ab 00000000 		.4byte	0
+ 861 00af 00000000 		.4byte	0
+ 862              	.LLST5:
+ 863 00b3 00000000 		.4byte	.LVL11
+ 864 00b7 0A000000 		.4byte	.LVL13
+ 865 00bb 0100     		.2byte	0x1
+ 866 00bd 51       		.byte	0x51
+ 867 00be 0A000000 		.4byte	.LVL13
+ 868 00c2 26000000 		.4byte	.LVL20
+ 869 00c6 0100     		.2byte	0x1
+ 870 00c8 57       		.byte	0x57
+ 871 00c9 26000000 		.4byte	.LVL20
+ 872 00cd 30000000 		.4byte	.LVL22
+ 873 00d1 0100     		.2byte	0x1
+ 874 00d3 53       		.byte	0x53
+ 875 00d4 30000000 		.4byte	.LVL22
+ 876 00d8 34000000 		.4byte	.LVL23
+ 877 00dc 0100     		.2byte	0x1
+ 878 00de 57       		.byte	0x57
+ 879 00df 00000000 		.4byte	0
+ 880 00e3 00000000 		.4byte	0
+ 881              	.LLST6:
+ 882 00e7 00000000 		.4byte	.LVL11
+ 883 00eb 0A000000 		.4byte	.LVL13
+ 884 00ef 0100     		.2byte	0x1
+ 885 00f1 52       		.byte	0x52
+ 886 00f2 0A000000 		.4byte	.LVL13
+ 887 00f6 38000000 		.4byte	.LFE65
+ 888 00fa 0100     		.2byte	0x1
+ 889 00fc 54       		.byte	0x54
+ 890 00fd 00000000 		.4byte	0
+ 891 0101 00000000 		.4byte	0
+ 892              	.LLST7:
+ 893 0105 06000000 		.4byte	.LVL12
+ 894 0109 0A000000 		.4byte	.LVL13
+ 895 010d 0200     		.2byte	0x2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 18
+
+
+ 896 010f 30       		.byte	0x30
+ 897 0110 9F       		.byte	0x9f
+ 898 0111 0A000000 		.4byte	.LVL13
+ 899 0115 38000000 		.4byte	.LFE65
+ 900 0119 0100     		.2byte	0x1
+ 901 011b 56       		.byte	0x56
+ 902 011c 00000000 		.4byte	0
+ 903 0120 00000000 		.4byte	0
+ 904              	.LLST8:
+ 905 0124 0E000000 		.4byte	.LVL14
+ 906 0128 15000000 		.4byte	.LVL15-1
+ 907 012c 0100     		.2byte	0x1
+ 908 012e 50       		.byte	0x50
+ 909 012f 1C000000 		.4byte	.LVL17
+ 910 0133 24000000 		.4byte	.LVL19
+ 911 0137 0200     		.2byte	0x2
+ 912 0139 3A       		.byte	0x3a
+ 913 013a 9F       		.byte	0x9f
+ 914 013b 24000000 		.4byte	.LVL19
+ 915 013f 30000000 		.4byte	.LVL22
+ 916 0143 0100     		.2byte	0x1
+ 917 0145 55       		.byte	0x55
+ 918 0146 00000000 		.4byte	0
+ 919 014a 00000000 		.4byte	0
+ 920              		.section	.debug_aranges,"",%progbits
+ 921 0000 2C000000 		.4byte	0x2c
+ 922 0004 0200     		.2byte	0x2
+ 923 0006 00000000 		.4byte	.Ldebug_info0
+ 924 000a 04       		.byte	0x4
+ 925 000b 00       		.byte	0
+ 926 000c 0000     		.2byte	0
+ 927 000e 0000     		.2byte	0
+ 928 0010 00000000 		.4byte	.LFB63
+ 929 0014 18000000 		.4byte	.LFE63-.LFB63
+ 930 0018 00000000 		.4byte	.LFB64
+ 931 001c 2A000000 		.4byte	.LFE64-.LFB64
+ 932 0020 00000000 		.4byte	.LFB65
+ 933 0024 38000000 		.4byte	.LFE65-.LFB65
+ 934 0028 00000000 		.4byte	0
+ 935 002c 00000000 		.4byte	0
+ 936              		.section	.debug_ranges,"",%progbits
+ 937              	.Ldebug_ranges0:
+ 938 0000 00000000 		.4byte	.LFB63
+ 939 0004 18000000 		.4byte	.LFE63
+ 940 0008 00000000 		.4byte	.LFB64
+ 941 000c 2A000000 		.4byte	.LFE64
+ 942 0010 00000000 		.4byte	.LFB65
+ 943 0014 38000000 		.4byte	.LFE65
+ 944 0018 00000000 		.4byte	0
+ 945 001c 00000000 		.4byte	0
+ 946              		.section	.debug_line,"",%progbits
+ 947              	.Ldebug_line0:
+ 948 0000 E0010000 		.section	.debug_str,"MS",%progbits,1
+ 948      02007401 
+ 948      00000201 
+ 948      FB0E0D00 
+ 948      01010101 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 19
+
+
+ 949              	.LASF27:
+ 950 0000 55415254 		.ascii	"UART_1_Start\000"
+ 950      5F315F53 
+ 950      74617274 
+ 950      00
+ 951              	.LASF9:
+ 952 000d 5F5F696E 		.ascii	"__int32_t\000"
+ 952      7433325F 
+ 952      7400
+ 953              	.LASF3:
+ 954 0017 73686F72 		.ascii	"short unsigned int\000"
+ 954      7420756E 
+ 954      7369676E 
+ 954      65642069 
+ 954      6E7400
+ 955              	.LASF19:
+ 956 002a 5F726561 		.ascii	"_read\000"
+ 956      6400
+ 957              	.LASF12:
+ 958 0030 666C6F61 		.ascii	"float\000"
+ 958      7400
+ 959              	.LASF18:
+ 960 0036 66696C65 		.ascii	"file\000"
+ 960      00
+ 961              	.LASF1:
+ 962 003b 756E7369 		.ascii	"unsigned char\000"
+ 962      676E6564 
+ 962      20636861 
+ 962      7200
+ 963              	.LASF5:
+ 964 0049 6C6F6E67 		.ascii	"long unsigned int\000"
+ 964      20756E73 
+ 964      69676E65 
+ 964      6420696E 
+ 964      7400
+ 965              	.LASF26:
+ 966 005b 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 966      52784275 
+ 966      66666572 
+ 966      00
+ 967              	.LASF13:
+ 968 0068 646F7562 		.ascii	"double\000"
+ 968      6C6500
+ 969              	.LASF25:
+ 970 006f 463A5C4F 		.ascii	"F:\\OneDrive\\Metropolia\\Devices\\Workspaces\\Work"
+ 970      6E654472 
+ 970      6976655C 
+ 970      4D657472 
+ 970      6F706F6C 
+ 971 009d 73706163 		.ascii	"space 1\\Workspace01\\Zumo1.cydsn\000"
+ 971      6520315C 
+ 971      576F726B 
+ 971      73706163 
+ 971      6530315C 
+ 972              	.LASF23:
+ 973 00bd 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 973      4320342E 
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 20
+
+
+ 973      392E3320 
+ 973      32303135 
+ 973      30333033 
+ 974 00f0 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 974      20726576 
+ 974      6973696F 
+ 974      6E203232 
+ 974      31323230 
+ 975 0123 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 975      66756E63 
+ 975      74696F6E 
+ 975      2D736563 
+ 975      74696F6E 
+ 976              	.LASF30:
+ 977 014b 55415254 		.ascii	"UART_1_PutChar\000"
+ 977      5F315F50 
+ 977      75744368 
+ 977      617200
+ 978              	.LASF8:
+ 979 015a 756E7369 		.ascii	"unsigned int\000"
+ 979      676E6564 
+ 979      20696E74 
+ 979      00
+ 980              	.LASF7:
+ 981 0167 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 981      206C6F6E 
+ 981      6720756E 
+ 981      7369676E 
+ 981      65642069 
+ 982              	.LASF16:
+ 983 017e 6D61696E 		.ascii	"main\000"
+ 983      00
+ 984              	.LASF10:
+ 985 0183 696E7433 		.ascii	"int32_t\000"
+ 985      325F7400 
+ 986              	.LASF15:
+ 987 018b 73697A65 		.ascii	"sizetype\000"
+ 987      74797065 
+ 987      00
+ 988              	.LASF6:
+ 989 0194 6C6F6E67 		.ascii	"long long int\000"
+ 989      206C6F6E 
+ 989      6720696E 
+ 989      7400
+ 990              	.LASF24:
+ 991 01a2 6D61696E 		.ascii	"main.c\000"
+ 991      2E6300
+ 992              	.LASF14:
+ 993 01a9 63686172 		.ascii	"char\000"
+ 993      00
+ 994              	.LASF17:
+ 995 01ae 5F777269 		.ascii	"_write\000"
+ 995      746500
+ 996              	.LASF20:
+ 997 01b5 636F756E 		.ascii	"count\000"
+ 997      7400
+ 998              	.LASF2:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccj2nado.s 			page 21
+
+
+ 999 01bb 73686F72 		.ascii	"short int\000"
+ 999      7420696E 
+ 999      7400
+ 1000              	.LASF21:
+ 1001 01c5 62617474 		.ascii	"battery_check\000"
+ 1001      6572795F 
+ 1001      63686563 
+ 1001      6B00
+ 1002              	.LASF11:
+ 1003 01d3 75696E74 		.ascii	"uint8\000"
+ 1003      3800
+ 1004              	.LASF4:
+ 1005 01d9 6C6F6E67 		.ascii	"long int\000"
+ 1005      20696E74 
+ 1005      00
+ 1006              	.LASF29:
+ 1007 01e2 70757473 		.ascii	"puts\000"
+ 1007      00
+ 1008              	.LASF0:
+ 1009 01e7 7369676E 		.ascii	"signed char\000"
+ 1009      65642063 
+ 1009      68617200 
+ 1010              	.LASF28:
+ 1011 01f3 5F5F6275 		.ascii	"__builtin_puts\000"
+ 1011      696C7469 
+ 1011      6E5F7075 
+ 1011      747300
+ 1012              	.LASF22:
+ 1013 0202 55415254 		.ascii	"UART_1_GetChar\000"
+ 1013      5F315F47 
+ 1013      65744368 
+ 1013      617200
+ 1014              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

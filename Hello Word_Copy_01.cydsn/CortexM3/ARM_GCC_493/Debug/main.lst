@@ -1,0 +1,1130 @@
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	2
+  20              		.global	main
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	main, %function
+  24              	main:
+  25              	.LFB63:
+  26              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include <project.h>
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** 
+  15:main.c        **** 
+  16:main.c        **** int main(void)
+  17:main.c        **** {
+  27              		.loc 1 17 0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  18:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  36              		.loc 1 18 0
+  37              	@ 18 "main.c" 1
+  38 0002 62B6     		CPSIE   i
+  39              	@ 0 "" 2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 2
+
+
+  19:main.c        **** 
+  20:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  21:main.c        ****     UART_1_Start();
+  40              		.loc 1 21 0
+  41              		.thumb
+  42 0004 FFF7FEFF 		bl	UART_1_Start
+  43              	.LVL0:
+  44              	.L2:
+  22:main.c        **** 
+  23:main.c        ****     for(;;)
+  24:main.c        ****     {
+  25:main.c        ****         
+  26:main.c        ****         
+  27:main.c        ****     }
+  45              		.loc 1 27 0 discriminator 1
+  46 0008 FEE7     		b	.L2
+  47              		.cfi_endproc
+  48              	.LFE63:
+  49              		.size	main, .-main
+  50 000a 00BF     		.section	.text._write,"ax",%progbits
+  51              		.align	2
+  52              		.global	_write
+  53              		.thumb
+  54              		.thumb_func
+  55              		.type	_write, %function
+  56              	_write:
+  57              	.LFB64:
+  28:main.c        **** }
+  29:main.c        **** 
+  30:main.c        **** int _write(int file, char *ptr, int len)
+  31:main.c        **** {
+  58              		.loc 1 31 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              	.LVL1:
+  63 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  64              		.cfi_def_cfa_offset 24
+  65              		.cfi_offset 3, -24
+  66              		.cfi_offset 4, -20
+  67              		.cfi_offset 5, -16
+  68              		.cfi_offset 6, -12
+  69              		.cfi_offset 7, -8
+  70              		.cfi_offset 14, -4
+  71 0002 0C46     		mov	r4, r1
+  72 0004 1746     		mov	r7, r2
+  73              	.LVL2:
+  32:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+  33:main.c        **** 	int n;
+  34:main.c        **** 	for(n = 0; n < len; n++) {
+  74              		.loc 1 34 0
+  75 0006 0025     		movs	r5, #0
+  76 0008 0BE0     		b	.L5
+  77              	.LVL3:
+  78              	.L7:
+  35:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+  79              		.loc 1 35 0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 3
+
+
+  80 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  81 000c 0A2B     		cmp	r3, #10
+  82 000e 02D1     		bne	.L6
+  83              		.loc 1 35 0 is_stmt 0 discriminator 1
+  84 0010 0D20     		movs	r0, #13
+  85 0012 FFF7FEFF 		bl	UART_1_PutChar
+  86              	.LVL4:
+  87              	.L6:
+  36:main.c        **** 		UART_1_PutChar(*ptr++);
+  88              		.loc 1 36 0 is_stmt 1 discriminator 2
+  89 0016 661C     		adds	r6, r4, #1
+  90              	.LVL5:
+  91 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  92 001a FFF7FEFF 		bl	UART_1_PutChar
+  93              	.LVL6:
+  34:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+  94              		.loc 1 34 0 discriminator 2
+  95 001e 0135     		adds	r5, r5, #1
+  96              	.LVL7:
+  97              		.loc 1 36 0 discriminator 2
+  98 0020 3446     		mov	r4, r6
+  99              	.LVL8:
+ 100              	.L5:
+  34:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 101              		.loc 1 34 0 discriminator 1
+ 102 0022 BD42     		cmp	r5, r7
+ 103 0024 F1DB     		blt	.L7
+  37:main.c        **** 	}
+  38:main.c        **** 	return len;
+  39:main.c        **** }
+ 104              		.loc 1 39 0
+ 105 0026 3846     		mov	r0, r7
+ 106 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 107              		.cfi_endproc
+ 108              	.LFE64:
+ 109              		.size	_write, .-_write
+ 110 002a 00BF     		.section	.text._read,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	_read
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	_read, %function
+ 116              	_read:
+ 117              	.LFB65:
+  40:main.c        **** 
+  41:main.c        **** int _read (int file, char *ptr, int count)
+  42:main.c        **** {
+ 118              		.loc 1 42 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              	.LVL9:
+ 123 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 124              		.cfi_def_cfa_offset 24
+ 125              		.cfi_offset 3, -24
+ 126              		.cfi_offset 4, -20
+ 127              		.cfi_offset 5, -16
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 4
+
+
+ 128              		.cfi_offset 6, -12
+ 129              		.cfi_offset 7, -8
+ 130              		.cfi_offset 14, -4
+ 131 0002 0F46     		mov	r7, r1
+ 132 0004 1446     		mov	r4, r2
+ 133              	.LVL10:
+  43:main.c        ****     int chs = 0;
+ 134              		.loc 1 43 0
+ 135 0006 0026     		movs	r6, #0
+  44:main.c        ****     char ch;
+  45:main.c        ****  
+  46:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+  47:main.c        ****     while(count > 0) {
+ 136              		.loc 1 47 0
+ 137 0008 12E0     		b	.L11
+ 138              	.LVL11:
+ 139              	.L14:
+  48:main.c        ****         ch = UART_1_GetChar();
+ 140              		.loc 1 48 0
+ 141 000a FFF7FEFF 		bl	UART_1_GetChar
+ 142              	.LVL12:
+  49:main.c        ****         if(ch != 0) {
+ 143              		.loc 1 49 0
+ 144 000e 0546     		mov	r5, r0
+ 145 0010 70B1     		cbz	r0, .L11
+  50:main.c        ****             UART_1_PutChar(ch);
+ 146              		.loc 1 50 0
+ 147 0012 FFF7FEFF 		bl	UART_1_PutChar
+ 148              	.LVL13:
+  51:main.c        ****             chs++;
+ 149              		.loc 1 51 0
+ 150 0016 0136     		adds	r6, r6, #1
+ 151              	.LVL14:
+  52:main.c        ****             if(ch == '\r') {
+ 152              		.loc 1 52 0
+ 153 0018 0D2D     		cmp	r5, #13
+ 154 001a 03D1     		bne	.L12
+ 155              	.LVL15:
+  53:main.c        ****                 ch = '\n';
+  54:main.c        ****                 UART_1_PutChar(ch);
+ 156              		.loc 1 54 0
+ 157 001c 0A20     		movs	r0, #10
+ 158 001e FFF7FEFF 		bl	UART_1_PutChar
+ 159              	.LVL16:
+  53:main.c        ****                 ch = '\n';
+ 160              		.loc 1 53 0
+ 161 0022 0A25     		movs	r5, #10
+ 162              	.LVL17:
+ 163              	.L12:
+  55:main.c        ****             }
+  56:main.c        ****             *ptr++ = ch;
+ 164              		.loc 1 56 0
+ 165 0024 7B1C     		adds	r3, r7, #1
+ 166              	.LVL18:
+ 167 0026 3D70     		strb	r5, [r7]
+  57:main.c        ****             count--;
+ 168              		.loc 1 57 0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 5
+
+
+ 169 0028 013C     		subs	r4, r4, #1
+ 170              	.LVL19:
+  58:main.c        ****             if(ch == '\n') break;
+ 171              		.loc 1 58 0
+ 172 002a 0A2D     		cmp	r5, #10
+ 173 002c 02D0     		beq	.L13
+  56:main.c        ****             count--;
+ 174              		.loc 1 56 0
+ 175 002e 1F46     		mov	r7, r3
+ 176              	.LVL20:
+ 177              	.L11:
+  47:main.c        ****         ch = UART_1_GetChar();
+ 178              		.loc 1 47 0
+ 179 0030 002C     		cmp	r4, #0
+ 180 0032 EADC     		bgt	.L14
+ 181              	.LVL21:
+ 182              	.L13:
+  59:main.c        ****         }
+  60:main.c        ****     }
+  61:main.c        ****     return chs;
+  62:main.c        **** }
+ 183              		.loc 1 62 0
+ 184 0034 3046     		mov	r0, r6
+ 185 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 186              		.cfi_endproc
+ 187              	.LFE65:
+ 188              		.size	_read, .-_read
+ 189              		.text
+ 190              	.Letext0:
+ 191              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 192              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 193              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 194              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 195              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
+ 196              		.section	.debug_info,"",%progbits
+ 197              	.Ldebug_info0:
+ 198 0000 03020000 		.4byte	0x203
+ 199 0004 0400     		.2byte	0x4
+ 200 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 201 000a 04       		.byte	0x4
+ 202 000b 01       		.uleb128 0x1
+ 203 000c D5000000 		.4byte	.LASF21
+ 204 0010 01       		.byte	0x1
+ 205 0011 B5010000 		.4byte	.LASF22
+ 206 0015 13000000 		.4byte	.LASF23
+ 207 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 208 001d 00000000 		.4byte	0
+ 209 0021 00000000 		.4byte	.Ldebug_line0
+ 210 0025 02       		.uleb128 0x2
+ 211 0026 01       		.byte	0x1
+ 212 0027 06       		.byte	0x6
+ 213 0028 E1010000 		.4byte	.LASF0
+ 214 002c 02       		.uleb128 0x2
+ 215 002d 01       		.byte	0x1
+ 216 002e 08       		.byte	0x8
+ 217 002f 9C000000 		.4byte	.LASF1
+ 218 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 6
+
+
+ 219 0034 02       		.byte	0x2
+ 220 0035 05       		.byte	0x5
+ 221 0036 C8010000 		.4byte	.LASF2
+ 222 003a 02       		.uleb128 0x2
+ 223 003b 02       		.byte	0x2
+ 224 003c 07       		.byte	0x7
+ 225 003d 78000000 		.4byte	.LASF3
+ 226 0041 03       		.uleb128 0x3
+ 227 0042 6E000000 		.4byte	.LASF9
+ 228 0046 02       		.byte	0x2
+ 229 0047 3F       		.byte	0x3f
+ 230 0048 4C000000 		.4byte	0x4c
+ 231 004c 02       		.uleb128 0x2
+ 232 004d 04       		.byte	0x4
+ 233 004e 05       		.byte	0x5
+ 234 004f D8010000 		.4byte	.LASF4
+ 235 0053 02       		.uleb128 0x2
+ 236 0054 04       		.byte	0x4
+ 237 0055 07       		.byte	0x7
+ 238 0056 AA000000 		.4byte	.LASF5
+ 239 005a 02       		.uleb128 0x2
+ 240 005b 08       		.byte	0x8
+ 241 005c 05       		.byte	0x5
+ 242 005d A7010000 		.4byte	.LASF6
+ 243 0061 02       		.uleb128 0x2
+ 244 0062 08       		.byte	0x8
+ 245 0063 07       		.byte	0x7
+ 246 0064 7F010000 		.4byte	.LASF7
+ 247 0068 04       		.uleb128 0x4
+ 248 0069 04       		.byte	0x4
+ 249 006a 05       		.byte	0x5
+ 250 006b 696E7400 		.ascii	"int\000"
+ 251 006f 02       		.uleb128 0x2
+ 252 0070 04       		.byte	0x4
+ 253 0071 07       		.byte	0x7
+ 254 0072 72010000 		.4byte	.LASF8
+ 255 0076 03       		.uleb128 0x3
+ 256 0077 96010000 		.4byte	.LASF10
+ 257 007b 03       		.byte	0x3
+ 258 007c 2C       		.byte	0x2c
+ 259 007d 41000000 		.4byte	0x41
+ 260 0081 05       		.uleb128 0x5
+ 261 0082 D2010000 		.4byte	.LASF11
+ 262 0086 04       		.byte	0x4
+ 263 0087 9201     		.2byte	0x192
+ 264 0089 2C000000 		.4byte	0x2c
+ 265 008d 02       		.uleb128 0x2
+ 266 008e 04       		.byte	0x4
+ 267 008f 04       		.byte	0x4
+ 268 0090 91000000 		.4byte	.LASF12
+ 269 0094 02       		.uleb128 0x2
+ 270 0095 08       		.byte	0x8
+ 271 0096 04       		.byte	0x4
+ 272 0097 C9000000 		.4byte	.LASF13
+ 273 009b 02       		.uleb128 0x2
+ 274 009c 01       		.byte	0x1
+ 275 009d 08       		.byte	0x8
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 7
+
+
+ 276 009e BC010000 		.4byte	.LASF14
+ 277 00a2 02       		.uleb128 0x2
+ 278 00a3 04       		.byte	0x4
+ 279 00a4 07       		.byte	0x7
+ 280 00a5 9E010000 		.4byte	.LASF15
+ 281 00a9 06       		.uleb128 0x6
+ 282 00aa 04       		.byte	0x4
+ 283 00ab 9B000000 		.4byte	0x9b
+ 284 00af 07       		.uleb128 0x7
+ 285 00b0 D0000000 		.4byte	.LASF16
+ 286 00b4 01       		.byte	0x1
+ 287 00b5 10       		.byte	0x10
+ 288 00b6 68000000 		.4byte	0x68
+ 289 00ba 00000000 		.4byte	.LFB63
+ 290 00be 0A000000 		.4byte	.LFE63-.LFB63
+ 291 00c2 01       		.uleb128 0x1
+ 292 00c3 9C       		.byte	0x9c
+ 293 00c4 D2000000 		.4byte	0xd2
+ 294 00c8 08       		.uleb128 0x8
+ 295 00c9 08000000 		.4byte	.LVL0
+ 296 00cd E3010000 		.4byte	0x1e3
+ 297 00d1 00       		.byte	0
+ 298 00d2 07       		.uleb128 0x7
+ 299 00d3 C1010000 		.4byte	.LASF17
+ 300 00d7 01       		.byte	0x1
+ 301 00d8 1E       		.byte	0x1e
+ 302 00d9 68000000 		.4byte	0x68
+ 303 00dd 00000000 		.4byte	.LFB64
+ 304 00e1 2A000000 		.4byte	.LFE64-.LFB64
+ 305 00e5 01       		.uleb128 0x1
+ 306 00e6 9C       		.byte	0x9c
+ 307 00e7 42010000 		.4byte	0x142
+ 308 00eb 09       		.uleb128 0x9
+ 309 00ec 97000000 		.4byte	.LASF18
+ 310 00f0 01       		.byte	0x1
+ 311 00f1 1E       		.byte	0x1e
+ 312 00f2 68000000 		.4byte	0x68
+ 313 00f6 00000000 		.4byte	.LLST0
+ 314 00fa 0A       		.uleb128 0xa
+ 315 00fb 70747200 		.ascii	"ptr\000"
+ 316 00ff 01       		.byte	0x1
+ 317 0100 1E       		.byte	0x1e
+ 318 0101 A9000000 		.4byte	0xa9
+ 319 0105 21000000 		.4byte	.LLST1
+ 320 0109 0A       		.uleb128 0xa
+ 321 010a 6C656E00 		.ascii	"len\000"
+ 322 010e 01       		.byte	0x1
+ 323 010f 1E       		.byte	0x1e
+ 324 0110 68000000 		.4byte	0x68
+ 325 0114 55000000 		.4byte	.LLST2
+ 326 0118 0B       		.uleb128 0xb
+ 327 0119 6E00     		.ascii	"n\000"
+ 328 011b 01       		.byte	0x1
+ 329 011c 21       		.byte	0x21
+ 330 011d 68000000 		.4byte	0x68
+ 331 0121 73000000 		.4byte	.LLST3
+ 332 0125 0C       		.uleb128 0xc
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 8
+
+
+ 333 0126 16000000 		.4byte	.LVL4
+ 334 012a EA010000 		.4byte	0x1ea
+ 335 012e 38010000 		.4byte	0x138
+ 336 0132 0D       		.uleb128 0xd
+ 337 0133 01       		.uleb128 0x1
+ 338 0134 50       		.byte	0x50
+ 339 0135 01       		.uleb128 0x1
+ 340 0136 3D       		.byte	0x3d
+ 341 0137 00       		.byte	0
+ 342 0138 08       		.uleb128 0x8
+ 343 0139 1E000000 		.4byte	.LVL6
+ 344 013d EA010000 		.4byte	0x1ea
+ 345 0141 00       		.byte	0
+ 346 0142 07       		.uleb128 0x7
+ 347 0143 8B000000 		.4byte	.LASF19
+ 348 0147 01       		.byte	0x1
+ 349 0148 29       		.byte	0x29
+ 350 0149 68000000 		.4byte	0x68
+ 351 014d 00000000 		.4byte	.LFB65
+ 352 0151 38000000 		.4byte	.LFE65-.LFB65
+ 353 0155 01       		.uleb128 0x1
+ 354 0156 9C       		.byte	0x9c
+ 355 0157 D2010000 		.4byte	0x1d2
+ 356 015b 09       		.uleb128 0x9
+ 357 015c 97000000 		.4byte	.LASF18
+ 358 0160 01       		.byte	0x1
+ 359 0161 29       		.byte	0x29
+ 360 0162 68000000 		.4byte	0x68
+ 361 0166 92000000 		.4byte	.LLST4
+ 362 016a 0A       		.uleb128 0xa
+ 363 016b 70747200 		.ascii	"ptr\000"
+ 364 016f 01       		.byte	0x1
+ 365 0170 29       		.byte	0x29
+ 366 0171 A9000000 		.4byte	0xa9
+ 367 0175 B3000000 		.4byte	.LLST5
+ 368 0179 09       		.uleb128 0x9
+ 369 017a 0D000000 		.4byte	.LASF20
+ 370 017e 01       		.byte	0x1
+ 371 017f 29       		.byte	0x29
+ 372 0180 68000000 		.4byte	0x68
+ 373 0184 E7000000 		.4byte	.LLST6
+ 374 0188 0B       		.uleb128 0xb
+ 375 0189 63687300 		.ascii	"chs\000"
+ 376 018d 01       		.byte	0x1
+ 377 018e 2B       		.byte	0x2b
+ 378 018f 68000000 		.4byte	0x68
+ 379 0193 05010000 		.4byte	.LLST7
+ 380 0197 0B       		.uleb128 0xb
+ 381 0198 636800   		.ascii	"ch\000"
+ 382 019b 01       		.byte	0x1
+ 383 019c 2C       		.byte	0x2c
+ 384 019d 9B000000 		.4byte	0x9b
+ 385 01a1 24010000 		.4byte	.LLST8
+ 386 01a5 08       		.uleb128 0x8
+ 387 01a6 0E000000 		.4byte	.LVL12
+ 388 01aa FB010000 		.4byte	0x1fb
+ 389 01ae 0C       		.uleb128 0xc
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 9
+
+
+ 390 01af 16000000 		.4byte	.LVL13
+ 391 01b3 EA010000 		.4byte	0x1ea
+ 392 01b7 C2010000 		.4byte	0x1c2
+ 393 01bb 0D       		.uleb128 0xd
+ 394 01bc 01       		.uleb128 0x1
+ 395 01bd 50       		.byte	0x50
+ 396 01be 02       		.uleb128 0x2
+ 397 01bf 75       		.byte	0x75
+ 398 01c0 00       		.sleb128 0
+ 399 01c1 00       		.byte	0
+ 400 01c2 0E       		.uleb128 0xe
+ 401 01c3 22000000 		.4byte	.LVL16
+ 402 01c7 EA010000 		.4byte	0x1ea
+ 403 01cb 0D       		.uleb128 0xd
+ 404 01cc 01       		.uleb128 0x1
+ 405 01cd 50       		.byte	0x50
+ 406 01ce 01       		.uleb128 0x1
+ 407 01cf 3A       		.byte	0x3a
+ 408 01d0 00       		.byte	0
+ 409 01d1 00       		.byte	0
+ 410 01d2 0F       		.uleb128 0xf
+ 411 01d3 BC000000 		.4byte	.LASF24
+ 412 01d7 05       		.byte	0x5
+ 413 01d8 9606     		.2byte	0x696
+ 414 01da DE010000 		.4byte	0x1de
+ 415 01de 10       		.uleb128 0x10
+ 416 01df 76000000 		.4byte	0x76
+ 417 01e3 11       		.uleb128 0x11
+ 418 01e4 00000000 		.4byte	.LASF25
+ 419 01e8 06       		.byte	0x6
+ 420 01e9 54       		.byte	0x54
+ 421 01ea 12       		.uleb128 0x12
+ 422 01eb 63010000 		.4byte	.LASF26
+ 423 01ef 06       		.byte	0x6
+ 424 01f0 8A       		.byte	0x8a
+ 425 01f1 FB010000 		.4byte	0x1fb
+ 426 01f5 13       		.uleb128 0x13
+ 427 01f6 81000000 		.4byte	0x81
+ 428 01fa 00       		.byte	0
+ 429 01fb 14       		.uleb128 0x14
+ 430 01fc ED010000 		.4byte	.LASF27
+ 431 0200 06       		.byte	0x6
+ 432 0201 71       		.byte	0x71
+ 433 0202 81000000 		.4byte	0x81
+ 434 0206 00       		.byte	0
+ 435              		.section	.debug_abbrev,"",%progbits
+ 436              	.Ldebug_abbrev0:
+ 437 0000 01       		.uleb128 0x1
+ 438 0001 11       		.uleb128 0x11
+ 439 0002 01       		.byte	0x1
+ 440 0003 25       		.uleb128 0x25
+ 441 0004 0E       		.uleb128 0xe
+ 442 0005 13       		.uleb128 0x13
+ 443 0006 0B       		.uleb128 0xb
+ 444 0007 03       		.uleb128 0x3
+ 445 0008 0E       		.uleb128 0xe
+ 446 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 10
+
+
+ 447 000a 0E       		.uleb128 0xe
+ 448 000b 55       		.uleb128 0x55
+ 449 000c 17       		.uleb128 0x17
+ 450 000d 11       		.uleb128 0x11
+ 451 000e 01       		.uleb128 0x1
+ 452 000f 10       		.uleb128 0x10
+ 453 0010 17       		.uleb128 0x17
+ 454 0011 00       		.byte	0
+ 455 0012 00       		.byte	0
+ 456 0013 02       		.uleb128 0x2
+ 457 0014 24       		.uleb128 0x24
+ 458 0015 00       		.byte	0
+ 459 0016 0B       		.uleb128 0xb
+ 460 0017 0B       		.uleb128 0xb
+ 461 0018 3E       		.uleb128 0x3e
+ 462 0019 0B       		.uleb128 0xb
+ 463 001a 03       		.uleb128 0x3
+ 464 001b 0E       		.uleb128 0xe
+ 465 001c 00       		.byte	0
+ 466 001d 00       		.byte	0
+ 467 001e 03       		.uleb128 0x3
+ 468 001f 16       		.uleb128 0x16
+ 469 0020 00       		.byte	0
+ 470 0021 03       		.uleb128 0x3
+ 471 0022 0E       		.uleb128 0xe
+ 472 0023 3A       		.uleb128 0x3a
+ 473 0024 0B       		.uleb128 0xb
+ 474 0025 3B       		.uleb128 0x3b
+ 475 0026 0B       		.uleb128 0xb
+ 476 0027 49       		.uleb128 0x49
+ 477 0028 13       		.uleb128 0x13
+ 478 0029 00       		.byte	0
+ 479 002a 00       		.byte	0
+ 480 002b 04       		.uleb128 0x4
+ 481 002c 24       		.uleb128 0x24
+ 482 002d 00       		.byte	0
+ 483 002e 0B       		.uleb128 0xb
+ 484 002f 0B       		.uleb128 0xb
+ 485 0030 3E       		.uleb128 0x3e
+ 486 0031 0B       		.uleb128 0xb
+ 487 0032 03       		.uleb128 0x3
+ 488 0033 08       		.uleb128 0x8
+ 489 0034 00       		.byte	0
+ 490 0035 00       		.byte	0
+ 491 0036 05       		.uleb128 0x5
+ 492 0037 16       		.uleb128 0x16
+ 493 0038 00       		.byte	0
+ 494 0039 03       		.uleb128 0x3
+ 495 003a 0E       		.uleb128 0xe
+ 496 003b 3A       		.uleb128 0x3a
+ 497 003c 0B       		.uleb128 0xb
+ 498 003d 3B       		.uleb128 0x3b
+ 499 003e 05       		.uleb128 0x5
+ 500 003f 49       		.uleb128 0x49
+ 501 0040 13       		.uleb128 0x13
+ 502 0041 00       		.byte	0
+ 503 0042 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 11
+
+
+ 504 0043 06       		.uleb128 0x6
+ 505 0044 0F       		.uleb128 0xf
+ 506 0045 00       		.byte	0
+ 507 0046 0B       		.uleb128 0xb
+ 508 0047 0B       		.uleb128 0xb
+ 509 0048 49       		.uleb128 0x49
+ 510 0049 13       		.uleb128 0x13
+ 511 004a 00       		.byte	0
+ 512 004b 00       		.byte	0
+ 513 004c 07       		.uleb128 0x7
+ 514 004d 2E       		.uleb128 0x2e
+ 515 004e 01       		.byte	0x1
+ 516 004f 3F       		.uleb128 0x3f
+ 517 0050 19       		.uleb128 0x19
+ 518 0051 03       		.uleb128 0x3
+ 519 0052 0E       		.uleb128 0xe
+ 520 0053 3A       		.uleb128 0x3a
+ 521 0054 0B       		.uleb128 0xb
+ 522 0055 3B       		.uleb128 0x3b
+ 523 0056 0B       		.uleb128 0xb
+ 524 0057 27       		.uleb128 0x27
+ 525 0058 19       		.uleb128 0x19
+ 526 0059 49       		.uleb128 0x49
+ 527 005a 13       		.uleb128 0x13
+ 528 005b 11       		.uleb128 0x11
+ 529 005c 01       		.uleb128 0x1
+ 530 005d 12       		.uleb128 0x12
+ 531 005e 06       		.uleb128 0x6
+ 532 005f 40       		.uleb128 0x40
+ 533 0060 18       		.uleb128 0x18
+ 534 0061 9742     		.uleb128 0x2117
+ 535 0063 19       		.uleb128 0x19
+ 536 0064 01       		.uleb128 0x1
+ 537 0065 13       		.uleb128 0x13
+ 538 0066 00       		.byte	0
+ 539 0067 00       		.byte	0
+ 540 0068 08       		.uleb128 0x8
+ 541 0069 898201   		.uleb128 0x4109
+ 542 006c 00       		.byte	0
+ 543 006d 11       		.uleb128 0x11
+ 544 006e 01       		.uleb128 0x1
+ 545 006f 31       		.uleb128 0x31
+ 546 0070 13       		.uleb128 0x13
+ 547 0071 00       		.byte	0
+ 548 0072 00       		.byte	0
+ 549 0073 09       		.uleb128 0x9
+ 550 0074 05       		.uleb128 0x5
+ 551 0075 00       		.byte	0
+ 552 0076 03       		.uleb128 0x3
+ 553 0077 0E       		.uleb128 0xe
+ 554 0078 3A       		.uleb128 0x3a
+ 555 0079 0B       		.uleb128 0xb
+ 556 007a 3B       		.uleb128 0x3b
+ 557 007b 0B       		.uleb128 0xb
+ 558 007c 49       		.uleb128 0x49
+ 559 007d 13       		.uleb128 0x13
+ 560 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 12
+
+
+ 561 007f 17       		.uleb128 0x17
+ 562 0080 00       		.byte	0
+ 563 0081 00       		.byte	0
+ 564 0082 0A       		.uleb128 0xa
+ 565 0083 05       		.uleb128 0x5
+ 566 0084 00       		.byte	0
+ 567 0085 03       		.uleb128 0x3
+ 568 0086 08       		.uleb128 0x8
+ 569 0087 3A       		.uleb128 0x3a
+ 570 0088 0B       		.uleb128 0xb
+ 571 0089 3B       		.uleb128 0x3b
+ 572 008a 0B       		.uleb128 0xb
+ 573 008b 49       		.uleb128 0x49
+ 574 008c 13       		.uleb128 0x13
+ 575 008d 02       		.uleb128 0x2
+ 576 008e 17       		.uleb128 0x17
+ 577 008f 00       		.byte	0
+ 578 0090 00       		.byte	0
+ 579 0091 0B       		.uleb128 0xb
+ 580 0092 34       		.uleb128 0x34
+ 581 0093 00       		.byte	0
+ 582 0094 03       		.uleb128 0x3
+ 583 0095 08       		.uleb128 0x8
+ 584 0096 3A       		.uleb128 0x3a
+ 585 0097 0B       		.uleb128 0xb
+ 586 0098 3B       		.uleb128 0x3b
+ 587 0099 0B       		.uleb128 0xb
+ 588 009a 49       		.uleb128 0x49
+ 589 009b 13       		.uleb128 0x13
+ 590 009c 02       		.uleb128 0x2
+ 591 009d 17       		.uleb128 0x17
+ 592 009e 00       		.byte	0
+ 593 009f 00       		.byte	0
+ 594 00a0 0C       		.uleb128 0xc
+ 595 00a1 898201   		.uleb128 0x4109
+ 596 00a4 01       		.byte	0x1
+ 597 00a5 11       		.uleb128 0x11
+ 598 00a6 01       		.uleb128 0x1
+ 599 00a7 31       		.uleb128 0x31
+ 600 00a8 13       		.uleb128 0x13
+ 601 00a9 01       		.uleb128 0x1
+ 602 00aa 13       		.uleb128 0x13
+ 603 00ab 00       		.byte	0
+ 604 00ac 00       		.byte	0
+ 605 00ad 0D       		.uleb128 0xd
+ 606 00ae 8A8201   		.uleb128 0x410a
+ 607 00b1 00       		.byte	0
+ 608 00b2 02       		.uleb128 0x2
+ 609 00b3 18       		.uleb128 0x18
+ 610 00b4 9142     		.uleb128 0x2111
+ 611 00b6 18       		.uleb128 0x18
+ 612 00b7 00       		.byte	0
+ 613 00b8 00       		.byte	0
+ 614 00b9 0E       		.uleb128 0xe
+ 615 00ba 898201   		.uleb128 0x4109
+ 616 00bd 01       		.byte	0x1
+ 617 00be 11       		.uleb128 0x11
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 13
+
+
+ 618 00bf 01       		.uleb128 0x1
+ 619 00c0 31       		.uleb128 0x31
+ 620 00c1 13       		.uleb128 0x13
+ 621 00c2 00       		.byte	0
+ 622 00c3 00       		.byte	0
+ 623 00c4 0F       		.uleb128 0xf
+ 624 00c5 34       		.uleb128 0x34
+ 625 00c6 00       		.byte	0
+ 626 00c7 03       		.uleb128 0x3
+ 627 00c8 0E       		.uleb128 0xe
+ 628 00c9 3A       		.uleb128 0x3a
+ 629 00ca 0B       		.uleb128 0xb
+ 630 00cb 3B       		.uleb128 0x3b
+ 631 00cc 05       		.uleb128 0x5
+ 632 00cd 49       		.uleb128 0x49
+ 633 00ce 13       		.uleb128 0x13
+ 634 00cf 3F       		.uleb128 0x3f
+ 635 00d0 19       		.uleb128 0x19
+ 636 00d1 3C       		.uleb128 0x3c
+ 637 00d2 19       		.uleb128 0x19
+ 638 00d3 00       		.byte	0
+ 639 00d4 00       		.byte	0
+ 640 00d5 10       		.uleb128 0x10
+ 641 00d6 35       		.uleb128 0x35
+ 642 00d7 00       		.byte	0
+ 643 00d8 49       		.uleb128 0x49
+ 644 00d9 13       		.uleb128 0x13
+ 645 00da 00       		.byte	0
+ 646 00db 00       		.byte	0
+ 647 00dc 11       		.uleb128 0x11
+ 648 00dd 2E       		.uleb128 0x2e
+ 649 00de 00       		.byte	0
+ 650 00df 3F       		.uleb128 0x3f
+ 651 00e0 19       		.uleb128 0x19
+ 652 00e1 03       		.uleb128 0x3
+ 653 00e2 0E       		.uleb128 0xe
+ 654 00e3 3A       		.uleb128 0x3a
+ 655 00e4 0B       		.uleb128 0xb
+ 656 00e5 3B       		.uleb128 0x3b
+ 657 00e6 0B       		.uleb128 0xb
+ 658 00e7 27       		.uleb128 0x27
+ 659 00e8 19       		.uleb128 0x19
+ 660 00e9 3C       		.uleb128 0x3c
+ 661 00ea 19       		.uleb128 0x19
+ 662 00eb 00       		.byte	0
+ 663 00ec 00       		.byte	0
+ 664 00ed 12       		.uleb128 0x12
+ 665 00ee 2E       		.uleb128 0x2e
+ 666 00ef 01       		.byte	0x1
+ 667 00f0 3F       		.uleb128 0x3f
+ 668 00f1 19       		.uleb128 0x19
+ 669 00f2 03       		.uleb128 0x3
+ 670 00f3 0E       		.uleb128 0xe
+ 671 00f4 3A       		.uleb128 0x3a
+ 672 00f5 0B       		.uleb128 0xb
+ 673 00f6 3B       		.uleb128 0x3b
+ 674 00f7 0B       		.uleb128 0xb
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 14
+
+
+ 675 00f8 27       		.uleb128 0x27
+ 676 00f9 19       		.uleb128 0x19
+ 677 00fa 3C       		.uleb128 0x3c
+ 678 00fb 19       		.uleb128 0x19
+ 679 00fc 01       		.uleb128 0x1
+ 680 00fd 13       		.uleb128 0x13
+ 681 00fe 00       		.byte	0
+ 682 00ff 00       		.byte	0
+ 683 0100 13       		.uleb128 0x13
+ 684 0101 05       		.uleb128 0x5
+ 685 0102 00       		.byte	0
+ 686 0103 49       		.uleb128 0x49
+ 687 0104 13       		.uleb128 0x13
+ 688 0105 00       		.byte	0
+ 689 0106 00       		.byte	0
+ 690 0107 14       		.uleb128 0x14
+ 691 0108 2E       		.uleb128 0x2e
+ 692 0109 00       		.byte	0
+ 693 010a 3F       		.uleb128 0x3f
+ 694 010b 19       		.uleb128 0x19
+ 695 010c 03       		.uleb128 0x3
+ 696 010d 0E       		.uleb128 0xe
+ 697 010e 3A       		.uleb128 0x3a
+ 698 010f 0B       		.uleb128 0xb
+ 699 0110 3B       		.uleb128 0x3b
+ 700 0111 0B       		.uleb128 0xb
+ 701 0112 27       		.uleb128 0x27
+ 702 0113 19       		.uleb128 0x19
+ 703 0114 49       		.uleb128 0x49
+ 704 0115 13       		.uleb128 0x13
+ 705 0116 3C       		.uleb128 0x3c
+ 706 0117 19       		.uleb128 0x19
+ 707 0118 00       		.byte	0
+ 708 0119 00       		.byte	0
+ 709 011a 00       		.byte	0
+ 710              		.section	.debug_loc,"",%progbits
+ 711              	.Ldebug_loc0:
+ 712              	.LLST0:
+ 713 0000 00000000 		.4byte	.LVL1
+ 714 0004 0A000000 		.4byte	.LVL3
+ 715 0008 0100     		.2byte	0x1
+ 716 000a 50       		.byte	0x50
+ 717 000b 0A000000 		.4byte	.LVL3
+ 718 000f 2A000000 		.4byte	.LFE64
+ 719 0013 0400     		.2byte	0x4
+ 720 0015 F3       		.byte	0xf3
+ 721 0016 01       		.uleb128 0x1
+ 722 0017 50       		.byte	0x50
+ 723 0018 9F       		.byte	0x9f
+ 724 0019 00000000 		.4byte	0
+ 725 001d 00000000 		.4byte	0
+ 726              	.LLST1:
+ 727 0021 00000000 		.4byte	.LVL1
+ 728 0025 0A000000 		.4byte	.LVL3
+ 729 0029 0100     		.2byte	0x1
+ 730 002b 51       		.byte	0x51
+ 731 002c 0A000000 		.4byte	.LVL3
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 15
+
+
+ 732 0030 18000000 		.4byte	.LVL5
+ 733 0034 0100     		.2byte	0x1
+ 734 0036 54       		.byte	0x54
+ 735 0037 18000000 		.4byte	.LVL5
+ 736 003b 22000000 		.4byte	.LVL8
+ 737 003f 0100     		.2byte	0x1
+ 738 0041 56       		.byte	0x56
+ 739 0042 22000000 		.4byte	.LVL8
+ 740 0046 2A000000 		.4byte	.LFE64
+ 741 004a 0100     		.2byte	0x1
+ 742 004c 54       		.byte	0x54
+ 743 004d 00000000 		.4byte	0
+ 744 0051 00000000 		.4byte	0
+ 745              	.LLST2:
+ 746 0055 00000000 		.4byte	.LVL1
+ 747 0059 0A000000 		.4byte	.LVL3
+ 748 005d 0100     		.2byte	0x1
+ 749 005f 52       		.byte	0x52
+ 750 0060 0A000000 		.4byte	.LVL3
+ 751 0064 2A000000 		.4byte	.LFE64
+ 752 0068 0100     		.2byte	0x1
+ 753 006a 57       		.byte	0x57
+ 754 006b 00000000 		.4byte	0
+ 755 006f 00000000 		.4byte	0
+ 756              	.LLST3:
+ 757 0073 06000000 		.4byte	.LVL2
+ 758 0077 0A000000 		.4byte	.LVL3
+ 759 007b 0200     		.2byte	0x2
+ 760 007d 30       		.byte	0x30
+ 761 007e 9F       		.byte	0x9f
+ 762 007f 0A000000 		.4byte	.LVL3
+ 763 0083 2A000000 		.4byte	.LFE64
+ 764 0087 0100     		.2byte	0x1
+ 765 0089 55       		.byte	0x55
+ 766 008a 00000000 		.4byte	0
+ 767 008e 00000000 		.4byte	0
+ 768              	.LLST4:
+ 769 0092 00000000 		.4byte	.LVL9
+ 770 0096 0A000000 		.4byte	.LVL11
+ 771 009a 0100     		.2byte	0x1
+ 772 009c 50       		.byte	0x50
+ 773 009d 0A000000 		.4byte	.LVL11
+ 774 00a1 38000000 		.4byte	.LFE65
+ 775 00a5 0400     		.2byte	0x4
+ 776 00a7 F3       		.byte	0xf3
+ 777 00a8 01       		.uleb128 0x1
+ 778 00a9 50       		.byte	0x50
+ 779 00aa 9F       		.byte	0x9f
+ 780 00ab 00000000 		.4byte	0
+ 781 00af 00000000 		.4byte	0
+ 782              	.LLST5:
+ 783 00b3 00000000 		.4byte	.LVL9
+ 784 00b7 0A000000 		.4byte	.LVL11
+ 785 00bb 0100     		.2byte	0x1
+ 786 00bd 51       		.byte	0x51
+ 787 00be 0A000000 		.4byte	.LVL11
+ 788 00c2 26000000 		.4byte	.LVL18
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 16
+
+
+ 789 00c6 0100     		.2byte	0x1
+ 790 00c8 57       		.byte	0x57
+ 791 00c9 26000000 		.4byte	.LVL18
+ 792 00cd 30000000 		.4byte	.LVL20
+ 793 00d1 0100     		.2byte	0x1
+ 794 00d3 53       		.byte	0x53
+ 795 00d4 30000000 		.4byte	.LVL20
+ 796 00d8 34000000 		.4byte	.LVL21
+ 797 00dc 0100     		.2byte	0x1
+ 798 00de 57       		.byte	0x57
+ 799 00df 00000000 		.4byte	0
+ 800 00e3 00000000 		.4byte	0
+ 801              	.LLST6:
+ 802 00e7 00000000 		.4byte	.LVL9
+ 803 00eb 0A000000 		.4byte	.LVL11
+ 804 00ef 0100     		.2byte	0x1
+ 805 00f1 52       		.byte	0x52
+ 806 00f2 0A000000 		.4byte	.LVL11
+ 807 00f6 38000000 		.4byte	.LFE65
+ 808 00fa 0100     		.2byte	0x1
+ 809 00fc 54       		.byte	0x54
+ 810 00fd 00000000 		.4byte	0
+ 811 0101 00000000 		.4byte	0
+ 812              	.LLST7:
+ 813 0105 06000000 		.4byte	.LVL10
+ 814 0109 0A000000 		.4byte	.LVL11
+ 815 010d 0200     		.2byte	0x2
+ 816 010f 30       		.byte	0x30
+ 817 0110 9F       		.byte	0x9f
+ 818 0111 0A000000 		.4byte	.LVL11
+ 819 0115 38000000 		.4byte	.LFE65
+ 820 0119 0100     		.2byte	0x1
+ 821 011b 56       		.byte	0x56
+ 822 011c 00000000 		.4byte	0
+ 823 0120 00000000 		.4byte	0
+ 824              	.LLST8:
+ 825 0124 0E000000 		.4byte	.LVL12
+ 826 0128 15000000 		.4byte	.LVL13-1
+ 827 012c 0100     		.2byte	0x1
+ 828 012e 50       		.byte	0x50
+ 829 012f 1C000000 		.4byte	.LVL15
+ 830 0133 24000000 		.4byte	.LVL17
+ 831 0137 0200     		.2byte	0x2
+ 832 0139 3A       		.byte	0x3a
+ 833 013a 9F       		.byte	0x9f
+ 834 013b 24000000 		.4byte	.LVL17
+ 835 013f 30000000 		.4byte	.LVL20
+ 836 0143 0100     		.2byte	0x1
+ 837 0145 55       		.byte	0x55
+ 838 0146 00000000 		.4byte	0
+ 839 014a 00000000 		.4byte	0
+ 840              		.section	.debug_aranges,"",%progbits
+ 841 0000 2C000000 		.4byte	0x2c
+ 842 0004 0200     		.2byte	0x2
+ 843 0006 00000000 		.4byte	.Ldebug_info0
+ 844 000a 04       		.byte	0x4
+ 845 000b 00       		.byte	0
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 17
+
+
+ 846 000c 0000     		.2byte	0
+ 847 000e 0000     		.2byte	0
+ 848 0010 00000000 		.4byte	.LFB63
+ 849 0014 0A000000 		.4byte	.LFE63-.LFB63
+ 850 0018 00000000 		.4byte	.LFB64
+ 851 001c 2A000000 		.4byte	.LFE64-.LFB64
+ 852 0020 00000000 		.4byte	.LFB65
+ 853 0024 38000000 		.4byte	.LFE65-.LFB65
+ 854 0028 00000000 		.4byte	0
+ 855 002c 00000000 		.4byte	0
+ 856              		.section	.debug_ranges,"",%progbits
+ 857              	.Ldebug_ranges0:
+ 858 0000 00000000 		.4byte	.LFB63
+ 859 0004 0A000000 		.4byte	.LFE63
+ 860 0008 00000000 		.4byte	.LFB64
+ 861 000c 2A000000 		.4byte	.LFE64
+ 862 0010 00000000 		.4byte	.LFB65
+ 863 0014 38000000 		.4byte	.LFE65
+ 864 0018 00000000 		.4byte	0
+ 865 001c 00000000 		.4byte	0
+ 866              		.section	.debug_line,"",%progbits
+ 867              	.Ldebug_line0:
+ 868 0000 BE010000 		.section	.debug_str,"MS",%progbits,1
+ 868      02005301 
+ 868      00000201 
+ 868      FB0E0D00 
+ 868      01010101 
+ 869              	.LASF25:
+ 870 0000 55415254 		.ascii	"UART_1_Start\000"
+ 870      5F315F53 
+ 870      74617274 
+ 870      00
+ 871              	.LASF20:
+ 872 000d 636F756E 		.ascii	"count\000"
+ 872      7400
+ 873              	.LASF23:
+ 874 0013 463A5C4F 		.ascii	"F:\\OneDrive\\Metropolia\\Devices\\Workspaces\\Work"
+ 874      6E654472 
+ 874      6976655C 
+ 874      4D657472 
+ 874      6F706F6C 
+ 875 0041 73706163 		.ascii	"space 1\\Workspace01\\Hello Word_Copy_01.cydsn\000"
+ 875      6520315C 
+ 875      576F726B 
+ 875      73706163 
+ 875      6530315C 
+ 876              	.LASF9:
+ 877 006e 5F5F696E 		.ascii	"__int32_t\000"
+ 877      7433325F 
+ 877      7400
+ 878              	.LASF3:
+ 879 0078 73686F72 		.ascii	"short unsigned int\000"
+ 879      7420756E 
+ 879      7369676E 
+ 879      65642069 
+ 879      6E7400
+ 880              	.LASF19:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 18
+
+
+ 881 008b 5F726561 		.ascii	"_read\000"
+ 881      6400
+ 882              	.LASF12:
+ 883 0091 666C6F61 		.ascii	"float\000"
+ 883      7400
+ 884              	.LASF18:
+ 885 0097 66696C65 		.ascii	"file\000"
+ 885      00
+ 886              	.LASF1:
+ 887 009c 756E7369 		.ascii	"unsigned char\000"
+ 887      676E6564 
+ 887      20636861 
+ 887      7200
+ 888              	.LASF5:
+ 889 00aa 6C6F6E67 		.ascii	"long unsigned int\000"
+ 889      20756E73 
+ 889      69676E65 
+ 889      6420696E 
+ 889      7400
+ 890              	.LASF24:
+ 891 00bc 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 891      52784275 
+ 891      66666572 
+ 891      00
+ 892              	.LASF13:
+ 893 00c9 646F7562 		.ascii	"double\000"
+ 893      6C6500
+ 894              	.LASF16:
+ 895 00d0 6D61696E 		.ascii	"main\000"
+ 895      00
+ 896              	.LASF21:
+ 897 00d5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 897      4320342E 
+ 897      392E3320 
+ 897      32303135 
+ 897      30333033 
+ 898 0108 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 898      20726576 
+ 898      6973696F 
+ 898      6E203232 
+ 898      31323230 
+ 899 013b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 899      66756E63 
+ 899      74696F6E 
+ 899      2D736563 
+ 899      74696F6E 
+ 900              	.LASF26:
+ 901 0163 55415254 		.ascii	"UART_1_PutChar\000"
+ 901      5F315F50 
+ 901      75744368 
+ 901      617200
+ 902              	.LASF8:
+ 903 0172 756E7369 		.ascii	"unsigned int\000"
+ 903      676E6564 
+ 903      20696E74 
+ 903      00
+ 904              	.LASF7:
+ARM GAS  C:\Users\vedranb\AppData\Local\Temp\ccvGpKxJ.s 			page 19
+
+
+ 905 017f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 905      206C6F6E 
+ 905      6720756E 
+ 905      7369676E 
+ 905      65642069 
+ 906              	.LASF10:
+ 907 0196 696E7433 		.ascii	"int32_t\000"
+ 907      325F7400 
+ 908              	.LASF15:
+ 909 019e 73697A65 		.ascii	"sizetype\000"
+ 909      74797065 
+ 909      00
+ 910              	.LASF6:
+ 911 01a7 6C6F6E67 		.ascii	"long long int\000"
+ 911      206C6F6E 
+ 911      6720696E 
+ 911      7400
+ 912              	.LASF22:
+ 913 01b5 6D61696E 		.ascii	"main.c\000"
+ 913      2E6300
+ 914              	.LASF14:
+ 915 01bc 63686172 		.ascii	"char\000"
+ 915      00
+ 916              	.LASF17:
+ 917 01c1 5F777269 		.ascii	"_write\000"
+ 917      746500
+ 918              	.LASF2:
+ 919 01c8 73686F72 		.ascii	"short int\000"
+ 919      7420696E 
+ 919      7400
+ 920              	.LASF11:
+ 921 01d2 75696E74 		.ascii	"uint8\000"
+ 921      3800
+ 922              	.LASF4:
+ 923 01d8 6C6F6E67 		.ascii	"long int\000"
+ 923      20696E74 
+ 923      00
+ 924              	.LASF0:
+ 925 01e1 7369676E 		.ascii	"signed char\000"
+ 925      65642063 
+ 925      68617200 
+ 926              	.LASF27:
+ 927 01ed 55415254 		.ascii	"UART_1_GetChar\000"
+ 927      5F315F47 
+ 927      65744368 
+ 927      617200
+ 928              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

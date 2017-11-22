@@ -53,7 +53,7 @@ void exercise11(void)
             printf("Thanks, you still owe %.2f\n", loanAmt);
         }
         else{
-            printf("Thanks, you're done, here's your change %.2f\n", loanAmt * -1);
+            printf("Thanks, you're done, here's your change %.2f\n", - loanAmt);
         }
     }
     printf("Wow, you actually made it. We can replace that noose with a tie now. \nYou successfully repaid your loan and earned us %.2f in interest. Good work.\n\n", interestPaid);

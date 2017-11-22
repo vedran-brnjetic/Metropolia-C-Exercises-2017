@@ -2232,7 +2232,7 @@ END GROUP
  .debug_abbrev  0x00002bad      0x1ed .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyFlash.o)
  .debug_abbrev  0x00002d9a      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CySpc.o)
 
-.debug_line     0x00000000     0x4749
+.debug_line     0x00000000     0x474d
  *(.debug_line)
  .debug_line    0x00000000      0x35b .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_line    0x0000035b      0x184 .\CortexM3\ARM_GCC_493\Debug\exercise1.o
@@ -2242,31 +2242,31 @@ END GROUP
  .debug_line    0x00000982      0x188 .\CortexM3\ARM_GCC_493\Debug\exercise5.o
  .debug_line    0x00000b0a      0x192 .\CortexM3\ARM_GCC_493\Debug\exercise6.o
  .debug_line    0x00000c9c      0x1b3 .\CortexM3\ARM_GCC_493\Debug\exercise7.o
- .debug_line    0x00000e4f      0x1a5 .\CortexM3\ARM_GCC_493\Debug\exercise8.o
- .debug_line    0x00000ff4      0x1b3 .\CortexM3\ARM_GCC_493\Debug\exercise9.o
- .debug_line    0x000011a7      0x197 .\CortexM3\ARM_GCC_493\Debug\exercise10.o
- .debug_line    0x0000133e      0x1bb .\CortexM3\ARM_GCC_493\Debug\exercise11.o
- .debug_line    0x000014f9      0x1a4 .\CortexM3\ARM_GCC_493\Debug\exercise12.o
- .debug_line    0x0000169d      0x21d .\CortexM3\ARM_GCC_493\Debug\exercise13.o
- .debug_line    0x000018ba      0x1b0 .\CortexM3\ARM_GCC_493\Debug\exercise14.o
- .debug_line    0x00001a6a      0x1a6 .\CortexM3\ARM_GCC_493\Debug\exercise15.o
- .debug_line    0x00001c10      0x200 .\CortexM3\ARM_GCC_493\Debug\exercise16.o
- .debug_line    0x00001e10      0x1e2 .\CortexM3\ARM_GCC_493\Debug\exercise17.o
- .debug_line    0x00001ff2      0x2ce .\CortexM3\ARM_GCC_493\Debug\exercise18.o
- .debug_line    0x000022c0      0x2d5 .\CortexM3\ARM_GCC_493\Debug\exercise19.o
- .debug_line    0x00002595      0x300 .\CortexM3\ARM_GCC_493\Debug\exercise20.o
- .debug_line    0x00002895      0x33f .\CortexM3\ARM_GCC_493\Debug\exercise21.o
- .debug_line    0x00002bd4      0x29a .\CortexM3\ARM_GCC_493\Debug\common_functions.o
- .debug_line    0x00002e6e       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x00002ebf      0x24f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x0000310e      0x1f7 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(cyfitter_cfg.o)
- .debug_line    0x00003305      0x2c0 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(UART_1.o)
- .debug_line    0x000035c5      0x17e .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(UART_1_IntClock.o)
- .debug_line    0x00003743      0x816 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyLib.o)
- .debug_line    0x00003f59      0x364 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(cyPm.o)
- .debug_line    0x000042bd       0x66 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyBootAsmGnu.o)
- .debug_line    0x00004323      0x1ea .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyFlash.o)
- .debug_line    0x0000450d      0x23c .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CySpc.o)
+ .debug_line    0x00000e4f      0x1a9 .\CortexM3\ARM_GCC_493\Debug\exercise8.o
+ .debug_line    0x00000ff8      0x1b3 .\CortexM3\ARM_GCC_493\Debug\exercise9.o
+ .debug_line    0x000011ab      0x197 .\CortexM3\ARM_GCC_493\Debug\exercise10.o
+ .debug_line    0x00001342      0x1bb .\CortexM3\ARM_GCC_493\Debug\exercise11.o
+ .debug_line    0x000014fd      0x1a4 .\CortexM3\ARM_GCC_493\Debug\exercise12.o
+ .debug_line    0x000016a1      0x21d .\CortexM3\ARM_GCC_493\Debug\exercise13.o
+ .debug_line    0x000018be      0x1b0 .\CortexM3\ARM_GCC_493\Debug\exercise14.o
+ .debug_line    0x00001a6e      0x1a6 .\CortexM3\ARM_GCC_493\Debug\exercise15.o
+ .debug_line    0x00001c14      0x200 .\CortexM3\ARM_GCC_493\Debug\exercise16.o
+ .debug_line    0x00001e14      0x1e2 .\CortexM3\ARM_GCC_493\Debug\exercise17.o
+ .debug_line    0x00001ff6      0x2ce .\CortexM3\ARM_GCC_493\Debug\exercise18.o
+ .debug_line    0x000022c4      0x2d5 .\CortexM3\ARM_GCC_493\Debug\exercise19.o
+ .debug_line    0x00002599      0x300 .\CortexM3\ARM_GCC_493\Debug\exercise20.o
+ .debug_line    0x00002899      0x33f .\CortexM3\ARM_GCC_493\Debug\exercise21.o
+ .debug_line    0x00002bd8      0x29a .\CortexM3\ARM_GCC_493\Debug\common_functions.o
+ .debug_line    0x00002e72       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x00002ec3      0x24f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x00003112      0x1f7 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(cyfitter_cfg.o)
+ .debug_line    0x00003309      0x2c0 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(UART_1.o)
+ .debug_line    0x000035c9      0x17e .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(UART_1_IntClock.o)
+ .debug_line    0x00003747      0x816 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyLib.o)
+ .debug_line    0x00003f5d      0x364 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(cyPm.o)
+ .debug_line    0x000042c1       0x66 .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyBootAsmGnu.o)
+ .debug_line    0x00004327      0x1ea .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CyFlash.o)
+ .debug_line    0x00004511      0x23c .\CortexM3\ARM_GCC_493\Debug\Hello Word.a(CySpc.o)
 
 .debug_frame    0x00000000     0x3230
  *(.debug_frame)

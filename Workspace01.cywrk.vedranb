@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\Hello Word\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Workspace01\Hello Word\Source Files\common_functions.c">
 <ExpandedNodeIds>
 <v>Workspace01</v>
 <v>Workspace01\Hello Word</v>
@@ -206,7 +206,37 @@
 <v>Workspace01\Zumo1\Generated_Source\PSoC5\cymetadata.c</v>
 <v>Workspace01\Zumo1\Generated_Source\PSoC5\project.h</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Workspace01\Hello Word\Header Files\exercise13.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise14.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise15.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise16.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise17.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise18.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise19.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise2.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise20.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise21.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise3.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise4.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise5.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise6.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise7.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise8.h</v>
+<v>Workspace01\Hello Word\Header Files\exercise9.h</v>
+<v>Workspace01\Hello Word\Source Files</v>
+<v>Workspace01\Hello Word\Source Files\common_functions.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise1.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise10.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise11.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise12.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise13.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise14.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise15.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise16.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise17.c</v>
+<v>Workspace01\Hello Word\Source Files\exercise18.c</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -218,7 +248,15 @@
 <v>Workspace01\Zumo1\TopDesign</v>
 <v>Workspace01\Zumo1\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Hello Word</v>
+<v>Workspace01\Hello Word\TopDesign</v>
+<v>Workspace01\Hello Word\TopDesign\TopDesign.cysch</v>
+<v>Workspace01\Zumo1</v>
+<v>Workspace01\Zumo1\TopDesign</v>
+<v>Workspace01\Zumo1\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -301,7 +339,37 @@
 <v>Workspace01\Zumo1\Zumo1.rpt</v>
 <v>Workspace01\Zumo1\Zumo1_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Hello Word</v>
+<v>Workspace01\Hello Word\CortexM3</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\common_functions.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise1.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise10.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise11.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise12.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise13.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise14.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise15.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise16.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise17.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise18.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise19.lst</v>
+<v>Workspace01\Hello Word\CortexM3\ARM_GCC_493\Debug\Listing Files\exercise2.lst</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -328,7 +396,25 @@
 <v>Workspace01\Zumo1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>Workspace01\Zumo1\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>Workspace01</v>
+<v>Workspace01\Hello Word</v>
+<v>Workspace01\Hello Word\PSoC 5LP Architecture TRM</v>
+<v>Workspace01\Hello Word\CY8C58LP Family Datasheet</v>
+<v>Workspace01\Hello Word\System Reference Guides</v>
+<v>Workspace01\Hello Word\System Reference Guides\cy_boot_v5_50</v>
+<v>Workspace01\Hello Word\cy_pins_v2_20</v>
+<v>Workspace01\Hello Word\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace01\Hello Word\UART_v2_50.pdf</v>
+<v>Workspace01\Zumo1</v>
+<v>Workspace01\Zumo1\PSoC 5LP Architecture TRM</v>
+<v>Workspace01\Zumo1\CY8C58LP Family Datasheet</v>
+<v>Workspace01\Zumo1\System Reference Guides</v>
+<v>Workspace01\Zumo1\System Reference Guides\cy_boot_v5_50</v>
+<v>Workspace01\Zumo1\cy_pins_v2_20</v>
+<v>Workspace01\Zumo1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace01\Zumo1\UART_v2_50.pdf</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -341,14 +427,27 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\Hello Word.cydsn\exercise15.c" />
+<name v=".\Hello Word.cydsn\exercise1.c" />
+<name v=".\Hello Word.cydsn\exercise6.c" />
+<name v=".\Hello Word.cydsn\exercise7.c" />
+<name v=".\Hello Word.cydsn\exercise8.c" />
+<name v=".\Hello Word.cydsn\exercise9.c" />
+<name v=".\Hello Word.cydsn\exercise10.c" />
+<name v=".\Hello Word.cydsn\exercise11.c" />
+<name v=".\Hello Word.cydsn\exercise12.c" />
+<name v=".\Hello Word.cydsn\exercise13.c" />
+<name v=".\Hello Word.cydsn\exercise14.c" />
+<name v=".\Hello Word.cydsn\exercise16.c" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal" /><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1128, 399" SelectedTabbedMdiWindow="57fb09ea-b7af-4aaa-be26-4b2eeecbd909"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="57fb09ea-b7af-4aaa-be26-4b2eeecbd909" /><DocumentWindow Key="0655406e-fc36-4979-8656-1a22c74b52ff" Guid="68a6c2fd-3dc3-4689-9c6e-774ee4983e1f" /><DocumentWindow Key="d1a693f7-1824-4c3a-9d97-25280e3b0d89" Guid="0b555209-4a38-4441-97ec-7698b4e3004b" /><DocumentWindow Key="7364b31d-e810-42fd-b650-4a44ca72dd0e" Guid="bda1a2a1-3422-49c3-ba0f-30b962c30ef7" /><DocumentWindow Key="b356a0c4-7aa9-4ec2-a797-69010bb9f7fb" Guid="d6cd6b90-2617-4012-9dea-76c9337aecb8" /><DocumentWindow Key="48474479-de1d-4675-bcc7-85549608e63f" Guid="fc8da12a-086e-4c69-823a-ed8f02bb3ebd" /><DocumentWindow Key="fdf63d67-189c-4b87-ab49-17d2cf1310bb" Guid="f836554b-ad08-4e37-93d8-a02dfec5a5a1" /><DocumentWindow Key="a8624109-a34b-4114-b936-e23e132987e2" Guid="a48a1818-eaeb-47a6-a30b-fc2729ea02a8" /><DocumentWindow Key="f01a5abd-7a54-4220-903b-7b6a87a12f10" Guid="1652c033-b4c6-4c9b-ae5c-2786dbe9d7de" /><DocumentWindow Key="5a827819-ddb5-4bf4-933c-a0eb1603933b" Guid="8e065c80-270b-41b0-8538-3d49d8a33874" /><DocumentWindow Key="02f91732-477e-44e2-ac24-d70b48ffc660" Guid="6100c39e-67e8-42e7-bac9-109ed9f16474" /><DocumentWindow Key="86f0abea-efce-43f8-a4a7-5b2934757c3d" Guid="ec62c12a-eab5-4161-8e8f-53ffa96dba22" /><DocumentWindow Key="ed5e5346-0a57-4c2b-965d-88a1f9f3a7ec" Guid="d6b4e189-9bc3-4c4e-bc23-cd0922865dd8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

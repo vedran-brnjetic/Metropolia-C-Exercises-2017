@@ -39,7 +39,7 @@ void exercise18(void)
 
     char fullName[(2 * MAX_NAME_LENGTH) + 1]="";
 
-    if(strlen(firstName) + strlen(lastName) + 1 > 61){
+    if(strlen(firstName) + strlen(lastName) + 1 >= (2 * MAX_NAME_LENGTH) + 1){
         printf("Error, the names don't fit the third string\n");
         return;
     }

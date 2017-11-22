@@ -41,7 +41,7 @@ void exercise7(void)
 
         //check if it is the last element of the array, if it is don't print a comma,
         //otherwise print a comma after every number
-        if(i < 11){
+        if(i < ARRSIZE - 1){
             printf(", ");
         }
         //if the element is the last one, don't print the comma,

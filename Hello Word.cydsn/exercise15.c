@@ -34,9 +34,19 @@ void exercise15(void)
     float a,b;
 
     printf("\nPlease enter number 1:\n");
-    a = readFloat();
+    do{
+        a = readFloat();
+        if(a < 0){
+            printf("\nNumber must be positive, please try again:\n");
+        }
+    }while(a < 0);
     printf("\nPlease enter number 2:\n");
-    b = readFloat();
+    do{
+        b = readFloat();
+        if(b < 0){
+            printf("\nNumber must be positive, please try again:\n");
+        }
+    }while(b < 0);
 
     compscale(&a, &b);
 

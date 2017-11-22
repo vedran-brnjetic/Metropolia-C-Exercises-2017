@@ -41,10 +41,10 @@ void exercise8(void)
             //add the number to the sum.
             if(arr[i] < 0){
                 printf("Error: the number must be positive!, please try again.\n");
-            }
-            else sum += arr[i];
+            }            
         }while(arr[i] < 0);
-
+        
+        sum += arr[i];
     }
     //using the constant again
     printf("The sum of %d elements in array is %d\n", ARRSIZE, sum);
